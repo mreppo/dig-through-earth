@@ -25,9 +25,37 @@
     "placeholder": "The map and globe will appear here.",
     "loading": "Loading…"
   },
+  "locator": {
+    "heading": "Where are you?",
+    "useMyLocation": "Use my location",
+    "locating": "Finding you…",
+    "orEnterManually": "Or type your coordinates",
+    "latitudeLabel": "Latitude",
+    "latitudePlaceholder": "e.g. 56.95",
+    "longitudeLabel": "Longitude",
+    "longitudePlaceholder": "e.g. 24.10",
+    "calculate": "Show me!",
+    "errors": {
+      "denied": "No worries — type your coordinates below.",
+      "unsupported": "Your browser can't share your location. Try typing coordinates instead.",
+      "timeout": "That took too long. Try again or type coordinates.",
+      "invalidLat": "Latitude must be between -90 and 90.",
+      "invalidLng": "Longitude must be between -180 and 180.",
+      "missing": "Type both a latitude and a longitude."
+    }
+  },
   "results": {
     "heading": "Your antipode",
-    "placeholder": "Pick a spot to see where you'd come out."
+    "placeholder": "Pick a spot to see where you'd come out.",
+    "originLabel": "You're here",
+    "antipodeLabel": "You'd come out here",
+    "openOcean": "Open ocean",
+    "mysterious": "Somewhere mysterious!",
+    "coords": "{{lat}}°, {{lng}}°",
+    "distanceThrough": "Straight through the Earth: {{km}} km",
+    "distanceSurface": "Around the surface: {{km}} km",
+    "funFactAntipode": "This spot is called your antipode!",
+    "funFactWater": "If you're in Europe, your antipode is in the ocean 97% of the time!"
   },
   "footer": {
     "credits": "Made with curiosity for kids who like to dig.",

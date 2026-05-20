@@ -2,7 +2,8 @@
  *
  * Public API:
  *   await initI18n()        Load all locales, apply current language, wire toggles.
- *   t(key)                  Look up a translation by dot-path. Returns the key on miss.
+ *   t(key, params?)         Look up a translation by dot-path. Returns the key on miss.
+ *                           If params is supplied, replaces {{name}} tokens.
  *   setLanguage(lang)       Switch language, persist to localStorage, re-apply DOM.
  *   getLanguage()           Current active language.
  *   onLanguageChange(fn)    Subscribe to language changes; returns unsubscribe.
@@ -35,11 +36,20 @@ function resolve(dict, key) {
   return typeof node === "string" ? node : undefined;
 }
 
-export function t(key) {
+function interpolate(template, params) {
+  if (!params) return template;
+  return template.replace(/\{\{(\w+)\}\}/g, (match, name) => {
+    return Object.prototype.hasOwnProperty.call(params, name) ? String(params[name]) : match;
+  });
+}
+
+export function t(key, params) {
   const hit = resolve(dictionaries[currentLang], key);
-  if (hit !== undefined) return hit;
-  const fallback = resolve(dictionaries[DEFAULT_LANG], key);
-  return fallback !== undefined ? fallback : key;
+  const value = hit !== undefined
+    ? hit
+    : resolve(dictionaries[DEFAULT_LANG], key);
+  if (value === undefined) return key;
+  return interpolate(value, params);
 }
 
 export function getLanguage() {

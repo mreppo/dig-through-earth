@@ -59,6 +59,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -214,6 +218,102 @@ button {
   font-size: var(--fs-base);
 }
 
+/* ----- Locator (location input form) ----- */
+.locator {
+  background: var(--c-paper);
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--gap-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.locator__heading {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+}
+
+.locator__divider {
+  color: var(--c-ink-soft);
+  font-size: var(--fs-sm);
+  text-align: center;
+  margin: 0;
+}
+
+.locator__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-2);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--c-ink-soft);
+}
+
+.field input {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  background: var(--c-paper);
+  color: var(--c-ink);
+}
+
+.field input:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 1px;
+}
+
+/* ----- Buttons ----- */
+.btn {
+  min-height: 44px;
+  padding: 0.625rem 1rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 80ms ease;
+}
+
+.btn--primary {
+  /* Pinned dark-on-bright for AA contrast in both light + dark theme.
+     --c-ink flips light in dark mode, so we don't use it here. */
+  background: var(--c-earth);
+  color: #1f2933;
+}
+
+.btn--primary:hover {
+  background: var(--c-earth-deep);
+  color: #fff;
+}
+
+.btn--primary:active {
+  transform: translateY(1px);
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.locator__error {
+  color: var(--c-magma);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ----- Results ----- */
 .results {
   background: var(--c-paper);
   border: 2px solid var(--c-border);
@@ -229,6 +329,63 @@ button {
 
 .results__placeholder {
   color: var(--c-ink-soft);
+}
+
+.results__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.results__pair {
+  padding: var(--gap-2);
+  background: var(--c-paper-shade);
+  border-radius: var(--radius-sm);
+}
+
+.results__label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.results__place {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  margin: 0;
+}
+
+.results__coords {
+  font-size: var(--fs-sm);
+  color: var(--c-ink-soft);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+.results__distances {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.results__distances li {
+  font-variant-numeric: tabular-nums;
+}
+
+.results__fun-fact {
+  background: linear-gradient(135deg, var(--c-sky) 0%, var(--c-leaf) 100%);
+  /* Pinned: gradient is theme-invariant, so the text must be too. */
+  color: #1f2933;
+  padding: var(--gap-2);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  margin: 0;
 }
 
 /* ----- Footer ----- */
@@ -259,6 +416,11 @@ button {
 
   .viewport {
     min-height: 24rem;
+  }
+
+  .locator__form {
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
   }
 }
 
