@@ -103,12 +103,18 @@ export function reverseGeocode(lat, lng) {
 
   // Serialize through the queue so requests stay >= RATE_LIMIT_MS apart even
   // when called concurrently (origin + antipode in the same submission).
-  const promise = queue.then(() => fetchNominatim(lat, lng)).then(
-    (json) => shapeNominatimResult(lat, lng, json),
-    (_err) => ({ lat, lng, displayName: null, isWater: false, failed: true })
-  );
+  const inFlight = queue.then(() => fetchNominatim(lat, lng))
+    .then((json) => shapeNominatimResult(lat, lng, json));
   // Keep the queue going even if one request errors.
-  queue = promise.catch(() => {});
-  cache.set(key, promise);
-  return promise;
+  queue = inFlight.catch(() => {});
+
+  // Cache the in-flight promise so concurrent callers share one request.
+  // On failure, evict so the next call can retry — we never want a transient
+  // network error to become permanent for the session.
+  const shared = inFlight.catch(() => {
+    cache.delete(key);
+    return { lat, lng, displayName: null, isWater: false, failed: true };
+  });
+  cache.set(key, shared);
+  return shared;
 }

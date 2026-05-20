@@ -150,6 +150,8 @@ async function onUseLocation() {
 }
 
 function wireLocator() {
+  // main.js is loaded by 404.html too — guard so missing elements don't throw.
+  if (!els.geoBtn || !els.form) return;
   els.geoBtn.addEventListener("click", onUseLocation);
   els.form.addEventListener("submit", onSubmit);
 }
