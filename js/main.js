@@ -24,7 +24,8 @@ function cacheEls() {
   els.antipodeCoords = document.getElementById("results-antipode-coords");
   els.distanceThrough = document.getElementById("results-distance-through");
   els.distanceSurface = document.getElementById("results-distance-surface");
-  els.funFact = document.getElementById("results-fun-fact");
+  els.funFactAntipode = document.getElementById("results-fun-fact-antipode");
+  els.funFactWater = document.getElementById("results-fun-fact-water");
 }
 
 function wireViewToggle() {
@@ -86,9 +87,15 @@ function render(comp) {
     km: formatNumber(surfaceKm, 0),
   });
 
-  els.funFact.textContent = antipode.isWater
-    ? t("results.funFactWater")
-    : t("results.funFactAntipode");
+  // Always introduce the scientific term; add the water stat after it when relevant.
+  els.funFactAntipode.textContent = t("results.funFactAntipode");
+  if (antipode.isWater) {
+    els.funFactWater.textContent = t("results.funFactWater");
+    els.funFactWater.hidden = false;
+  } else {
+    els.funFactWater.textContent = "";
+    els.funFactWater.hidden = true;
+  }
 
   els.placeholder.hidden = true;
   els.body.hidden = false;

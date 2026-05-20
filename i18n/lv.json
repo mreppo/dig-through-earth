@@ -34,7 +34,7 @@
     "latitudePlaceholder": "piem., 56.95",
     "longitudeLabel": "Garums",
     "longitudePlaceholder": "piem., 24.10",
-    "calculate": "Parādi man!",
+    "calculate": "Rok!",
     "errors": {
       "denied": "Nekas! Ievadi koordinātes zemāk.",
       "unsupported": "Tava pārlūkprogramma nevar atrast tavu atrašanās vietu. Ievadi koordinātes pats!",
@@ -49,7 +49,7 @@
     "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu.",
     "originLabel": "Tu esi šeit",
     "antipodeLabel": "Tu iznāktu šeit",
-    "openOcean": "Atklāts okeāns",
+    "openOcean": "Okeāna vidū",
     "mysterious": "Kaut kur noslēpumainā vietā!",
     "coords": "{{lat}}°, {{lng}}°",
     "distanceThrough": "Taisni cauri Zemei: {{km}} km",
