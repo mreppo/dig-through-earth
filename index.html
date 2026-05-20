@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffb84d" />
+    <title data-i18n="meta.title">Dig Through Earth</title>
+    <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Where would you come out if you dug straight through the Earth? Find out on a map and globe!" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" data-i18n-attr="content" data-i18n="meta.title" content="Dig Through Earth" />
+    <meta property="og:description" data-i18n-attr="content" data-i18n="meta.description" content="Where would you come out if you dug straight through the Earth?" />
+    <meta property="og:image" content="assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skipToContent">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__row">
+        <div class="site-header__brand">
+          <h1 class="site-header__title" data-i18n="header.title">Dig Through Earth</h1>
+          <p class="site-header__subtitle" data-i18n="header.subtitle">Where would you come out on the other side?</p>
+        </div>
+
+        <div class="site-header__controls">
+          <div class="toggle" role="group" data-i18n-attr="aria-label" data-i18n="lang.label" aria-label="Language">
+            <button type="button" class="toggle__btn" data-lang="en" aria-pressed="true">
+              <span data-i18n="lang.en">English</span>
+            </button>
+            <button type="button" class="toggle__btn" data-lang="lv" aria-pressed="false">
+              <span data-i18n="lang.lv">Latviešu</span>
+            </button>
+          </div>
+
+          <div class="toggle" role="group" data-i18n-attr="aria-label" data-i18n="view.label" aria-label="View">
+            <button type="button" class="toggle__btn" data-view="2d" aria-pressed="true">
+              <span data-i18n="view.map2d">2D Map</span>
+            </button>
+            <button type="button" class="toggle__btn" data-view="3d" aria-pressed="false">
+              <span data-i18n="view.globe3d">3D Globe</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <section class="viewport" aria-live="polite">
+        <p class="viewport__placeholder" data-i18n="main.placeholder">The map and globe will appear here.</p>
+      </section>
+
+      <section class="results" aria-labelledby="results-heading">
+        <h2 id="results-heading" class="results__heading" data-i18n="results.heading">Your antipode</h2>
+        <p class="results__placeholder" data-i18n="results.placeholder">Pick a spot to see where you'd come out.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__credits" data-i18n="footer.credits">Made with curiosity for kids who like to dig.</p>
+      <p class="site-footer__source">
+        <a href="https://github.com/mreppo/dig-through-earth" rel="noopener" data-i18n="footer.sourceLink">View on GitHub</a>
+      </p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

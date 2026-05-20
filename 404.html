@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="notFound.title">Page not found</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      .notfound {
+        max-width: 32rem;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .notfound h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .notfound p {
+        color: var(--c-ink-soft);
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__row">
+        <div class="site-header__brand">
+          <h1 class="site-header__title" data-i18n="header.title">Dig Through Earth</h1>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <section class="notfound">
+        <h1 data-i18n="notFound.title">Page not found</h1>
+        <p data-i18n="notFound.message">Looks like you dug the wrong way!</p>
+        <p>
+          <a href="./" data-i18n="notFound.homeLink">Back to the surface</a>
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
