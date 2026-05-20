@@ -1,0 +1,20 @@
+name: i18n parity check
+
+on:
+  pull_request:
+    paths:
+      - 'i18n/**'
+      - 'scripts/check-i18n.py'
+      - '.github/workflows/i18n-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'i18n/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run i18n parity check
+        run: python3 scripts/check-i18n.py
