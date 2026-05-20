@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>antipode.js tests</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 1rem;
+        line-height: 1.5;
+      }
+      h1 { margin-bottom: 0.5rem; }
+      .summary { font-size: 1.25rem; margin: 1rem 0; padding: 0.75rem; border-radius: 0.5rem; }
+      .summary.pass { background: #d4edda; color: #155724; }
+      .summary.fail { background: #f8d7da; color: #721c24; }
+      ol { padding-left: 1.5rem; }
+      li { margin: 0.25rem 0; }
+      li.pass::marker { content: "✓ "; color: #2e7d32; }
+      li.fail::marker { content: "✗ "; color: #c62828; }
+      li.fail { color: #c62828; }
+      code { background: #f4f4f4; padding: 0 0.25rem; border-radius: 0.25rem; }
+    </style>
+  </head>
+  <body>
+    <h1>antipode.js tests</h1>
+    <p>Run with <code>python3 -m http.server</code> and open <code>/tests/antipode.test.html</code>.</p>
+    <div id="summary" class="summary"></div>
+    <ol id="results"></ol>
+
+    <script type="module">
+      import { antipodeOf, distanceThroughEarth, surfaceDistance } from "../js/antipode.js";
+
+      const results = [];
+      function test(name, fn) {
+        try {
+          fn();
+          results.push({ name, ok: true });
+        } catch (err) {
+          results.push({ name, ok: false, msg: err.message });
+        }
+      }
+
+      const approxEq = (a, b, eps = 1e-9) => Math.abs(a - b) < eps;
+      function assertApprox(actual, expected, eps, label) {
+        if (!approxEq(actual, expected, eps)) {
+          throw new Error(`${label}: expected ${expected}, got ${actual} (eps=${eps})`);
+        }
+      }
+      function assertThrows(fn, errorType, label) {
+        let threw = false;
+        try { fn(); } catch (e) {
+          if (errorType && !(e instanceof errorType)) {
+            throw new Error(`${label}: expected ${errorType.name}, got ${e.constructor.name}: ${e.message}`);
+          }
+          threw = true;
+        }
+        if (!threw) throw new Error(`${label}: expected throw, did not throw`);
+      }
+
+      // --- antipodeOf: acceptance criterion ---
+      test("antipodeOf(56.95, 24.10) ≈ (-56.95, -155.90) [Mārupe → South Pacific]", () => {
+        const r = antipodeOf(56.95, 24.10);
+        assertApprox(r.lat, -56.95, 1e-9, "lat");
+        assertApprox(r.lng, -155.90, 1e-9, "lng");
+      });
+
+      // --- antipodeOf: equator + prime meridian ---
+      test("antipodeOf(0, 0) = (0, 180)", () => {
+        const r = antipodeOf(0, 0);
+        assertApprox(r.lat, 0, 1e-12, "lat");
+        assertApprox(r.lng, 180, 1e-12, "lng");
+      });
+
+      // --- antipodeOf: longitude wraparound ---
+      test("antipodeOf(0, 90) = (0, -90)", () => {
+        const r = antipodeOf(0, 90);
+        assertApprox(r.lng, -90, 1e-12, "lng");
+      });
+
+      test("antipodeOf(0, -90) = (0, 90)", () => {
+        const r = antipodeOf(0, -90);
+        assertApprox(r.lng, 90, 1e-12, "lng");
+      });
+
+      test("antipodeOf(0, 180) = (0, 0)", () => {
+        const r = antipodeOf(0, 180);
+        assertApprox(r.lng, 0, 1e-12, "lng");
+      });
+
+      test("antipodeOf(0, -180) = (0, 0)", () => {
+        const r = antipodeOf(0, -180);
+        assertApprox(r.lng, 0, 1e-12, "lng");
+      });
+
+      // --- antipodeOf: poles ---
+      test("antipodeOf(90, 0) = (-90, 180) [North pole → South pole]", () => {
+        const r = antipodeOf(90, 0);
+        assertApprox(r.lat, -90, 1e-12, "lat");
+      });
+
+      test("antipodeOf(-90, 50) = (90, ...) [South pole → North pole]", () => {
+        const r = antipodeOf(-90, 50);
+        assertApprox(r.lat, 90, 1e-12, "lat");
+      });
+
+      // --- antipodeOf: validation ---
+      test("antipodeOf(91, 0) throws RangeError [lat out of range]", () => {
+        assertThrows(() => antipodeOf(91, 0), RangeError, "lat too high");
+      });
+
+      test("antipodeOf(0, 181) throws RangeError [lng out of range]", () => {
+        assertThrows(() => antipodeOf(0, 181), RangeError, "lng too high");
+      });
+
+      test("antipodeOf('foo', 0) throws TypeError [non-number]", () => {
+        assertThrows(() => antipodeOf("foo", 0), TypeError, "string lat");
+      });
+
+      test("antipodeOf(NaN, 0) throws TypeError [NaN]", () => {
+        assertThrows(() => antipodeOf(NaN, 0), TypeError, "NaN lat");
+      });
+
+      // --- distanceThroughEarth ---
+      test("distanceThroughEarth() = 12742", () => {
+        if (distanceThroughEarth() !== 12742) {
+          throw new Error(`expected 12742, got ${distanceThroughEarth()}`);
+        }
+      });
+
+      // --- surfaceDistance ---
+      test("surfaceDistance(London → Paris) ≈ 344 km", () => {
+        // London (51.5074, -0.1278) → Paris (48.8566, 2.3522)
+        const d = surfaceDistance(51.5074, -0.1278, 48.8566, 2.3522);
+        // Tolerance ±2 km for haversine vs reality
+        if (Math.abs(d - 344) > 2) {
+          throw new Error(`expected ~344, got ${d.toFixed(2)}`);
+        }
+      });
+
+      test("surfaceDistance(same point) = 0", () => {
+        const d = surfaceDistance(45, 90, 45, 90);
+        assertApprox(d, 0, 1e-9, "same point");
+      });
+
+      test("surfaceDistance(antipodal points) ≈ π·R ≈ 20015 km", () => {
+        const d = surfaceDistance(0, 0, 0, 180);
+        assertApprox(d, Math.PI * 6371, 1e-6, "antipodal");
+      });
+
+      // --- render ---
+      const passed = results.filter((r) => r.ok).length;
+      const total = results.length;
+      const summary = document.getElementById("summary");
+      summary.textContent = passed === total
+        ? `All ${total} tests passed.`
+        : `${passed} of ${total} tests passed. ${total - passed} failed.`;
+      summary.className = `summary ${passed === total ? "pass" : "fail"}`;
+
+      const list = document.getElementById("results");
+      for (const r of results) {
+        const li = document.createElement("li");
+        li.className = r.ok ? "pass" : "fail";
+        li.textContent = r.ok ? r.name : `${r.name} — ${r.msg}`;
+        list.appendChild(li);
+      }
+
+      // Machine-readable result for headless verification.
+      window.__TEST_RESULTS__ = { passed, total, failures: results.filter((r) => !r.ok) };
+    </script>
+  </body>
+</html>

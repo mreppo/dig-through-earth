@@ -55,9 +55,80 @@
         <p class="viewport__placeholder" data-i18n="main.placeholder">The map and globe will appear here.</p>
       </section>
 
-      <section class="results" aria-labelledby="results-heading">
+      <section class="locator" aria-labelledby="locator-heading">
+        <h2 id="locator-heading" class="locator__heading" data-i18n="locator.heading">Where are you?</h2>
+
+        <button type="button" id="locator-geo" class="btn btn--primary">
+          <span id="locator-geo-label" data-i18n="locator.useMyLocation">Use my location</span>
+        </button>
+
+        <p class="locator__divider" data-i18n="locator.orEnterManually">Or type your coordinates</p>
+
+        <form id="locator-form" class="locator__form" novalidate>
+          <div class="field">
+            <label for="locator-lat" data-i18n="locator.latitudeLabel">Latitude</label>
+            <input
+              type="number"
+              id="locator-lat"
+              name="lat"
+              step="any"
+              min="-90"
+              max="90"
+              inputmode="decimal"
+              autocomplete="off"
+              data-i18n-attr="placeholder"
+              data-i18n="locator.latitudePlaceholder"
+              placeholder="e.g. 56.95"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="locator-lng" data-i18n="locator.longitudeLabel">Longitude</label>
+            <input
+              type="number"
+              id="locator-lng"
+              name="lng"
+              step="any"
+              min="-180"
+              max="180"
+              inputmode="decimal"
+              autocomplete="off"
+              data-i18n-attr="placeholder"
+              data-i18n="locator.longitudePlaceholder"
+              placeholder="e.g. 24.10"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn--primary">
+            <span data-i18n="locator.calculate">Show me!</span>
+          </button>
+        </form>
+
+        <p id="locator-error" class="locator__error" role="alert" hidden></p>
+      </section>
+
+      <section class="results" aria-labelledby="results-heading" aria-live="polite">
         <h2 id="results-heading" class="results__heading" data-i18n="results.heading">Your antipode</h2>
-        <p class="results__placeholder" data-i18n="results.placeholder">Pick a spot to see where you'd come out.</p>
+        <p id="results-placeholder" class="results__placeholder" data-i18n="results.placeholder">Pick a spot to see where you'd come out.</p>
+
+        <div id="results-body" class="results__body" hidden>
+          <div class="results__pair">
+            <h3 class="results__label" data-i18n="results.originLabel">You're here</h3>
+            <p id="results-origin-name" class="results__place"></p>
+            <p id="results-origin-coords" class="results__coords"></p>
+          </div>
+          <div class="results__pair">
+            <h3 class="results__label" data-i18n="results.antipodeLabel">You'd come out here</h3>
+            <p id="results-antipode-name" class="results__place"></p>
+            <p id="results-antipode-coords" class="results__coords"></p>
+          </div>
+          <ul class="results__distances">
+            <li id="results-distance-through"></li>
+            <li id="results-distance-surface"></li>
+          </ul>
+          <p id="results-fun-fact-antipode" class="results__fun-fact"></p>
+          <p id="results-fun-fact-water" class="results__fun-fact" hidden></p>
+        </div>
       </section>
     </main>
 

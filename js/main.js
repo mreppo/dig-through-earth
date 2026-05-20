@@ -1,6 +1,32 @@
-/* main.js — entry point. Wires i18n and the view toggle. Map/globe land later. */
+/* main.js — entry point. Wires i18n, the view toggle, and the locator flow.
+ * Map/globe rendering lands in later tasks (#3 / #4).
+ */
 
-import { initI18n } from "./i18n.js";
+import { initI18n, t, onLanguageChange, getLanguage } from "./i18n.js";
+import { antipodeOf, distanceThroughEarth, surfaceDistance } from "./antipode.js";
+import { requestGeolocation, validateCoords, reverseGeocode } from "./location.js";
+
+const els = {};
+let lastComputation = null; // remember the inputs so we can re-render on language change
+
+function cacheEls() {
+  els.geoBtn = document.getElementById("locator-geo");
+  els.geoLabel = document.getElementById("locator-geo-label");
+  els.form = document.getElementById("locator-form");
+  els.latInput = document.getElementById("locator-lat");
+  els.lngInput = document.getElementById("locator-lng");
+  els.error = document.getElementById("locator-error");
+  els.placeholder = document.getElementById("results-placeholder");
+  els.body = document.getElementById("results-body");
+  els.originName = document.getElementById("results-origin-name");
+  els.originCoords = document.getElementById("results-origin-coords");
+  els.antipodeName = document.getElementById("results-antipode-name");
+  els.antipodeCoords = document.getElementById("results-antipode-coords");
+  els.distanceThrough = document.getElementById("results-distance-through");
+  els.distanceSurface = document.getElementById("results-distance-surface");
+  els.funFactAntipode = document.getElementById("results-fun-fact-antipode");
+  els.funFactWater = document.getElementById("results-fun-fact-water");
+}
 
 function wireViewToggle() {
   const buttons = document.querySelectorAll("[data-view]");
@@ -14,13 +40,134 @@ function wireViewToggle() {
   });
 }
 
+function clearError() {
+  els.error.hidden = true;
+  els.error.textContent = "";
+}
+
+function showError(i18nKey) {
+  els.error.textContent = t(i18nKey);
+  els.error.hidden = false;
+}
+
+function formatNumber(value, fractionDigits) {
+  const locale = getLanguage() === "lv" ? "lv-LV" : "en-US";
+  return new Intl.NumberFormat(locale, {
+    maximumFractionDigits: fractionDigits,
+    minimumFractionDigits: fractionDigits,
+  }).format(value);
+}
+
+function placeNameFor(geo) {
+  if (geo.failed) return t("results.mysterious");
+  if (geo.isWater) return t("results.openOcean");
+  return geo.displayName || t("results.mysterious");
+}
+
+function render(comp) {
+  const { origin, antipode } = comp;
+
+  els.originName.textContent = placeNameFor(origin);
+  els.originCoords.textContent = t("results.coords", {
+    lat: formatNumber(origin.lat, 2),
+    lng: formatNumber(origin.lng, 2),
+  });
+
+  els.antipodeName.textContent = placeNameFor(antipode);
+  els.antipodeCoords.textContent = t("results.coords", {
+    lat: formatNumber(antipode.lat, 2),
+    lng: formatNumber(antipode.lng, 2),
+  });
+
+  els.distanceThrough.textContent = t("results.distanceThrough", {
+    km: formatNumber(distanceThroughEarth(), 0),
+  });
+  const surfaceKm = surfaceDistance(origin.lat, origin.lng, antipode.lat, antipode.lng);
+  els.distanceSurface.textContent = t("results.distanceSurface", {
+    km: formatNumber(surfaceKm, 0),
+  });
+
+  // Always introduce the scientific term; add the water stat after it when relevant.
+  els.funFactAntipode.textContent = t("results.funFactAntipode");
+  if (antipode.isWater) {
+    els.funFactWater.textContent = t("results.funFactWater");
+    els.funFactWater.hidden = false;
+  } else {
+    els.funFactWater.textContent = "";
+    els.funFactWater.hidden = true;
+  }
+
+  els.placeholder.hidden = true;
+  els.body.hidden = false;
+}
+
+async function compute(lat, lng) {
+  const antiCoords = antipodeOf(lat, lng);
+  const [origin, antipode] = await Promise.all([
+    reverseGeocode(lat, lng),
+    reverseGeocode(antiCoords.lat, antiCoords.lng),
+  ]);
+  lastComputation = { origin, antipode };
+  render(lastComputation);
+}
+
+async function onSubmit(e) {
+  e.preventDefault();
+  clearError();
+  const v = validateCoords(els.latInput.value, els.lngInput.value);
+  if (!v.ok) {
+    showError(v.error);
+    return;
+  }
+  try {
+    await compute(v.lat, v.lng);
+  } catch (err) {
+    console.error("compute failed:", err);
+    showError("locator.errors.timeout");
+  }
+}
+
+async function onUseLocation() {
+  clearError();
+  els.geoLabel.textContent = t("locator.locating");
+  els.geoBtn.disabled = true;
+  try {
+    const { lat, lng } = await requestGeolocation();
+    els.latInput.value = lat.toFixed(4);
+    els.lngInput.value = lng.toFixed(4);
+    await compute(lat, lng);
+  } catch (err) {
+    const key = err && err.code === "denied"
+      ? "locator.errors.denied"
+      : err && err.code === "timeout"
+        ? "locator.errors.timeout"
+        : "locator.errors.unsupported";
+    showError(key);
+  } finally {
+    els.geoBtn.disabled = false;
+    els.geoLabel.textContent = t("locator.useMyLocation");
+  }
+}
+
+function wireLocator() {
+  // main.js is loaded by 404.html too — guard so missing elements don't throw.
+  if (!els.geoBtn || !els.form) return;
+  els.geoBtn.addEventListener("click", onUseLocation);
+  els.form.addEventListener("submit", onSubmit);
+}
+
 async function boot() {
+  cacheEls();
   try {
     await initI18n();
   } catch (err) {
     console.error("i18n init failed:", err);
   }
   wireViewToggle();
+  wireLocator();
+  onLanguageChange(() => {
+    if (lastComputation) render(lastComputation);
+  });
 }
 
 if (document.readyState === "loading") {

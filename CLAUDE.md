@@ -43,6 +43,7 @@ A static site that shows kids where they'd come out if they dug straight through
 ├── assets/                 # Icons, favicons, OG images
 ├── scripts/
 │   └── check-i18n.py       # CI: verify EN/LV key parity
+├── tests/                  # Unit test runners (HTML pages with vanilla JS assertions)
 ├── .github/workflows/
 │   └── i18n-check.yml      # Runs the parity check on PRs
 ├── .claude/

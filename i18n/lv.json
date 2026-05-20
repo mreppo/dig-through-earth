@@ -25,9 +25,37 @@
     "placeholder": "Šeit parādīsies karte un globuss.",
     "loading": "Ielādē…"
   },
+  "locator": {
+    "heading": "Kur tu esi?",
+    "useMyLocation": "Atrodi mani!",
+    "locating": "Meklēju tevi…",
+    "orEnterManually": "Vai ievadi savas koordinātes",
+    "latitudeLabel": "Platums",
+    "latitudePlaceholder": "piem., 56.95",
+    "longitudeLabel": "Garums",
+    "longitudePlaceholder": "piem., 24.10",
+    "calculate": "Rok!",
+    "errors": {
+      "denied": "Nekas! Ievadi koordinātes zemāk.",
+      "unsupported": "Tava pārlūkprogramma nevar atrast tavu atrašanās vietu. Ievadi koordinātes pats!",
+      "timeout": "Tas aizņēma pārāk ilgu laiku. Mēģini vēlreiz vai ievadi koordinātes.",
+      "invalidLat": "Platumam jābūt no -90 līdz 90.",
+      "invalidLng": "Garumam jābūt no -180 līdz 180.",
+      "missing": "Ievadi gan platumu, gan garumu."
+    }
+  },
   "results": {
     "heading": "Tavs pretpunkts",
-    "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu."
+    "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu.",
+    "originLabel": "Tu esi šeit",
+    "antipodeLabel": "Tu iznāktu šeit",
+    "openOcean": "Okeāna vidū",
+    "mysterious": "Kaut kur noslēpumainā vietā!",
+    "coords": "{{lat}}°, {{lng}}°",
+    "distanceThrough": "Taisni cauri Zemei: {{km}} km",
+    "distanceSurface": "Apkārt pa virsmu: {{km}} km",
+    "funFactAntipode": "Šo vietu sauc par tavu antipodu!",
+    "funFactWater": "Ja tu esi Eiropā, tavs antipods 97% gadījumu ir okeānā!"
   },
   "footer": {
     "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",
