@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Izrok Zemi cauri",
+    "title": "Izrok cauri Zemei",
     "description": "Kur tu iznāktu, ja izraktu tuneli taisni cauri Zemei? Uzzini kartē un uz globusa!"
   },
   "header": {
-    "title": "Izrok Zemi cauri",
+    "title": "Izrok cauri Zemei",
     "subtitle": "Kur tu iznāktu otrā pusē?"
   },
   "lang": {
@@ -26,7 +26,7 @@
     "loading": "Ielādē…"
   },
   "results": {
-    "heading": "Tavs antipods",
+    "heading": "Tavs pretpunkts",
     "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu."
   },
   "footer": {
