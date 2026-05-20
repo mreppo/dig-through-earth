@@ -59,11 +59,13 @@ A static site that shows kids where they'd come out if they dug straight through
 3. Read the issue's acceptance criteria. Tick them off in the PR description.
 4. Test locally: `python3 -m http.server 8000`.
 5. Verify mobile viewport (375px) before opening the PR.
-6. Open PR against `main` with:
+6. **Self-review:** run `/review-pr` (invokes the `code-reviewer` sub-agent) on your local diff. Address all blockers and majors. Document trade-offs for any acknowledged nits in the PR description.
+7. Open PR against `main` with:
    - Title: `<type>: <description>` (e.g. `feat: add 2D Leaflet view`)
-   - Body: link to issue, ticked acceptance criteria, screenshots for UI changes
+   - Body: link to issue, ticked acceptance criteria, screenshots for UI changes, self-review verdict
    - Mention any new dependencies and their CDN version pin
-7. PR must be deployable - Pages publishes from `main` root on merge.
+8. Wait for CI to pass. Mareks merges - don't merge your own PRs.
+9. `main` must be deployable at all times - Pages publishes from `main` root on merge.
 
 ## i18n convention
 
@@ -91,11 +93,13 @@ A static site that shows kids where they'd come out if they dug straight through
 - Don't add analytics, trackers, or third-party fonts that phone home.
 - Don't ship Latvian text without running it through `latvian-kids-translator`.
 
-## Quick checks before merging
+## Quick checks before opening a PR
 
 - [ ] `python3 -m http.server 8000` runs, no console errors
 - [ ] Mobile viewport (375px) renders without horizontal scroll
-- [ ] EN and LV both have all new keys (run `/i18n-check`)
+- [ ] EN and LV both have all new keys (run `python3 scripts/check-i18n.py`)
 - [ ] Lighthouse a11y ≥ 95 on affected pages
 - [ ] No new third-party network calls beyond approved CDNs
 - [ ] PR description ticks off the issue's acceptance criteria
+- [ ] Self-review via `/review-pr` returned APPROVE
+- [ ] Branch name follows `task/<N>-<slug>`; commits follow `<type>: <description>`
