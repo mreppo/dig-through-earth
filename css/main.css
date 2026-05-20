@@ -63,6 +63,19 @@
   display: none !important;
 }
 
+/* Visually hidden but exposed to assistive tech. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -202,20 +215,126 @@ button {
 }
 
 .viewport {
+  position: relative; /* anchors the drilling overlay */
   background: var(--c-paper-shade);
-  border: 2px dashed var(--c-border);
+  border: 2px solid var(--c-border);
   border-radius: var(--radius);
-  min-height: 16rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--gap-3);
-  text-align: center;
+  padding: var(--gap-2);
 }
 
 .viewport__placeholder {
   color: var(--c-ink-soft);
   font-size: var(--fs-base);
+  text-align: center;
+  padding: var(--gap-3);
+}
+
+/* ----- View panes (2D map pair / 3D placeholder) ----- */
+.view {
+  width: 100%;
+}
+
+/* ----- 2D map pair ----- */
+.map-pair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.map-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.map-cell__label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.map {
+  width: 100%;
+  height: 40vh;
+  min-height: 14rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--c-border);
+  background: var(--c-paper);
+  /* Leaflet adds its own focus outline on tiles; ensure ours is visible too. */
+}
+
+.map:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+/* Make sure tap-to-click reaches the map even with our gestures. */
+.leaflet-container {
+  touch-action: pan-x pan-y;
+}
+
+/* Custom emoji marker bubble */
+.marker-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.75rem;
+  background: var(--c-paper);
+  border: 3px solid var(--c-ink);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  line-height: 1;
+  /* Anchor so the bottom-center sits on the coord */
+  transform: translate(-50%, -100%);
+}
+
+/* ----- Drilling overlay ----- */
+.drilling-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: var(--radius);
+  z-index: 500;
+  pointer-events: none;
+  animation: drillFade 1500ms ease forwards;
+}
+
+@media (prefers-color-scheme: dark) {
+  .drilling-overlay {
+    background: rgba(26, 31, 43, 0.92);
+  }
+}
+
+.drilling-overlay__icon {
+  font-size: 3rem;
+  animation: drillSpin 1500ms ease-in-out;
+}
+
+.drilling-overlay__text {
+  font-weight: 700;
+  color: var(--c-ink);
+  margin: 0;
+}
+
+@keyframes drillSpin {
+  0%   { transform: translateY(-30%) rotate(0deg); }
+  50%  { transform: translateY(0%) rotate(180deg); }
+  100% { transform: translateY(30%) rotate(360deg); opacity: 0.4; }
+}
+
+@keyframes drillFade {
+  0%, 70% { opacity: 1; }
+  100%    { opacity: 0; }
 }
 
 /* ----- Locator (location input form) ----- */
@@ -414,8 +533,18 @@ button {
     justify-content: space-between;
   }
 
-  .viewport {
-    min-height: 24rem;
+  .map-pair {
+    flex-direction: row;
+  }
+
+  .map-cell {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .map {
+    height: 36vh;
+    min-height: 18rem;
   }
 
   .locator__form {
@@ -429,8 +558,8 @@ button {
     padding: var(--gap-4) var(--gap-3);
   }
 
-  .viewport {
-    min-height: 28rem;
+  .map {
+    height: 40vh;
   }
 }
 
