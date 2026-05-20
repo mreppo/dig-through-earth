@@ -42,6 +42,8 @@ Before reviewing, collect:
 - LV string flagged ambiguous by the sub-agent but not surfaced in the PR description for review
 - Missing screenshots in PR description for UI changes
 - New global state instead of going through `js/state.js` (once that exists)
+- **Cross-page script safety.** If a JS file is loaded by multiple HTML pages (e.g. both `index.html` and `404.html`), every `addEventListener`, `querySelector(...).x`, or DOM-touching call must guard for missing elements. A script that throws on `null` breaks every page that loads it. Look at every `<script src=...>` tag in every HTML file and verify the loaded module is safe to run on each page.
+- **Failure-caching anti-pattern.** Caches must not store `{ failed: true }` or similar negative responses without an explicit TTL or retry strategy. A cache that doesn't distinguish "no data yet" from "data says failed" turns transient errors into permanent ones for the session. Only cache successful responses; failures should be retried on next call.
 
 ### Nits (worth mentioning, optional fix)
 
