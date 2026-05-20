@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (not used, but ignore if anything stray appears)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs / temp
+*.log
+.cache/
+.tmp/
+
+# OS / misc
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Local-only Claude artefacts
+.claude/settings.local.json

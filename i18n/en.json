@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Dig Through Earth",
+    "description": "Where would you come out if you dug straight through the Earth? Find out on a map and globe!"
+  },
+  "header": {
+    "title": "Dig Through Earth",
+    "subtitle": "Where would you come out on the other side?"
+  },
+  "lang": {
+    "label": "Language",
+    "en": "English",
+    "lv": "Latviešu",
+    "switchTo": "Switch language"
+  },
+  "view": {
+    "label": "View",
+    "map2d": "2D Map",
+    "globe3d": "3D Globe"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
+  "main": {
+    "placeholder": "The map and globe will appear here.",
+    "loading": "Loading…"
+  },
+  "results": {
+    "heading": "Your antipode",
+    "placeholder": "Pick a spot to see where you'd come out."
+  },
+  "footer": {
+    "credits": "Made with curiosity for kids who like to dig.",
+    "sourceLink": "View on GitHub"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "Looks like you dug the wrong way!",
+    "homeLink": "Back to the surface"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Izrok Zemi cauri",
+    "description": "Kur tu iznāktu, ja izraktu tuneli taisni cauri Zemei? Uzzini kartē un uz globusa!"
+  },
+  "header": {
+    "title": "Izrok Zemi cauri",
+    "subtitle": "Kur tu iznāktu otrā pusē?"
+  },
+  "lang": {
+    "label": "Valoda",
+    "en": "English",
+    "lv": "Latviešu",
+    "switchTo": "Mainīt valodu"
+  },
+  "view": {
+    "label": "Skats",
+    "map2d": "2D karte",
+    "globe3d": "3D globuss"
+  },
+  "a11y": {
+    "skipToContent": "Pāriet uz saturu"
+  },
+  "main": {
+    "placeholder": "Šeit parādīsies karte un globuss.",
+    "loading": "Ielādē…"
+  },
+  "results": {
+    "heading": "Tavs antipods",
+    "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu."
+  },
+  "footer": {
+    "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",
+    "sourceLink": "Skatīt GitHub"
+  },
+  "notFound": {
+    "title": "Lapa nav atrasta",
+    "message": "Ups! Šķiet, tu izraki nepareizajā virzienā!",
+    "homeLink": "Atpakaļ uz virsmu"
+  }
+}
