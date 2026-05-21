@@ -263,5 +263,30 @@
     "heading": "Apmaldījāmies tunelī",
     "message": "Ups! Šķiet, tu izraki nepareizajā virzienā!",
     "homeLink": "Atpakaļ uz virsmu"
+  },
+  "install": {
+    "button": "Instalēt Izrok cauri Zemei",
+    "banner": {
+      "title": "Pievieno Izrok cauri Zemei sākuma ekrānam",
+      "body": "Viens pieskāriens - atveras kā īsta lietotne, nekas nav jālejupielādē.",
+      "cta": "Instalēt",
+      "dismiss": "Vēlāk"
+    },
+    "ios": {
+      "modal": {
+        "title": "Instalē iPhone telefonā",
+        "step1": "Pieskaries Kopīgot ikonai Safari apakšā.",
+        "step2": "Izvēlies \"Pievienot sākuma ekrānam\".",
+        "step3": "Pieskaries \"Pievienot\" augšējā labajā stūrī.",
+        "close": "Aizvērt"
+      }
+    },
+    "updateAvailable": {
+      "text": "Pieejama jauna versija.",
+      "reload": "Pārlādēt"
+    },
+    "installed": {
+      "toast": "Gatavs! Tagad mani atradīsi sākuma ekrānā."
+    }
   }
 }

@@ -1,0 +1,35 @@
+{
+  "name": "Dig Through Earth",
+  "short_name": "Dig Earth",
+  "description": "Where would you come out if you dug straight through the Earth? Find out on a map and globe!",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "en",
+  "dir": "ltr",
+  "background_color": "#FFF1DE",
+  "theme_color": "#FFB627",
+  "categories": ["education", "games", "kids"],
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192-any.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512-any.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

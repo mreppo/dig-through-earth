@@ -20,6 +20,7 @@ import { initView3D } from "./view-3d.js";
 import { initQuiz, ensureQuizStarted } from "./quiz.js";
 import { initTheme } from "./theme.js";
 import { initRouter, showScreen } from "./router.js";
+import { initPwa } from "./pwa.js";
 
 const els = {};
 let lastComputation = null;
@@ -298,6 +299,9 @@ async function boot() {
   bootView2D();
   wireLocator();
   initQuiz({ triggerEl: null, sectionEl: els.quizSection });
+  // PWA install handlers + service worker registration. Runs after i18n so
+  // toast / aria-label strings resolve in the active language.
+  initPwa();
 
   initRouter({ onScreenChange });
 

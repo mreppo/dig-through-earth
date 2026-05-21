@@ -1,0 +1,291 @@
+/* pwa.js - service-worker registration + install UX.
+ *
+ * Responsibilities:
+ *   - Register the service worker (./sw.js with scope './') so the app shell
+ *     becomes installable and works offline.
+ *   - Capture the `beforeinstallprompt` event and expose an in-app Install
+ *     button (Chromium / Android / Edge). Hide the button on `appinstalled`
+ *     or when the app is already running standalone.
+ *   - On iOS Safari (no beforeinstallprompt support), show an inline modal
+ *     with "Tap Share -> Add to Home Screen -> Add" instead.
+ *   - Show a one-time bottom banner nudging install on first visit, gated
+ *     by the `dte:install-nudge-dismissed` localStorage key.
+ *   - When a new SW takes control, surface a reload toast.
+ *
+ * No tracking. No remote logging. Everything stays on-device.
+ */
+
+import { t, onLanguageChange } from "./i18n.js";
+
+const NUDGE_KEY = "dte:install-nudge-dismissed";
+
+let deferredPrompt = null;
+
+const els = {};
+
+function cacheEls() {
+  els.installBtn = document.getElementById("install-btn");
+  els.installBanner = document.getElementById("install-banner");
+  els.installBannerCta = document.getElementById("install-banner-cta");
+  els.installBannerDismiss = document.getElementById("install-banner-dismiss");
+  els.iosModal = document.getElementById("install-ios-modal");
+  els.iosModalClose = document.getElementById("install-ios-modal-close");
+  els.iosModalBackdrop = document.getElementById("install-ios-modal-backdrop");
+  els.updateToast = document.getElementById("update-toast");
+  els.updateToastReload = document.getElementById("update-toast-reload");
+  els.installedToast = document.getElementById("installed-toast");
+}
+
+// ---------------------------------------------------------------------------
+// Platform detection
+// ---------------------------------------------------------------------------
+
+function isStandalone() {
+  // iOS uses navigator.standalone; everyone else uses the media query.
+  return (
+    (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+    window.navigator.standalone === true
+  );
+}
+
+function isIosSafari() {
+  const ua = window.navigator.userAgent || "";
+  const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  // Safari (not Chrome / Firefox-on-iOS, which both still hit the iOS WebKit
+  // engine but report different UA strings).
+  const isSafari = /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+  return isIos && isSafari;
+}
+
+function nudgeWasDismissed() {
+  try {
+    return localStorage.getItem(NUDGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markNudgeDismissed() {
+  try {
+    localStorage.setItem(NUDGE_KEY, "1");
+  } catch {
+    /* private mode / quota - keep showing this session, fine */
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Install button + banner show / hide
+// ---------------------------------------------------------------------------
+
+function showInstallButton() {
+  if (!els.installBtn) return;
+  els.installBtn.hidden = false;
+}
+
+function hideInstallButton() {
+  if (!els.installBtn) return;
+  els.installBtn.hidden = true;
+}
+
+function showBanner() {
+  if (!els.installBanner) return;
+  els.installBanner.hidden = false;
+}
+
+function hideBanner() {
+  if (!els.installBanner) return;
+  els.installBanner.hidden = true;
+}
+
+function flashInstalledToast() {
+  if (!els.installedToast) return;
+  els.installedToast.textContent = t("install.installed.toast");
+  els.installedToast.hidden = false;
+  setTimeout(() => {
+    if (els.installedToast) els.installedToast.hidden = true;
+  }, 3500);
+}
+
+// ---------------------------------------------------------------------------
+// iOS modal
+// ---------------------------------------------------------------------------
+
+function openIosModal() {
+  if (!els.iosModal) return;
+  els.iosModal.hidden = false;
+  // Move focus to the close button so screen readers + keyboard users land
+  // somewhere sensible.
+  if (els.iosModalClose) els.iosModalClose.focus({ preventScroll: true });
+  document.addEventListener("keydown", onIosModalKey);
+}
+
+function closeIosModal() {
+  if (!els.iosModal) return;
+  els.iosModal.hidden = true;
+  document.removeEventListener("keydown", onIosModalKey);
+}
+
+function onIosModalKey(e) {
+  if (e.key === "Escape") closeIosModal();
+}
+
+// ---------------------------------------------------------------------------
+// Install button click
+// ---------------------------------------------------------------------------
+
+async function onInstallClick() {
+  if (deferredPrompt) {
+    // Chromium / Android / Edge path. The prompt() call must happen inside
+    // the click handler's task to satisfy the user-gesture requirement.
+    deferredPrompt.prompt();
+    try {
+      await deferredPrompt.userChoice;
+    } catch {
+      /* user dismissed or other - either way the prompt is consumed */
+    }
+    deferredPrompt = null;
+    hideInstallButton();
+    hideBanner();
+    return;
+  }
+  if (isIosSafari()) {
+    openIosModal();
+    return;
+  }
+  // Fallback (desktop browser without prompt support): nudge the user with
+  // the iOS instructions, since the wording for "use your browser's install
+  // menu" is the only honest thing we can say.
+  openIosModal();
+}
+
+// ---------------------------------------------------------------------------
+// Service-worker registration + update toast
+// ---------------------------------------------------------------------------
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  // SW only works on secure contexts (HTTPS or localhost). Skip silently
+  // on file:// or insecure http.
+  if (!window.isSecureContext && window.location.protocol !== "http:") return;
+
+  // Note: registration is the function that needs an explicit scope option.
+  // Path is relative so it works under /dig-through-earth/ on GitHub Pages.
+  navigator.serviceWorker
+    .register("./sw.js", { scope: "./" })
+    .then((reg) => {
+      // If a new SW is found, wait until it's installed then surface the toast.
+      reg.addEventListener("updatefound", () => {
+        const installing = reg.installing;
+        if (!installing) return;
+        installing.addEventListener("statechange", () => {
+          if (installing.state === "installed" && navigator.serviceWorker.controller) {
+            showUpdateToast(installing);
+          }
+        });
+      });
+    })
+    .catch((err) => {
+      console.warn("sw register failed:", err);
+    });
+
+  // Fired when the active SW changes (e.g., after we postMessage SKIP_WAITING
+  // and the new one takes over). Reload so the user sees the new app shell.
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
+}
+
+function showUpdateToast(waitingWorker) {
+  if (!els.updateToast || !els.updateToastReload) return;
+  els.updateToast.hidden = false;
+  const onReload = () => {
+    els.updateToastReload.removeEventListener("click", onReload);
+    if (waitingWorker) waitingWorker.postMessage("SKIP_WAITING");
+  };
+  els.updateToastReload.addEventListener("click", onReload);
+}
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+
+export function initPwa() {
+  cacheEls();
+  if (isStandalone()) {
+    // Already installed -> nothing to show.
+    hideInstallButton();
+    hideBanner();
+  }
+
+  // Header install button.
+  if (els.installBtn) {
+    els.installBtn.addEventListener("click", onInstallClick);
+  }
+
+  // First-visit banner buttons.
+  if (els.installBannerDismiss) {
+    els.installBannerDismiss.addEventListener("click", () => {
+      hideBanner();
+      markNudgeDismissed();
+    });
+  }
+  if (els.installBannerCta) {
+    els.installBannerCta.addEventListener("click", () => {
+      onInstallClick();
+      // Whatever path the user took, don't pester them again on this device.
+      markNudgeDismissed();
+      hideBanner();
+    });
+  }
+
+  // iOS modal close handlers.
+  if (els.iosModalClose) els.iosModalClose.addEventListener("click", closeIosModal);
+  if (els.iosModalBackdrop) els.iosModalBackdrop.addEventListener("click", closeIosModal);
+
+  // Re-localise the toast text on language change so it never sits in a
+  // stale language.
+  onLanguageChange(() => {
+    if (els.installedToast && !els.installedToast.hidden) {
+      els.installedToast.textContent = t("install.installed.toast");
+    }
+  });
+
+  // Chromium / Android / Edge: capture the prompt and reveal the button.
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isStandalone()) {
+      showInstallButton();
+      // Banner only on first visit and only when an install path exists.
+      if (!nudgeWasDismissed()) showBanner();
+    }
+  });
+
+  // iOS Safari: no beforeinstallprompt - reveal the button anyway so kids on
+  // iOS get the AtH modal.
+  if (isIosSafari() && !isStandalone()) {
+    showInstallButton();
+    if (!nudgeWasDismissed()) showBanner();
+  }
+
+  // Both platforms: stop showing UI once installed.
+  window.addEventListener("appinstalled", () => {
+    deferredPrompt = null;
+    hideInstallButton();
+    hideBanner();
+    markNudgeDismissed();
+    flashInstalledToast();
+  });
+
+  registerServiceWorker();
+}
+
+// Internal export for tests, if we add any.
+export const _internals = {
+  isIosSafari,
+  isStandalone,
+  nudgeWasDismissed,
+};
