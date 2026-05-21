@@ -34,23 +34,70 @@
     "label": "View",
     "map2d": "2D Map",
     "globe3d": "3D Globe",
+    "mapShort": "2D map",
+    "globeShort": "3D globe",
     "originMapLabel": "You're here",
     "antipodeMapLabel": "You'd come out here",
-    "originMapAriaLabel": "Origin map. Tap or click to pick a starting spot.",
-    "antipodeMapAriaLabel": "Antipode map. Updates when you pick a starting spot.",
-    "drilling": "Drilling through Earth…",
+    "mapAriaLabel": "Map of Earth. Tap or click to pick a starting spot.",
     "globeAriaLabel": "Interactive 3D globe. Tap or click anywhere to pick a spot.",
     "globeLoading": "Spinning up the globe…",
     "globeUnsupported": "Your browser can't run the 3D globe. Try the 2D map instead!",
     "mapAttribution": "© OpenStreetMap contributors"
   },
+  "tabs": {
+    "label": "Main",
+    "dig": "Dig",
+    "map": "Map",
+    "globe": "Globe",
+    "quiz": "Quiz"
+  },
+  "drilling": {
+    "title": "Drilling through Earth…",
+    "sub": "Hold tight, this takes a moment"
+  },
   "a11y": {
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "back": "Back"
+  },
+  "globe": {
+    "controls": {
+      "spin": "Spin globe",
+      "reset": "Reset view"
+    }
+  },
+  "map": {
+    "controls": {
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "recenter": "Recenter"
+    }
   },
   "locator": {
-    "heading": "Where are you?",
+    "eyebrow": "Hi explorer",
+    "heading": "Where are you right now?",
+    "subtitle": "Pick a spot - we'll dig straight through Earth and show you where you'd come out.",
     "useMyLocation": "Use my location",
     "locating": "Finding you…",
+    "method": {
+      "gpsLabel": "Use my location",
+      "gpsSub": "We'll ask your permission",
+      "mapLabel": "Tap a map",
+      "mapSub": "Pick anywhere on Earth"
+    },
+    "search": {
+      "label": "Search a city or town",
+      "placeholder": "Search a city or town…",
+      "submit": "Search"
+    },
+    "cities": {
+      "heading": "Or pick a city",
+      "riga": "Rīga",
+      "berlin": "Berlin",
+      "paris": "Paris",
+      "madrid": "Madrid",
+      "rome": "Rome",
+      "stockholm": "Stockholm"
+    },
     "orEnterManually": "Or type your coordinates",
     "latitudeLabel": "Latitude",
     "latitudePlaceholder": "e.g. 56.95",
@@ -63,7 +110,8 @@
       "timeout": "That took too long. Try again or type coordinates.",
       "invalidLat": "Latitude must be between -90 and 90.",
       "invalidLng": "Longitude must be between -180 and 180.",
-      "missing": "Type both a latitude and a longitude."
+      "missing": "Type both a latitude and a longitude.",
+      "noMatch": "Couldn't find that place. Try another spelling or tap the map."
     }
   },
   "results": {
@@ -71,13 +119,26 @@
     "placeholder": "Pick a spot to see where you'd come out.",
     "originLabel": "You're here",
     "antipodeLabel": "You'd come out here",
+    "youTag": "You",
+    "antipodeTag": "Come out",
     "openOcean": "Open ocean",
+    "openWater": "Open water",
     "mysterious": "Somewhere mysterious!",
     "coords": "{{lat}}°, {{lng}}°",
     "distanceThrough": "Straight through the Earth: {{km}} km",
     "distanceSurface": "Around the surface: {{km}} km",
+    "statThrough": "Through Earth",
+    "statSurface": "Around surface",
+    "kmUnit": "km",
     "funFactAntipode": "This spot is called your antipode!",
-    "funFactWater": "If you're in Europe, your antipode is in the ocean 97% of the time!"
+    "funFactWater": "If you're in Europe, your antipode is in the ocean 97% of the time!",
+    "cta": {
+      "seeMap": "See on map",
+      "spinGlobe": "Spin the globe"
+    },
+    "peek": {
+      "throughEarth": "straight through Earth"
+    }
   },
   "footer": {
     "credits": "Made with curiosity for kids who like to dig.",

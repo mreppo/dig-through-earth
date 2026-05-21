@@ -34,23 +34,70 @@
     "label": "Skats",
     "map2d": "2D karte",
     "globe3d": "3D globuss",
+    "mapShort": "2D karte",
+    "globeShort": "3D globuss",
     "originMapLabel": "Tu esi šeit",
     "antipodeMapLabel": "Tu iznāktu šeit",
-    "originMapAriaLabel": "Sākuma karte. Pieskaries vai uzklikšķini, lai izvēlētos sākuma vietu.",
-    "antipodeMapAriaLabel": "Pretpunkta karte. Atjaunojas, kad izvēlies sākuma vietu.",
-    "drilling": "Rokam cauri Zemei…",
-    "globeAriaLabel": "Interaktīvs 3D globuss. Pieskaries vai uzklikšķini jebkur, lai izvēlētos vietu.",
+    "mapAriaLabel": "Zemes karte. Pieskaries vai noklikšķini, lai izvēlētos sākuma vietu.",
+    "globeAriaLabel": "Interaktīvs 3D globuss. Pieskaries vai noklikšķini jebkur, lai izvēlētos vietu.",
     "globeLoading": "Iegriežam globusu…",
     "globeUnsupported": "Tava pārlūkprogramma nevar parādīt 3D globusu. Pamēģini 2D karti!",
     "mapAttribution": "© OpenStreetMap dalībnieki"
   },
+  "tabs": {
+    "label": "Galvenā",
+    "dig": "Rok",
+    "map": "Karte",
+    "globe": "Globuss",
+    "quiz": "Viktorīna"
+  },
+  "drilling": {
+    "title": "Rokam cauri Zemei…",
+    "sub": "Turies stipri, brīdis tikai"
+  },
   "a11y": {
-    "skipToContent": "Pāriet uz saturu"
+    "skipToContent": "Pāriet uz saturu",
+    "back": "Atpakaļ"
+  },
+  "globe": {
+    "controls": {
+      "spin": "Pagriezt globusu",
+      "reset": "Atiestatīt skatu"
+    }
+  },
+  "map": {
+    "controls": {
+      "zoomIn": "Pietuvināt",
+      "zoomOut": "Attālināt",
+      "recenter": "Centrēt no jauna"
+    }
   },
   "locator": {
-    "heading": "Kur tu esi?",
+    "eyebrow": "Sveiki, pētniek",
+    "heading": "Kur tu šobrīd esi?",
+    "subtitle": "Izvēlies vietu - mēs izraksim tuneli cauri Zemei un parādīsim, kur tu iznāktu.",
     "useMyLocation": "Atrodi mani!",
     "locating": "Meklēju tevi…",
+    "method": {
+      "gpsLabel": "Atrodi mani",
+      "gpsSub": "Vispirms pajautāsim atļauju",
+      "mapLabel": "Pieskaries kartei",
+      "mapSub": "Izvēlies jebkuru vietu uz Zemes"
+    },
+    "search": {
+      "label": "Meklēt pilsētu vai ciematu",
+      "placeholder": "Meklē pilsētu vai ciematu…",
+      "submit": "Meklēt"
+    },
+    "cities": {
+      "heading": "Vai izvēlies pilsētu",
+      "riga": "Rīga",
+      "berlin": "Berlīne",
+      "paris": "Parīze",
+      "madrid": "Madride",
+      "rome": "Roma",
+      "stockholm": "Stokholma"
+    },
     "orEnterManually": "Vai ievadi savas koordinātes",
     "latitudeLabel": "Platums",
     "latitudePlaceholder": "piem., 56.95",
@@ -63,7 +110,8 @@
       "timeout": "Pārāk ilgi gaidījām! Mēģini vēlreiz vai ievadi koordinātes.",
       "invalidLat": "Platumam jābūt no -90 līdz 90.",
       "invalidLng": "Garumam jābūt no -180 līdz 180.",
-      "missing": "Ievadi gan platumu, gan garumu."
+      "missing": "Ievadi gan platumu, gan garumu.",
+      "noMatch": "Tādu vietu neatradām. Pamēģini citu rakstību vai pieskaries kartei."
     }
   },
   "results": {
@@ -71,13 +119,26 @@
     "placeholder": "Izvēlies vietu, lai redzētu, kur tu iznāktu.",
     "originLabel": "Tu esi šeit",
     "antipodeLabel": "Tu iznāktu šeit",
+    "youTag": "Tu",
+    "antipodeTag": "Iznāksi",
     "openOcean": "Okeāna vidū",
+    "openWater": "Atklāts ūdens",
     "mysterious": "Kaut kur noslēpumainā vietā!",
     "coords": "{{lat}}°, {{lng}}°",
     "distanceThrough": "Taisni cauri Zemei: {{km}} km",
     "distanceSurface": "Apkārt pa virsmu: {{km}} km",
+    "statThrough": "Cauri Zemei",
+    "statSurface": "Apkārt virsmai",
+    "kmUnit": "km",
     "funFactAntipode": "Šo vietu sauc par tavu antipodu!",
-    "funFactWater": "Ja tu esi Eiropā, tavs antipods 97% gadījumu ir okeānā!"
+    "funFactWater": "Ja tu esi Eiropā, tavs antipods 97% gadījumu ir okeānā!",
+    "cta": {
+      "seeMap": "Parādi kartē",
+      "spinGlobe": "Pagriez globusu"
+    },
+    "peek": {
+      "throughEarth": "taisni cauri Zemei"
+    }
   },
   "footer": {
     "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",

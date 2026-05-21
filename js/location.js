@@ -13,12 +13,24 @@
  */
 
 const NOMINATIM_URL = "https://nominatim.openstreetmap.org/reverse";
+const NOMINATIM_SEARCH_URL = "https://nominatim.openstreetmap.org/search";
 const RATE_LIMIT_MS = 1100; // small margin over Nominatim's 1 req/sec
 const GEO_TIMEOUT_MS = 8000;
 
 const cache = new Map();
 let lastRequestAt = 0;
 let queue = Promise.resolve();
+
+// EU city quick picks. Coords are city centres, rounded to 2 decimals.
+// Tapping a chip is instant + privacy-friendly (no network needed).
+export const EU_CITIES = {
+  riga:      { lat: 56.95, lng: 24.10 },
+  berlin:    { lat: 52.52, lng: 13.40 },
+  paris:     { lat: 48.86, lng:  2.35 },
+  madrid:    { lat: 40.42, lng: -3.70 },
+  rome:      { lat: 41.90, lng: 12.50 },
+  stockholm: { lat: 59.33, lng: 18.07 },
+};
 
 function roundedKey(lat, lng) {
   return `${lat.toFixed(1)},${lng.toFixed(1)}`;
@@ -95,6 +107,50 @@ function shapeNominatimResult(lat, lng, json) {
     displayName: json.display_name,
     isWater: Boolean(isWater),
   };
+}
+
+async function fetchNominatimSearch(query) {
+  await waitForSlot();
+  lastRequestAt = Date.now();
+  const url = new URL(NOMINATIM_SEARCH_URL);
+  url.searchParams.set("format", "jsonv2");
+  url.searchParams.set("q", query);
+  url.searchParams.set("limit", "1");
+  url.searchParams.set("addressdetails", "0");
+  const res = await fetch(url.toString(), {
+    headers: {
+      Accept: "application/json",
+      "Accept-Language": document.documentElement.lang || "en",
+    },
+  });
+  if (!res.ok) throw new Error(`Nominatim HTTP ${res.status}`);
+  return res.json();
+}
+
+/**
+ * Forward-geocode a free-text city/town query via Nominatim search.
+ * Returns { lat, lng, displayName } on success, or null if no match.
+ *
+ * Uses the same rate-limit queue as reverseGeocode so the two never violate
+ * Nominatim's 1 req/sec policy in combination.
+ */
+export async function searchPlace(query) {
+  const q = (query || "").trim();
+  if (!q) return null;
+  const inFlight = queue.then(() => fetchNominatimSearch(q));
+  queue = inFlight.catch(() => {});
+  try {
+    const results = await inFlight;
+    if (!Array.isArray(results) || results.length === 0) return null;
+    const top = results[0];
+    return {
+      lat: Number(top.lat),
+      lng: Number(top.lon),
+      displayName: top.display_name || q,
+    };
+  } catch {
+    return null;
+  }
 }
 
 export function reverseGeocode(lat, lng) {

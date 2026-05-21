@@ -222,18 +222,16 @@ function restart() {
 }
 
 export function initQuiz({ triggerEl, sectionEl }) {
-  // Cross-page safety: this same main.js loads on 404.html where neither
-  // element exists. Bail out silently in that case.
-  if (!triggerEl || !sectionEl) return;
+  // Cross-page safety: 404.html doesn't include the quiz section, so bail.
+  if (!sectionEl) return;
   cache(triggerEl, sectionEl);
-  triggerEl.addEventListener("click", start);
+  if (triggerEl) triggerEl.addEventListener("click", start);
   els.next.addEventListener("click", onNext);
   els.restart.addEventListener("click", restart);
   // Re-render in the new language if the user toggles mid-quiz.
   onLanguageChange(() => {
     if (!state.started) return;
     if (state.finished) {
-      // Re-render the end screen with the new tier text + score string.
       els.endHeading.textContent = t(tierKey());
       els.endScore.textContent = t("quiz.end.score", {
         correct: state.score,
@@ -243,4 +241,15 @@ export function initQuiz({ triggerEl, sectionEl }) {
       renderCurrent();
     }
   });
+}
+
+/**
+ * Auto-start the quiz the first time the user opens the Quiz tab.
+ * Called by main.js on screen change. Safe to call repeatedly; no-op once
+ * the quiz has already started.
+ */
+export function ensureQuizStarted() {
+  if (state.started) return;
+  if (!els.section) return;
+  start();
 }

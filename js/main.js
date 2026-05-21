@@ -1,47 +1,59 @@
-/* main.js — entry point. Wires i18n, view toggle, locator, and the 2D map view.
+/* main.js - entry point. Wires i18n, theme, router, locator, result, view-2d, view-3d, quiz.
  *
- * Shared coord state lives in js/state.js. Any source (locator submit, map
- * click, future 3D globe) calls setCoords; subscribers handle the rest.
+ * Multi-screen shell: locator -> drilling overlay -> result -> map/globe/quiz.
+ * Map and globe canvases stay in the DOM at all times; only their parent
+ * screen toggles visible. The 3D globe stays lazy - only instantiates on
+ * first switch to the globe screen.
  */
 
 import { initI18n, t, onLanguageChange, getLanguage } from "./i18n.js";
 import { antipodeOf, distanceThroughEarth, surfaceDistance } from "./antipode.js";
-import { requestGeolocation, validateCoords, reverseGeocode } from "./location.js";
+import {
+  requestGeolocation,
+  reverseGeocode,
+  searchPlace,
+  EU_CITIES,
+} from "./location.js";
 import { setCoords, onCoordsChange } from "./state.js";
 import { initView2D } from "./view-2d.js";
 import { initView3D } from "./view-3d.js";
-import { initQuiz } from "./quiz.js";
+import { initQuiz, ensureQuizStarted } from "./quiz.js";
 import { initTheme } from "./theme.js";
+import { initRouter, showScreen } from "./router.js";
 
 const els = {};
-let lastComputation = null; // remember the inputs so we can re-render on language change
+let lastComputation = null;
 let view2D = null;
-let view3D = null; // lazy: only initialised when the user first opens the 3D pane
+let view3D = null;
 
 function cacheEls() {
-  els.geoBtn = document.getElementById("locator-geo");
-  els.geoLabel = document.getElementById("locator-geo-label");
-  els.form = document.getElementById("locator-form");
-  els.latInput = document.getElementById("locator-lat");
-  els.lngInput = document.getElementById("locator-lng");
-  els.error = document.getElementById("locator-error");
-  els.placeholder = document.getElementById("results-placeholder");
-  els.body = document.getElementById("results-body");
-  els.originName = document.getElementById("results-origin-name");
-  els.originCoords = document.getElementById("results-origin-coords");
-  els.antipodeName = document.getElementById("results-antipode-name");
-  els.antipodeCoords = document.getElementById("results-antipode-coords");
-  els.distanceThrough = document.getElementById("results-distance-through");
-  els.distanceSurface = document.getElementById("results-distance-surface");
-  els.funFactAntipode = document.getElementById("results-fun-fact-antipode");
-  els.funFactWater = document.getElementById("results-fun-fact-water");
-  els.mapOrigin = document.getElementById("map-origin");
-  els.mapAntipode = document.getElementById("map-antipode");
+  els.locatorError = document.getElementById("locator-error");
+  els.searchForm = document.getElementById("locator-search");
+  els.searchInput = document.getElementById("locator-search-input");
   els.drilling = document.getElementById("drilling-overlay");
-  els.viewPanes = document.querySelectorAll("[data-view-pane]");
+
+  els.resultPlaceholder = document.getElementById("result-placeholder");
+  els.resultBody = document.getElementById("result-body");
+  els.originName = document.getElementById("result-origin-name");
+  els.originCoords = document.getElementById("result-origin-coords");
+  els.antipodeName = document.getElementById("result-antipode-name");
+  els.antipodeCoords = document.getElementById("result-antipode-coords");
+  els.statThrough = document.getElementById("result-stat-through");
+  els.statSurface = document.getElementById("result-stat-surface");
+  els.funFactAntipode = document.getElementById("result-fun-fact-antipode");
+  els.funFactWater = document.getElementById("result-fun-fact-water");
+
+  els.map = document.getElementById("map");
+  els.mapPeek = document.getElementById("map-peek");
+  els.mapPeekFrom = document.getElementById("map-peek-from");
+  els.mapPeekTo = document.getElementById("map-peek-to");
+  els.mapPeekKm = document.getElementById("map-peek-km");
+
   els.globe = document.getElementById("globe-3d");
   els.globeLoading = document.getElementById("globe-loading");
-  els.quizTrigger = document.querySelector("[data-quiz-trigger]");
+  els.globePeek = document.getElementById("globe-peek");
+  els.globePeekKm = document.getElementById("globe-peek-km");
+
   els.quizSection = document.querySelector("[data-quiz-section]");
 }
 
@@ -56,13 +68,9 @@ function hasWebGL() {
 }
 
 function ensureView3D() {
-  // Lazy: only build the globe the first time the user opens the 3D pane.
-  // Saves ~1.8 MB of JS + WebGL context for 2D-only visitors.
   if (view3D || !els.globe) return view3D;
   if (!hasWebGL() || !window.Globe) {
     if (els.globeLoading) {
-      // Re-target the i18n key too, otherwise the next applyTranslations()
-      // (any language toggle) would revert this back to the loading caption.
       els.globeLoading.setAttribute("data-i18n", "view.globeUnsupported");
       els.globeLoading.textContent = t("view.globeUnsupported");
     }
@@ -74,50 +82,10 @@ function ensureView3D() {
       if (els.globeLoading) els.globeLoading.hidden = true;
     },
   });
-  // Fallback if onGlobeReady never fires (older globe.gl, headless tests, etc.).
   setTimeout(() => {
     if (els.globeLoading && !els.globeLoading.hidden) els.globeLoading.hidden = true;
   }, 4000);
   return view3D;
-}
-
-function wireViewToggle() {
-  const buttons = document.querySelectorAll("[data-view]");
-  if (!buttons.length) return;
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const chosen = btn.getAttribute("data-view");
-      buttons.forEach((b) => {
-        b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === chosen));
-      });
-      els.viewPanes.forEach((pane) => {
-        pane.hidden = pane.getAttribute("data-view-pane") !== chosen;
-      });
-      // Leaflet measures its container at create time; if it was hidden when
-      // initialised it renders blank tiles. Recompute size whenever 2D shows.
-      if (chosen === "2d" && view2D) view2D.invalidateSize();
-      // Lazy-init globe on first 3D switch; pause/resume to save CPU + battery.
-      if (chosen === "3d") {
-        ensureView3D();
-        if (view3D) {
-          view3D.invalidateSize();
-          view3D.resume();
-        }
-      } else if (view3D) {
-        view3D.pause();
-      }
-    });
-  });
-}
-
-function clearError() {
-  els.error.hidden = true;
-  els.error.textContent = "";
-}
-
-function showError(i18nKey) {
-  els.error.textContent = t(i18nKey);
-  els.error.hidden = false;
 }
 
 function formatNumber(value, fractionDigits) {
@@ -129,12 +97,19 @@ function formatNumber(value, fractionDigits) {
 }
 
 function placeNameFor(geo) {
+  if (!geo) return t("results.mysterious");
   if (geo.failed) return t("results.mysterious");
   if (geo.isWater) return t("results.openOcean");
   return geo.displayName || t("results.mysterious");
 }
 
-function render(comp) {
+function shortName(name) {
+  if (!name) return "";
+  // Nominatim returns long comma-joined display names. Trim to first 2 parts.
+  return name.split(",").slice(0, 2).join(",").trim();
+}
+
+function renderResult(comp) {
   const { origin, antipode } = comp;
 
   els.originName.textContent = placeNameFor(origin);
@@ -149,15 +124,15 @@ function render(comp) {
     lng: formatNumber(antipode.lng, 2),
   });
 
-  els.distanceThrough.textContent = t("results.distanceThrough", {
-    km: formatNumber(distanceThroughEarth(), 0),
-  });
-  const surfaceKm = surfaceDistance(origin.lat, origin.lng, antipode.lat, antipode.lng);
-  els.distanceSurface.textContent = t("results.distanceSurface", {
-    km: formatNumber(surfaceKm, 0),
-  });
+  const km = formatNumber(distanceThroughEarth(), 0);
+  const surf = formatNumber(
+    surfaceDistance(origin.lat, origin.lng, antipode.lat, antipode.lng),
+    0
+  );
+  const unit = t("results.kmUnit");
+  els.statThrough.textContent = `${km} ${unit}`;
+  els.statSurface.textContent = `${surf} ${unit}`;
 
-  // Always introduce the scientific term; add the water stat after it when relevant.
   els.funFactAntipode.textContent = t("results.funFactAntipode");
   if (antipode.isWater) {
     els.funFactWater.textContent = t("results.funFactWater");
@@ -167,8 +142,34 @@ function render(comp) {
     els.funFactWater.hidden = true;
   }
 
-  els.placeholder.hidden = true;
-  els.body.hidden = false;
+  els.resultPlaceholder.hidden = true;
+  els.resultBody.hidden = false;
+
+  // Peeks
+  const originShort = shortName(placeNameFor(origin));
+  const antiShort = shortName(placeNameFor(antipode));
+  if (els.mapPeek) {
+    els.mapPeekFrom.textContent = originShort || t("results.youTag");
+    els.mapPeekTo.textContent = antiShort || t("results.openOcean");
+    els.mapPeekKm.textContent = `${km} ${unit}`;
+    els.mapPeek.hidden = false;
+  }
+  if (els.globePeek) {
+    els.globePeekKm.textContent = `${km} ${unit}`;
+    els.globePeek.hidden = false;
+  }
+}
+
+function clearError() {
+  if (!els.locatorError) return;
+  els.locatorError.hidden = true;
+  els.locatorError.textContent = "";
+}
+
+function showError(i18nKey) {
+  if (!els.locatorError) return;
+  els.locatorError.textContent = t(i18nKey);
+  els.locatorError.hidden = false;
 }
 
 async function reverseGeocodeAndRender(lat, lng) {
@@ -178,45 +179,36 @@ async function reverseGeocodeAndRender(lat, lng) {
     reverseGeocode(anti.lat, anti.lng),
   ]);
   lastComputation = { origin, antipode };
-  render(lastComputation);
+  renderResult(lastComputation);
 }
 
-function onStateChange({ lat, lng, source }) {
-  // Keep manual inputs in sync (e.g., the user clicked a map).
-  if (source !== "locator" && els.latInput) {
-    els.latInput.value = lat.toFixed(4);
-    els.lngInput.value = lng.toFixed(4);
-  }
+function onStateChange({ lat, lng }) {
   reverseGeocodeAndRender(lat, lng).catch((err) => {
     console.error("reverse-geocode failed:", err);
-    if (els.error) showError("locator.errors.timeout");
+    showError("locator.errors.timeout");
   });
 }
 
-async function onSubmit(e) {
-  e.preventDefault();
-  clearError();
-  const v = validateCoords(els.latInput.value, els.lngInput.value);
-  if (!v.ok) {
-    showError(v.error);
+function runDrillThenGoToResult() {
+  if (!els.drilling) {
+    showScreen("result");
     return;
   }
-  setCoords(v.lat, v.lng, "locator");
+  // Clone the existing CSS animation by toggling hidden off and forcing reflow.
+  els.drilling.hidden = false;
+  // Drilling overlay has its own 1.5s fade animation; route after 1.3s.
+  setTimeout(() => {
+    els.drilling.hidden = true;
+    showScreen("result");
+  }, 1300);
 }
 
-async function onUseLocation() {
+async function onGpsClick() {
   clearError();
-  els.geoLabel.textContent = t("locator.locating");
-  els.geoBtn.disabled = true;
   try {
     const { lat, lng } = await requestGeolocation();
-    // Populate the input fields here. onStateChange skips input-sync when
-    // source === "locator" to preserve what the user typed; geolocation is
-    // a "locator" source that DOES need to fill the inputs, so we do it
-    // explicitly at this call site.
-    els.latInput.value = lat.toFixed(4);
-    els.lngInput.value = lng.toFixed(4);
-    setCoords(lat, lng, "locator");
+    setCoords(lat, lng, "locator-gps");
+    runDrillThenGoToResult();
   } catch (err) {
     const key = err && err.code === "denied"
       ? "locator.errors.denied"
@@ -224,27 +216,95 @@ async function onUseLocation() {
         ? "locator.errors.timeout"
         : "locator.errors.unsupported";
     showError(key);
-  } finally {
-    els.geoBtn.disabled = false;
-    els.geoLabel.textContent = t("locator.useMyLocation");
   }
 }
 
-function wireLocator() {
-  // main.js is loaded by 404.html too — guard so missing elements don't throw.
-  if (!els.geoBtn || !els.form) return;
-  els.geoBtn.addEventListener("click", onUseLocation);
-  els.form.addEventListener("submit", onSubmit);
+function onMapMethodClick() {
+  // "Tap a map" routes to the map screen and lets the user pick.
+  showScreen("map");
 }
 
-function bootViewToggleAndMap() {
-  if (!els.mapOrigin || !els.mapAntipode) return; // 404.html path
-  wireViewToggle();
+function onCityChipClick(key) {
+  const c = EU_CITIES[key];
+  if (!c) return;
+  clearError();
+  setCoords(c.lat, c.lng, "locator-city");
+  runDrillThenGoToResult();
+}
+
+async function onSearchSubmit(e) {
+  e.preventDefault();
+  clearError();
+  const q = els.searchInput.value;
+  const hit = await searchPlace(q);
+  if (!hit) {
+    showError("locator.errors.noMatch");
+    return;
+  }
+  setCoords(hit.lat, hit.lng, "locator-search");
+  runDrillThenGoToResult();
+}
+
+function wireLocator() {
+  document.querySelectorAll("[data-method]").forEach((btn) => {
+    const m = btn.dataset.method;
+    if (m === "gps") btn.addEventListener("click", onGpsClick);
+    if (m === "map") btn.addEventListener("click", onMapMethodClick);
+  });
+  document.querySelectorAll("[data-city]").forEach((chip) => {
+    chip.addEventListener("click", () => onCityChipClick(chip.dataset.city));
+  });
+  if (els.searchForm) els.searchForm.addEventListener("submit", onSearchSubmit);
+}
+
+function wireViewToggles() {
+  // The view-toggle pills inside the map + globe screens jump between them.
+  document.querySelectorAll("[data-view]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const v = btn.dataset.view;
+      const target = v === "3d" ? "globe" : "map";
+      showScreen(target);
+    });
+  });
+}
+
+function syncViewToggles(activeId) {
+  document.querySelectorAll("[data-view]").forEach((btn) => {
+    const v = btn.dataset.view;
+    const active = (activeId === "globe" && v === "3d") || (activeId === "map" && v === "2d");
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
+
+function bootView2D() {
+  if (!els.map || !window.L) return;
   view2D = initView2D({
-    originEl: els.mapOrigin,
-    antipodeEl: els.mapAntipode,
+    containerEl: els.map,
+    peekEls: {
+      peek: els.mapPeek,
+      fromEl: els.mapPeekFrom,
+      toEl: els.mapPeekTo,
+      kmEl: els.mapPeekKm,
+    },
     drillingEl: els.drilling,
   });
+}
+
+function onScreenChange(id) {
+  syncViewToggles(id);
+  // Leaflet measures container at create time; invalidate when its screen
+  // becomes visible so blank tiles don't appear.
+  if (id === "map" && view2D) view2D.invalidateSize();
+  if (id === "globe") {
+    ensureView3D();
+    if (view3D) {
+      view3D.invalidateSize();
+      view3D.resume();
+    }
+  } else if (view3D) {
+    view3D.pause();
+  }
+  if (id === "quiz") ensureQuizStarted();
 }
 
 async function boot() {
@@ -254,19 +314,17 @@ async function boot() {
   } catch (err) {
     console.error("i18n init failed:", err);
   }
-  // Theme switcher (mole + sun/moon) - needs i18n for aria-label + mode pill copy.
-  // initTheme is internally guarded: pages without the buttons exit silently.
   initTheme();
-  bootViewToggleAndMap();
+  bootView2D();
   wireLocator();
-  // initQuiz is internally guarded: if either element is missing (e.g. on
-  // 404.html), it bails out silently.
-  initQuiz({ triggerEl: els.quizTrigger, sectionEl: els.quizSection });
-  // Re-render results on language change.
+  wireViewToggles();
+  initQuiz({ triggerEl: null, sectionEl: els.quizSection });
+
+  initRouter({ onScreenChange });
+
   onLanguageChange(() => {
-    if (lastComputation) render(lastComputation);
+    if (lastComputation) renderResult(lastComputation);
   });
-  // Subscribe AFTER view-2d so map markers and result panel both update.
   onCoordsChange(onStateChange);
 }
 
