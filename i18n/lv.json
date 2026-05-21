@@ -33,7 +33,6 @@
     }
   },
   "view": {
-    "label": "Skats",
     "map2d": "2D karte",
     "globe3d": "3D globuss",
     "mapShort": "2D karte",

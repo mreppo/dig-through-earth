@@ -257,25 +257,6 @@ function wireLocator() {
   if (els.searchForm) els.searchForm.addEventListener("submit", onSearchSubmit);
 }
 
-function wireViewToggles() {
-  // The view-toggle pills inside the map + globe screens jump between them.
-  document.querySelectorAll("[data-view]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const v = btn.dataset.view;
-      const target = v === "3d" ? "globe" : "map";
-      showScreen(target);
-    });
-  });
-}
-
-function syncViewToggles(activeId) {
-  document.querySelectorAll("[data-view]").forEach((btn) => {
-    const v = btn.dataset.view;
-    const active = (activeId === "globe" && v === "3d") || (activeId === "map" && v === "2d");
-    btn.setAttribute("aria-pressed", active ? "true" : "false");
-  });
-}
-
 function bootView2D() {
   if (!els.map || !window.L) return;
   view2D = initView2D({
@@ -291,7 +272,6 @@ function bootView2D() {
 }
 
 function onScreenChange(id) {
-  syncViewToggles(id);
   // Leaflet measures container at create time; invalidate when its screen
   // becomes visible so blank tiles don't appear.
   if (id === "map" && view2D) view2D.invalidateSize();
@@ -317,7 +297,6 @@ async function boot() {
   initTheme();
   bootView2D();
   wireLocator();
-  wireViewToggles();
   initQuiz({ triggerEl: null, sectionEl: els.quizSection });
 
   initRouter({ onScreenChange });

@@ -867,40 +867,6 @@ a:hover { color: var(--dte-accent-2); }
   transform: translate(-50%, -100%);
 }
 
-/* View toggle (floats top-centre over map/globe) */
-.view-toggle {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  padding: 4px;
-  border-radius: var(--dte-r-pill);
-  background: var(--dte-glass-bg-strong);
-  backdrop-filter: var(--dte-glass-blur);
-  -webkit-backdrop-filter: var(--dte-glass-blur);
-  border: .5px solid var(--dte-glass-border);
-  box-shadow: var(--dte-glass-inner), var(--dte-sh-card);
-  z-index: 40;
-}
-.view-toggle button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  min-height: 36px;
-  border: none;
-  background: transparent;
-  color: var(--dte-ink-soft);
-  font: 700 13px/1 var(--dte-font-display);
-  border-radius: var(--dte-r-pill);
-  white-space: nowrap;
-}
-.view-toggle button[aria-pressed="true"] {
-  background: var(--dte-ink);
-  color: var(--dte-bg-base);
-}
-
 /* Map peek (floating bottom card) */
 .map-peek {
   position: absolute;

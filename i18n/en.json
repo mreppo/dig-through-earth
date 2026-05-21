@@ -33,7 +33,6 @@
     }
   },
   "view": {
-    "label": "View",
     "map2d": "2D Map",
     "globe3d": "3D Globe",
     "mapShort": "2D map",
