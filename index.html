@@ -24,6 +24,10 @@
             src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
+    <script defer
+            src="https://unpkg.com/globe.gl@2.46.1/dist/globe.gl.min.js"
+            integrity="sha384-fS13P48RBFel+cPUp5960AhzvtEr64LerQ00neZuM+Hi/VDxxemdQnN7IcWPYvPb"
+            crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/main.css" />
   </head>
@@ -87,7 +91,17 @@
         </div>
 
         <div class="view view--3d" data-view-pane="3d" hidden>
-          <p class="viewport__placeholder" data-i18n="view.globePlaceholder">The 3D globe lands soon.</p>
+          <div id="globe-3d"
+               class="globe"
+               role="application"
+               data-i18n-attr="aria-label"
+               data-i18n="view.globeAriaLabel"
+               aria-label="Interactive 3D globe. Tap or click anywhere to pick a spot."
+               tabindex="0"></div>
+          <p id="globe-loading"
+             class="globe__loading"
+             role="status"
+             data-i18n="view.globeLoading">Spinning up the globe…</p>
         </div>
 
         <div id="drilling-overlay" class="drilling-overlay" hidden aria-hidden="true">
