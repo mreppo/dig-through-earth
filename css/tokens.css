@@ -1,0 +1,313 @@
+/* ============================================================
+   Dig Through Earth - Design Tokens (v2)
+   iOS 26 Liquid Glass. Two axes:
+     data-mode   = "kid" | "standard"   (type, motion, radii, tap)
+     data-scheme = "light" | "dark"     (palette, glass, ink)
+
+   Default: data-mode="kid" + data-scheme follows prefers-color-scheme.
+   The no-FOUC boot script in index.html sets both attributes before this
+   file loads.
+   ============================================================ */
+
+:root,
+[data-mode="kid"] {
+  /* ---------- Radii (concentric, iOS 26 style) ---------- */
+  --dte-r-xs:    8px;
+  --dte-r-sm:    14px;
+  --dte-r-md:    20px;
+  --dte-r-lg:    28px;
+  --dte-r-xl:    36px;
+  --dte-r-2xl:   44px;
+  --dte-r-pill:  999px;
+  --dte-r-btn:   var(--dte-r-pill);   /* Kid: pill buttons */
+  --dte-r-card:  var(--dte-r-lg);
+  --dte-r-sheet: var(--dte-r-xl);
+
+  /* ---------- Spacing ---------- */
+  --dte-s-1:   4px;
+  --dte-s-2:   8px;
+  --dte-s-3:   12px;
+  --dte-s-4:   16px;
+  --dte-s-5:   20px;
+  --dte-s-6:   24px;
+  --dte-s-7:   32px;
+  --dte-s-8:   40px;
+  --dte-s-9:   48px;
+  --dte-s-10:  64px;
+  --dte-screen-pad-x: 20px;
+
+  /* ---------- Type ---------- */
+  --dte-font-display: "Nunito", "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  --dte-font-body:    "Nunito", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --dte-font-mono:    "SF Mono", ui-monospace, "Menlo", monospace;
+
+  --dte-t-display:   800 44px/1.05 var(--dte-font-display);
+  --dte-t-title-xl:  800 32px/1.1  var(--dte-font-display);
+  --dte-t-title-lg:  800 26px/1.15 var(--dte-font-display);
+  --dte-t-title-md:  700 20px/1.2  var(--dte-font-display);
+  --dte-t-eyebrow:   800 12px/1.2  var(--dte-font-body);
+  --dte-t-body-lg:   500 18px/1.45 var(--dte-font-body);
+  --dte-t-body:      500 17px/1.45 var(--dte-font-body);
+  --dte-t-body-sm:   500 15px/1.4  var(--dte-font-body);
+  --dte-t-caption:   700 13px/1.3  var(--dte-font-body);
+  --dte-t-button:    800 17px/1    var(--dte-font-display);
+
+  /* ---------- Tap targets ---------- */
+  --dte-tap-min:        56px;
+  --dte-tap-comfortable:64px;
+
+  /* ---------- Motion ---------- */
+  --dte-motion-fast:   140ms cubic-bezier(.2,.7,.3,1);
+  --dte-motion-base:   220ms cubic-bezier(.2,.7,.3,1);
+  --dte-motion-slow:   360ms cubic-bezier(.2,.7,.3,1);
+  --dte-motion-spring: 520ms cubic-bezier(.34, 1.56, .64, 1);
+  --dte-press-scale:   .92;
+
+  /* ---------- Accents (same hues, scheme adjusts intensity) ---------- */
+  --dte-accent:    #FFB627;
+  --dte-accent-2:  #FF5E5B;
+  --dte-accent-3:  #00C9A8;
+  --dte-accent-4:  #7C5CFF;
+  --dte-accent-5:  #FF8FCF;
+  --dte-ok:        #2DA34A;
+  --dte-warn:      #F19200;
+  --dte-error:     #E5403D;
+}
+
+[data-mode="standard"] {
+  /* Tighter radii, smaller type, no-overshoot motion, smaller tap */
+  --dte-r-sm:    10px;
+  --dte-r-md:    16px;
+  --dte-r-lg:    22px;
+  --dte-r-xl:    28px;
+  --dte-r-btn:   16px;                /* Std: rounded rect */
+  --dte-r-card:  var(--dte-r-lg);
+
+  --dte-font-display: "Inter", -apple-system, "SF Pro Display", system-ui, sans-serif;
+  --dte-font-body:    "Inter", -apple-system, "SF Pro Text", system-ui, sans-serif;
+
+  --dte-t-display:   700 36px/1.08 var(--dte-font-display);
+  --dte-t-title-xl:  700 26px/1.15 var(--dte-font-display);
+  --dte-t-title-lg:  700 22px/1.2  var(--dte-font-display);
+  --dte-t-title-md:  600 18px/1.25 var(--dte-font-display);
+  --dte-t-eyebrow:   700 11px/1.2  var(--dte-font-body);
+  --dte-t-body-lg:   400 17px/1.5  var(--dte-font-body);
+  --dte-t-body:      400 15px/1.5  var(--dte-font-body);
+  --dte-t-body-sm:   400 13px/1.4  var(--dte-font-body);
+  --dte-t-caption:   500 12px/1.35 var(--dte-font-body);
+  --dte-t-button:    600 15px/1    var(--dte-font-display);
+
+  --dte-tap-min:        44px;
+  --dte-tap-comfortable:52px;
+
+  --dte-motion-spring: 320ms cubic-bezier(.2,.7,.3,1);
+  --dte-press-scale:   .97;
+  --dte-screen-pad-x:  18px;
+
+  --dte-accent:    #E89B1A;
+  --dte-accent-2:  #E04E4B;
+  --dte-accent-3:  #00B294;
+  --dte-accent-4:  #6A4FE0;
+  --dte-accent-5:  #D87BB4;
+}
+
+/* ============================================================
+   SCHEME: LIGHT (daylight, warm) - both modes
+   ============================================================ */
+[data-scheme="light"] {
+  --dte-bg-deep:        #FFF7E8;
+  --dte-bg-base:        #FFF1DE;
+  --dte-bg-elevated:    #FFFFFF;
+  --dte-bg-aurora-1:    #FFD4A8;
+  --dte-bg-aurora-2:    #FFC9D8;
+  --dte-bg-aurora-3:    #B8E0FF;
+  --dte-bg-aurora-4:    #FFE085;
+
+  --dte-ink:            #1F1208;
+  --dte-ink-sec:        rgba(31, 18, 8, 0.78);
+  --dte-ink-soft:       rgba(31, 18, 8, 0.66);
+  --dte-ink-faint:      rgba(31, 18, 8, 0.34);
+  --dte-ink-on-accent:  #1A0E00;
+  --dte-ink-on-dark:    #FFFFFF;
+  --dte-link:           #A65A00;
+
+  --dte-glass-bg:        rgba(255, 255, 255, 0.55);
+  --dte-glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --dte-glass-border:    rgba(255, 255, 255, 0.95);
+  --dte-glass-inner:     inset 0 1.5px 0 rgba(255, 255, 255, 0.85),
+                         inset 0 -1px 0 rgba(255, 200, 140, 0.25);
+  --dte-glass-blur:      blur(24px) saturate(180%);
+  --dte-glass-blur-sm:   blur(12px) saturate(160%);
+
+  --dte-glass-bg-solid:        #FFF8EC;
+  --dte-glass-bg-solid-strong: #FFFFFF;
+
+  --dte-sh-card:    0 1px 2px rgba(120, 60, 0, .08),
+                    0 12px 36px rgba(120, 60, 0, .14);
+  --dte-sh-float:   0 8px 28px rgba(120, 60, 0, .18);
+  --dte-sh-btn:     0 8px 20px rgba(255, 140, 30, .45);
+  --dte-sh-btn-2:   0 8px 20px rgba(255, 94, 91, .40);
+  --dte-sh-icon-sq: inset 0 1px 0 rgba(255, 255, 255, .55),
+                    0 3px 8px rgba(120, 60, 0, .22);
+
+  --dte-wallpaper:
+    radial-gradient(70% 55% at 18% 8%,
+      color-mix(in oklab, var(--dte-bg-aurora-1) 90%, transparent) 0%, transparent 65%),
+    radial-gradient(60% 50% at 90% 12%,
+      color-mix(in oklab, var(--dte-bg-aurora-2) 85%, transparent) 0%, transparent 65%),
+    radial-gradient(70% 60% at 12% 95%,
+      color-mix(in oklab, var(--dte-bg-aurora-3) 85%, transparent) 0%, transparent 70%),
+    radial-gradient(60% 50% at 92% 88%,
+      color-mix(in oklab, var(--dte-bg-aurora-4) 80%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg, var(--dte-bg-deep) 0%, var(--dte-bg-base) 100%);
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   SCHEME: DARK (night sky, vibrant accents) - both modes
+   ============================================================ */
+[data-scheme="dark"] {
+  --dte-bg-deep:        #050B1A;
+  --dte-bg-base:        #0A1628;
+  --dte-bg-elevated:    #142139;
+  --dte-bg-aurora-1:    #1E3A6B;
+  --dte-bg-aurora-2:    #4B1E5C;
+  --dte-bg-aurora-3:    #0F4A52;
+  --dte-bg-aurora-4:    #5C2A1E;
+
+  --dte-ink:            #FFFFFF;
+  --dte-ink-sec:        rgba(255, 255, 255, 0.82);
+  --dte-ink-soft:       rgba(255, 255, 255, 0.70);
+  --dte-ink-faint:      rgba(255, 255, 255, 0.40);
+  --dte-ink-on-accent:  #1A0E00;
+  --dte-ink-on-dark:    #FFFFFF;
+  --dte-link:           var(--dte-accent);
+
+  --dte-glass-bg:        rgba(255, 255, 255, 0.10);
+  --dte-glass-bg-strong: rgba(255, 255, 255, 0.16);
+  --dte-glass-border:    rgba(255, 255, 255, 0.22);
+  --dte-glass-inner:     inset 0 1.5px 0 rgba(255, 255, 255, 0.45),
+                         inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  --dte-glass-blur:      blur(24px) saturate(180%);
+  --dte-glass-blur-sm:   blur(12px) saturate(160%);
+
+  --dte-glass-bg-solid:        #1B2A45;
+  --dte-glass-bg-solid-strong: #243352;
+
+  --dte-sh-card:    0 1px 2px rgba(0, 0, 0, .35),
+                    0 14px 40px rgba(0, 0, 0, .45);
+  --dte-sh-float:   0 8px 28px rgba(0, 0, 0, .5);
+  --dte-sh-btn:     0 6px 18px rgba(255, 182, 39, .45);
+  --dte-sh-btn-2:   0 6px 18px rgba(255, 94, 91, .4);
+  --dte-sh-icon-sq: inset 0 1px 0 rgba(255, 255, 255, .35),
+                    0 4px 10px rgba(0, 0, 0, .35);
+
+  --dte-wallpaper:
+    radial-gradient(60% 50% at 20% 10%,
+      color-mix(in oklab, var(--dte-bg-aurora-1) 85%, transparent) 0%, transparent 70%),
+    radial-gradient(55% 45% at 85% 12%,
+      color-mix(in oklab, var(--dte-bg-aurora-2) 80%, transparent) 0%, transparent 70%),
+    radial-gradient(70% 55% at 30% 95%,
+      color-mix(in oklab, var(--dte-bg-aurora-3) 75%, transparent) 0%, transparent 70%),
+    radial-gradient(45% 40% at 90% 85%,
+      color-mix(in oklab, var(--dte-bg-aurora-4) 75%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg, var(--dte-bg-deep) 0%, var(--dte-bg-base) 100%);
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   STANDARD-MODE TONAL ADJUSTMENTS (per scheme)
+   ============================================================ */
+[data-mode="standard"][data-scheme="light"] {
+  --dte-bg-deep:        #F4F2EE;
+  --dte-bg-base:        #EEEAE3;
+  --dte-bg-aurora-1:    #E5C9A8;
+  --dte-bg-aurora-2:    #DCC6D2;
+  --dte-bg-aurora-3:    #BFD4E5;
+  --dte-bg-aurora-4:    #E8DAB2;
+
+  --dte-ink:            #14110C;
+  --dte-ink-sec:        rgba(20, 17, 12, 0.78);
+  --dte-ink-soft:       rgba(20, 17, 12, 0.66);
+  --dte-ink-faint:      rgba(20, 17, 12, 0.30);
+  --dte-link:           #8A4A00;
+
+  --dte-glass-bg:        rgba(255, 255, 255, 0.50);
+  --dte-glass-bg-strong: rgba(255, 255, 255, 0.65);
+  --dte-glass-border:    rgba(255, 255, 255, 0.80);
+  --dte-glass-bg-solid:        #F8F5EF;
+  --dte-glass-bg-solid-strong: #FFFFFF;
+
+  --dte-sh-card:    0 1px 2px rgba(50, 40, 20, .06),
+                    0 8px 24px rgba(50, 40, 20, .10);
+  --dte-sh-btn:     0 4px 14px rgba(232, 155, 26, .32);
+  --dte-sh-btn-2:   0 4px 14px rgba(224, 78, 75, .28);
+}
+
+[data-mode="standard"][data-scheme="dark"] {
+  --dte-bg-deep:        #060912;
+  --dte-bg-base:        #0E1622;
+  --dte-bg-aurora-1:    #1A2C4A;
+  --dte-bg-aurora-2:    #2E1B3F;
+  --dte-bg-aurora-3:    #0E353A;
+  --dte-bg-aurora-4:    #3A1E1A;
+
+  --dte-ink-sec:        rgba(255, 255, 255, 0.78);
+  --dte-ink-soft:       rgba(255, 255, 255, 0.66);
+
+  --dte-glass-bg:        rgba(255, 255, 255, 0.07);
+  --dte-glass-bg-strong: rgba(255, 255, 255, 0.12);
+  --dte-glass-border:    rgba(255, 255, 255, 0.16);
+  --dte-glass-bg-solid:        #182234;
+  --dte-glass-bg-solid-strong: #1F2A40;
+
+  --dte-sh-btn:     0 4px 14px rgba(232, 155, 26, .32);
+  --dte-sh-btn-2:   0 4px 14px rgba(224, 78, 75, .28);
+}
+
+/* ============================================================
+   ACCESSIBILITY FALLBACKS
+   ============================================================ */
+
+/* Reduced transparency: solid surfaces in every theme */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --dte-glass-bg:        var(--dte-glass-bg-solid);
+    --dte-glass-bg-strong: var(--dte-glass-bg-solid-strong);
+    --dte-glass-blur:      none;
+    --dte-glass-blur-sm:   none;
+  }
+}
+
+/* Reduced motion: kill transitions + bouncy springs in every theme */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dte-motion-fast:   1ms linear;
+    --dte-motion-base:   1ms linear;
+    --dte-motion-slow:   1ms linear;
+    --dte-motion-spring: 1ms linear;
+    --dte-press-scale:   1;
+  }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High-contrast: bump borders + ink in every theme */
+@media (prefers-contrast: more) {
+  [data-scheme="dark"] {
+    --dte-glass-border: rgba(255,255,255,0.55);
+    --dte-ink-sec:      rgba(255,255,255,0.95);
+    --dte-ink-soft:     rgba(255,255,255,0.82);
+  }
+  [data-scheme="light"] {
+    --dte-glass-border: rgba(30,15,0,0.40);
+    --dte-ink-sec:      rgba(31,18,8,0.92);
+    --dte-ink-soft:     rgba(31,18,8,0.80);
+  }
+}

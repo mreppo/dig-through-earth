@@ -11,6 +11,7 @@ import { setCoords, onCoordsChange } from "./state.js";
 import { initView2D } from "./view-2d.js";
 import { initView3D } from "./view-3d.js";
 import { initQuiz } from "./quiz.js";
+import { initTheme } from "./theme.js";
 
 const els = {};
 let lastComputation = null; // remember the inputs so we can re-render on language change
@@ -253,6 +254,9 @@ async function boot() {
   } catch (err) {
     console.error("i18n init failed:", err);
   }
+  // Theme switcher (mole + sun/moon) - needs i18n for aria-label + mode pill copy.
+  // initTheme is internally guarded: pages without the buttons exit silently.
+  initTheme();
   bootViewToggleAndMap();
   wireLocator();
   // initQuiz is internally guarded: if either element is missing (e.g. on
