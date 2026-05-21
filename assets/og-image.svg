@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Dig Through Earth - bilingual map and globe of your antipode">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7cc4ff"/>
+      <stop offset="60%" stop-color="#ffb84d"/>
+      <stop offset="100%" stop-color="#ef5350"/>
+    </linearGradient>
+    <radialGradient id="globeShade" cx="0.35" cy="0.35" r="0.75">
+      <stop offset="0%" stop-color="#ffe6c2" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1f2933" stop-opacity="0.0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#sky)"/>
+
+  <!-- Title -->
+  <text x="80" y="160"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="84" font-weight="800" fill="#1f2933"
+        letter-spacing="-1">Dig Through Earth</text>
+
+  <text x="80" y="220"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="36" font-weight="500" fill="#1f2933" opacity="0.85">Where would you come out on the other side?</text>
+
+  <!-- Globe on the right -->
+  <g transform="translate(900, 380)">
+    <circle r="190" fill="#2f7fc1" stroke="#1f2933" stroke-width="6"/>
+    <!-- Stylised landmasses -->
+    <path d="M -120 -40 Q -60 -90 0 -60 Q 30 -30 80 -50 Q 130 -30 110 30 Q 80 70 30 60 Q -20 80 -80 50 Q -130 30 -120 -40 Z"
+          fill="#5fbf6e" opacity="0.95"/>
+    <path d="M 30 80 Q 80 90 100 130 Q 70 160 30 140 Q -10 130 30 80 Z"
+          fill="#5fbf6e" opacity="0.9"/>
+    <!-- Equator hint -->
+    <ellipse rx="190" ry="60" fill="none" stroke="#1f2933" stroke-width="1.5" opacity="0.35"/>
+    <!-- Highlight -->
+    <circle r="190" fill="url(#globeShade)"/>
+  </g>
+
+  <!-- Drill / tunnel pin on the globe -->
+  <g transform="translate(900, 380)">
+    <circle cx="-100" cy="-30" r="14" fill="#ef5350" stroke="#1f2933" stroke-width="3"/>
+    <circle cx="100" cy="30" r="14" fill="#2f7fc1" stroke="#fff" stroke-width="3"/>
+    <line x1="-100" y1="-30" x2="100" y2="30" stroke="#ffb84d" stroke-width="4" stroke-dasharray="8,6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bilingual chip -->
+  <g transform="translate(80, 510)">
+    <rect width="200" height="56" rx="28" fill="#1f2933"/>
+    <text x="100" y="36"
+          font-family="system-ui, sans-serif" font-size="22" font-weight="700"
+          fill="#fffaf2" text-anchor="middle" letter-spacing="2">EN · LV</text>
+  </g>
+</svg>

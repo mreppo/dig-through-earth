@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffb84d" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1f2b" media="(prefers-color-scheme: dark)" />
     <title data-i18n="notFound.title">Page not found</title>
+    <meta name="description" data-i18n-attr="content" data-i18n="notFound.message" content="Looks like you dug the wrong way!" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="css/main.css" />
     <style>
       .notfound {
@@ -13,7 +20,7 @@
         padding: 2rem 1rem;
         text-align: center;
       }
-      .notfound h1 {
+      .notfound h2 {
         font-size: 2rem;
         margin-bottom: 0.5rem;
       }
@@ -29,12 +36,23 @@
         <div class="site-header__brand">
           <h1 class="site-header__title" data-i18n="header.title">Dig Through Earth</h1>
         </div>
+
+        <div class="site-header__controls">
+          <div class="toggle" role="group" data-i18n-attr="aria-label" data-i18n="lang.label" aria-label="Language">
+            <button type="button" class="toggle__btn" data-lang="en" aria-pressed="true">
+              <span data-i18n="lang.en">English</span>
+            </button>
+            <button type="button" class="toggle__btn" data-lang="lv" aria-pressed="false">
+              <span data-i18n="lang.lv">Latviešu</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main id="main" class="site-main">
-      <section class="notfound">
-        <h1 data-i18n="notFound.title">Page not found</h1>
+      <section class="notfound" aria-labelledby="notfound-heading">
+        <h2 id="notfound-heading" data-i18n="notFound.title">Page not found</h2>
         <p data-i18n="notFound.message">Looks like you dug the wrong way!</p>
         <p>
           <a href="./" data-i18n="notFound.homeLink">Back to the surface</a>
