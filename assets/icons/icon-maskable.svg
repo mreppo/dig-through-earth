@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dig Through Earth - app icon (maskable purpose).
+  Same visual as icon-any.svg but the mole + orb are smaller and centred so
+  that the spec's 80% safe-zone (centred circle of radius 40% of the canvas)
+  fully contains the meaningful art. Anything outside is bleed - the peach
+  fill extends to the edges so cropped corners still look intentional.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Dig Through Earth">
+  <defs>
+    <linearGradient id="bgM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD4A8"/>
+      <stop offset="100%" stop-color="#FFB627"/>
+    </linearGradient>
+    <radialGradient id="orbM" cx="35%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#7CC4FF"/>
+      <stop offset="60%" stop-color="#1A3568"/>
+      <stop offset="100%" stop-color="#050B1A"/>
+    </radialGradient>
+    <radialGradient id="moleBodyM" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7B5A40"/>
+      <stop offset="100%" stop-color="#4A3520"/>
+    </radialGradient>
+    <radialGradient id="moleHatM" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFD06B"/>
+      <stop offset="100%" stop-color="#FFB627"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Full-bleed peach -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#bgM)"/>
+
+  <!-- Smaller globe orb so the entire orb sits inside the 80% safe zone
+       (radius 204 from centre). -->
+  <circle cx="256" cy="256" r="140" fill="url(#orbM)"/>
+  <ellipse cx="216" cy="232" rx="28" ry="16" fill="#00C9A8" opacity="0.75"/>
+  <ellipse cx="304" cy="276" rx="34" ry="20" fill="#FF5E5B" opacity="0.65"/>
+  <ellipse cx="248" cy="312" rx="22" ry="14" fill="#7C5CFF" opacity="0.70"/>
+
+  <!-- Mole mascot, smaller and centred over the orb -->
+  <g transform="translate(256 272) scale(3.3) translate(-28 -28)">
+    <ellipse cx="28" cy="36" rx="16" ry="13" fill="url(#moleBodyM)"/>
+    <ellipse cx="28" cy="36" rx="9" ry="7" fill="#9C7758"/>
+    <ellipse cx="28" cy="34" rx="3" ry="2.4" fill="#1A0E00"/>
+    <circle cx="22" cy="29" r="1.4" fill="#1A0E00"/>
+    <circle cx="34" cy="29" r="1.4" fill="#1A0E00"/>
+    <circle cx="22.4" cy="28.6" r="0.5" fill="#fff"/>
+    <circle cx="34.4" cy="28.6" r="0.5" fill="#fff"/>
+    <path d="M14 22 Q14 12 28 12 Q42 12 42 22 L42 24 L14 24 Z" fill="url(#moleHatM)"/>
+    <rect x="14" y="22" width="28" height="3" rx="1.5" fill="#E89100"/>
+    <circle cx="28" cy="17" r="3" fill="#fff8d6"/>
+    <circle cx="28" cy="17" r="1.4" fill="#FFE066"/>
+    <ellipse cx="17" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+    <ellipse cx="39" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+  </g>
+</svg>

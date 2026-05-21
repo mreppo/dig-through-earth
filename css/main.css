@@ -640,6 +640,12 @@ a:hover { color: var(--dte-accent-2); }
   box-shadow: var(--dte-glass-inner);
 }
 
+.btn--sm {
+  min-height: 36px;
+  padding: 0 var(--dte-s-4);
+  font-size: 13px;
+}
+
 .btn--icon {
   width: var(--dte-tap-min);
   height: var(--dte-tap-min);
@@ -1257,4 +1263,225 @@ a:hover { color: var(--dte-accent-2); }
     max-width: 560px;
     margin: 0 auto;
   }
+}
+
+/* ============================================================
+   PWA install UI
+   - install-btn  : header icon button, glass like .scheme-btn
+   - install-banner : one-shot bottom nudge on first visit
+   - install-ios  : modal sheet with the iOS AtH steps
+   - update-toast / installed-toast : transient status surfaces
+   All consume tokens so they re-skin correctly across the 2x2 matrix.
+   ============================================================ */
+
+.install-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  border: .5px solid var(--dte-glass-border);
+  background: var(--dte-glass-bg-strong);
+  backdrop-filter: var(--dte-glass-blur);
+  -webkit-backdrop-filter: var(--dte-glass-blur);
+  box-shadow: var(--dte-glass-inner), var(--dte-sh-card);
+  color: var(--dte-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform var(--dte-motion-base);
+}
+.install-btn:hover  { transform: scale(1.05); }
+.install-btn:active { transform: scale(.92); }
+[data-scheme="light"] .install-btn {
+  border-color: rgba(120, 70, 20, .22);
+  box-shadow: var(--dte-glass-inner), 0 2px 8px rgba(120, 60, 0, .14);
+}
+
+/* ----- Install banner (first-visit nudge, floats above the tab bar) ----- */
+
+.install-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 90px);
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: var(--dte-s-3);
+  padding: var(--dte-s-3) var(--dte-s-4);
+  border-radius: var(--dte-r-card);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.install-banner__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--dte-accent);
+  color: var(--dte-ink-on-accent);
+  box-shadow: var(--dte-sh-icon-sq);
+}
+.install-banner__text { flex: 1 1 auto; min-width: 0; }
+.install-banner__title {
+  font: var(--dte-t-body);
+  font-weight: 800;
+  color: var(--dte-ink);
+}
+.install-banner__body {
+  font: var(--dte-t-body-sm);
+  color: var(--dte-ink-soft);
+}
+.install-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--dte-s-2);
+  flex-shrink: 0;
+}
+.install-banner__dismiss {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--dte-ink-faint);
+  background: transparent;
+  color: var(--dte-ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.install-banner__dismiss:hover { color: var(--dte-ink); }
+
+/* ----- iOS Add-to-Home-Screen modal ----- */
+
+.install-ios {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 16px calc(env(safe-area-inset-bottom, 0px) + 24px);
+}
+.install-ios__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 11, 26, .55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.install-ios__sheet {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: var(--dte-r-sheet);
+  padding: var(--dte-s-6) var(--dte-s-5) var(--dte-s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dte-s-4);
+}
+.install-ios__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--dte-ink-faint);
+  background: transparent;
+  color: var(--dte-ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.install-ios__close:hover { color: var(--dte-ink); }
+.install-ios__title {
+  font: var(--dte-t-title-md);
+  letter-spacing: -.01em;
+  padding-right: 44px;
+}
+.install-ios__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dte-s-3);
+}
+.install-ios__step {
+  display: grid;
+  grid-template-columns: 28px 36px 1fr;
+  align-items: center;
+  gap: var(--dte-s-3);
+  padding: var(--dte-s-3) var(--dte-s-4);
+  border-radius: var(--dte-r-md);
+  background: var(--dte-glass-bg);
+  border: 1px solid var(--dte-ink-faint);
+}
+.install-ios__step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--dte-accent);
+  color: var(--dte-ink-on-accent);
+  font: 800 14px/1 var(--dte-font-display);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.install-ios__step-glyph {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--dte-glass-bg-strong);
+  border: 1px solid var(--dte-ink-faint);
+  color: var(--dte-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.install-ios__step-text {
+  font: var(--dte-t-body);
+  color: var(--dte-ink);
+}
+
+/* ----- Update + installed toasts (floating, bottom-centre) ----- */
+
+.update-toast {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 90px);
+  z-index: 96;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--dte-s-3);
+  padding: var(--dte-s-3) var(--dte-s-4);
+  border-radius: var(--dte-r-card);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.update-toast__text {
+  font: var(--dte-t-body);
+  font-weight: 700;
+  color: var(--dte-ink);
+}
+
+.installed-toast {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 90px);
+  z-index: 97;
+  padding: var(--dte-s-3) var(--dte-s-4);
+  border-radius: var(--dte-r-pill);
+  text-align: center;
+  font: var(--dte-t-body);
+  font-weight: 700;
+  color: var(--dte-ink);
+  max-width: 360px;
+  margin: 0 auto;
 }

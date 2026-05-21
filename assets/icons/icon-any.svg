@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dig Through Earth - app icon (any purpose).
+  Globe orb on a peach square. Centred mole-with-hardhat mascot.
+  Designed so the mole fills ~50% of the canvas - safe to crop but recognisable
+  at favicon sizes too.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Dig Through Earth">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD4A8"/>
+      <stop offset="100%" stop-color="#FFB627"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="35%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#7CC4FF"/>
+      <stop offset="60%" stop-color="#1A3568"/>
+      <stop offset="100%" stop-color="#050B1A"/>
+    </radialGradient>
+    <radialGradient id="moleBody" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7B5A40"/>
+      <stop offset="100%" stop-color="#4A3520"/>
+    </radialGradient>
+    <radialGradient id="moleHat" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFD06B"/>
+      <stop offset="100%" stop-color="#FFB627"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Peach square background. The square has rounded corners so the icon
+       still looks decent without a system mask, but the design tolerates a
+       circle mask too (the orb sits centred). -->
+  <rect x="0" y="0" width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- Globe orb -->
+  <circle cx="256" cy="276" r="184" fill="url(#orb)"/>
+  <!-- Tiny accent dots: continents-ish -->
+  <ellipse cx="200" cy="240" rx="38" ry="22" fill="#00C9A8" opacity="0.75"/>
+  <ellipse cx="320" cy="296" rx="46" ry="28" fill="#FF5E5B" opacity="0.65"/>
+  <ellipse cx="244" cy="340" rx="30" ry="18" fill="#7C5CFF" opacity="0.70"/>
+
+  <!-- Mole mascot, centred on the orb -->
+  <g transform="translate(256 296) scale(4.4) translate(-28 -28)">
+    <ellipse cx="28" cy="36" rx="16" ry="13" fill="url(#moleBody)"/>
+    <ellipse cx="28" cy="36" rx="9" ry="7" fill="#9C7758"/>
+    <ellipse cx="28" cy="34" rx="3" ry="2.4" fill="#1A0E00"/>
+    <circle cx="22" cy="29" r="1.4" fill="#1A0E00"/>
+    <circle cx="34" cy="29" r="1.4" fill="#1A0E00"/>
+    <circle cx="22.4" cy="28.6" r="0.5" fill="#fff"/>
+    <circle cx="34.4" cy="28.6" r="0.5" fill="#fff"/>
+    <path d="M14 22 Q14 12 28 12 Q42 12 42 22 L42 24 L14 24 Z" fill="url(#moleHat)"/>
+    <rect x="14" y="22" width="28" height="3" rx="1.5" fill="#E89100"/>
+    <circle cx="28" cy="17" r="3" fill="#fff8d6"/>
+    <circle cx="28" cy="17" r="1.4" fill="#FFE066"/>
+    <ellipse cx="17" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+    <ellipse cx="39" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+  </g>
+</svg>

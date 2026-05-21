@@ -263,5 +263,30 @@
     "heading": "Lost in the tunnel",
     "message": "Looks like you dug the wrong way!",
     "homeLink": "Back to the surface"
+  },
+  "install": {
+    "button": "Install Dig Through Earth",
+    "banner": {
+      "title": "Add Dig Earth to your home screen",
+      "body": "Tap once - it opens like a real app, no app store needed.",
+      "cta": "Install",
+      "dismiss": "Not now"
+    },
+    "ios": {
+      "modal": {
+        "title": "Install Dig Earth on iPhone",
+        "step1": "Tap the Share icon at the bottom of Safari.",
+        "step2": "Pick \"Add to Home Screen\".",
+        "step3": "Tap \"Add\" in the top-right corner.",
+        "close": "Close"
+      }
+    },
+    "updateAvailable": {
+      "text": "New version ready.",
+      "reload": "Reload"
+    },
+    "installed": {
+      "toast": "Dig Earth added to your home screen!"
+    }
   }
 }
