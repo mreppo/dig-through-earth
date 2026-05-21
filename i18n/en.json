@@ -70,6 +70,118 @@
     "credits": "Made with curiosity for kids who like to dig.",
     "sourceLink": "View on GitHub"
   },
+  "quiz": {
+    "trigger": "Play the quiz!",
+    "heading": "Quick quiz!",
+    "intro": "Ten questions about Earth, oceans, and antipodes. Ready?",
+    "progress": "Question {{current}} of {{total}}",
+    "feedback": {
+      "correct": "Yes, that's right!",
+      "wrong": "Not quite — the answer is {{answer}}.",
+      "next": "Next question",
+      "finish": "See results"
+    },
+    "questions": {
+      "latvia": {
+        "text": "If you dig straight through Earth from Latvia, where do you come out?",
+        "options": [
+          "Pacific Ocean",
+          "Brazil",
+          "Australia",
+          "China"
+        ]
+      },
+      "deepestOcean": {
+        "text": "Which ocean is the deepest?",
+        "options": [
+          "Atlantic Ocean",
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "fallTime": {
+        "text": "If you could fall through a tunnel right through the Earth (no heat, no air), how long would it take?",
+        "options": [
+          "About 42 minutes",
+          "About 1 hour",
+          "About 1 day",
+          "About 1 week"
+        ]
+      },
+      "europeAntipodes": {
+        "text": "If you pick a random spot in Europe, where is your antipode most likely to be?",
+        "options": [
+          "Asia",
+          "South America",
+          "Pacific Ocean",
+          "Antarctica"
+        ]
+      },
+      "earthDiameter": {
+        "text": "Earth's diameter — the straight line through the middle — is about…",
+        "options": [
+          "5,000 km",
+          "12,742 km",
+          "40,000 km",
+          "100,000 km"
+        ]
+      },
+      "highestMountain": {
+        "text": "Which mountain reaches the highest above sea level?",
+        "options": [
+          "Mount Everest",
+          "K2",
+          "Mount Kilimanjaro",
+          "Mont Blanc"
+        ]
+      },
+      "largestContinent": {
+        "text": "Which is the largest continent?",
+        "options": [
+          "Asia",
+          "Africa",
+          "North America",
+          "Europe"
+        ]
+      },
+      "earthCore": {
+        "text": "What is at the very centre of the Earth?",
+        "options": [
+          "A ball of mostly iron and nickel",
+          "A pool of molten lava",
+          "An empty cave",
+          "A core of solid ice"
+        ]
+      },
+      "waterCover": {
+        "text": "About how much of Earth's surface is covered by water?",
+        "options": [
+          "About 30%",
+          "About 50%",
+          "About 71%",
+          "About 95%"
+        ]
+      },
+      "earthRadius": {
+        "text": "How far is it from the surface to the centre of the Earth?",
+        "options": [
+          "About 100 km",
+          "About 1,000 km",
+          "About 6,371 km",
+          "About 50,000 km"
+        ]
+      }
+    },
+    "end": {
+      "score": "You got {{correct}} out of {{total}} right.",
+      "tierPerfect": "Whoa — a perfect score! You're a real Earth detective.",
+      "tierHigh": "Brilliant — you really are a geography explorer!",
+      "tierMid": "Nice digging — you know your planet pretty well!",
+      "tierLow": "Try again, adventurer — the Earth has more secrets to share!",
+      "restart": "Play again"
+    }
+  },
   "notFound": {
     "title": "Page not found",
     "message": "Looks like you dug the wrong way!",
