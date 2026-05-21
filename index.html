@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#ffb84d" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1f2b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FFF1DE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A1628" media="(prefers-color-scheme: dark)" />
     <title data-i18n="meta.title">Dig Through Earth</title>
     <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Where would you come out if you dug straight through the Earth? Find out on a map and globe!" />
     <meta name="keywords" content="antipode, geography, kids, education, globe, map, Earth, Latvian, English" />
@@ -33,6 +33,31 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
+    <!-- No-FOUC boot: set data-mode and data-scheme BEFORE any stylesheet loads. -->
+    <script>
+      (function () {
+        try {
+          var m = localStorage.getItem('dte:mode') || 'kid';
+          var s = localStorage.getItem('dte:scheme');
+          if (!s) {
+            s = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark'
+              : 'light';
+          }
+          document.documentElement.setAttribute('data-mode', m);
+          document.documentElement.setAttribute('data-scheme', s);
+        } catch (e) {
+          document.documentElement.setAttribute('data-mode', 'kid');
+          document.documentElement.setAttribute('data-scheme', 'light');
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@500;700;800;900&display=swap" />
+
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -46,6 +71,7 @@
             integrity="sha384-fS13P48RBFel+cPUp5960AhzvtEr64LerQ00neZuM+Hi/VDxxemdQnN7IcWPYvPb"
             crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -74,6 +100,61 @@
             </button>
             <button type="button" class="toggle__btn" data-view="3d" aria-pressed="false">
               <span data-i18n="view.globe3d">3D Globe</span>
+            </button>
+          </div>
+
+          <div class="site-header__theme" role="group" data-i18n-attr="aria-label" data-i18n="theme.label" aria-label="Theme">
+            <button type="button"
+                    id="themeSchemeBtn"
+                    class="scheme-btn"
+                    data-i18n-attr="aria-label"
+                    data-i18n="theme.switchTo.dark"
+                    aria-label="Switch to dark mode"
+                    aria-pressed="false">
+              <svg class="scheme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+              </svg>
+              <svg class="scheme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+              </svg>
+            </button>
+
+            <button type="button"
+                    id="themeModeBtn"
+                    class="mole-btn"
+                    data-i18n-attr="aria-label"
+                    data-i18n="theme.switchTo.standard"
+                    aria-label="Switch to standard look"
+                    aria-pressed="false">
+              <span class="mole-halo" aria-hidden="true"></span>
+              <span class="dirt-puff" aria-hidden="true"></span>
+              <svg class="mole-svg" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
+                <defs>
+                  <radialGradient id="moleBody" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="#7B5A40"/>
+                    <stop offset="100%" stop-color="#4A3520"/>
+                  </radialGradient>
+                  <radialGradient id="moleHat" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="#FFD06B"/>
+                    <stop offset="100%" stop-color="#FFB627"/>
+                  </radialGradient>
+                </defs>
+                <ellipse cx="28" cy="36" rx="16" ry="13" fill="url(#moleBody)"/>
+                <ellipse cx="28" cy="36" rx="9" ry="7" fill="#9C7758"/>
+                <ellipse cx="28" cy="34" rx="3" ry="2.4" fill="#1A0E00"/>
+                <circle cx="22" cy="29" r="1.4" fill="#1A0E00"/>
+                <circle cx="34" cy="29" r="1.4" fill="#1A0E00"/>
+                <circle cx="22.4" cy="28.6" r=".5" fill="#fff"/>
+                <circle cx="34.4" cy="28.6" r=".5" fill="#fff"/>
+                <path d="M14 22 Q14 12 28 12 Q42 12 42 22 L42 24 L14 24 Z" fill="url(#moleHat)"/>
+                <rect x="14" y="22" width="28" height="3" rx="1.5" fill="#E89100"/>
+                <circle cx="28" cy="17" r="3" fill="#fff8d6"/>
+                <circle cx="28" cy="17" r="1.4" fill="#FFE066"/>
+                <ellipse cx="17" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+                <ellipse cx="39" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+              </svg>
+              <span class="mode-pill" id="themeModePill" aria-hidden="true">KID</span>
             </button>
           </div>
         </div>
@@ -121,8 +202,8 @@
              data-i18n="view.globeLoading">Spinning up the globe…</p>
         </div>
 
-        <div id="drilling-overlay" class="drilling-overlay" hidden aria-hidden="true">
-          <div class="drilling-overlay__icon">🕳️</div>
+        <div id="drilling-overlay" class="drilling-overlay" hidden role="status" aria-live="polite">
+          <div class="drilling-overlay__icon" aria-hidden="true">🌋</div>
           <p class="drilling-overlay__text" data-i18n="view.drilling">Drilling…</p>
         </div>
       </section>

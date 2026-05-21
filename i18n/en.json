@@ -17,6 +17,19 @@
     "en": "English",
     "lv": "Latviešu"
   },
+  "theme": {
+    "label": "Theme",
+    "pill": {
+      "kid": "KID",
+      "standard": "STD"
+    },
+    "switchTo": {
+      "kid": "Switch to kid look (currently standard mode)",
+      "standard": "Switch to standard look (currently kid mode)",
+      "light": "Switch to light mode (currently dark)",
+      "dark": "Switch to dark mode (currently light)"
+    }
+  },
   "view": {
     "label": "View",
     "map2d": "2D Map",
@@ -184,6 +197,8 @@
   },
   "notFound": {
     "title": "Page not found",
+    "eyebrow": "404",
+    "heading": "Lost in the tunnel",
     "message": "Looks like you dug the wrong way!",
     "homeLink": "Back to the surface"
   }

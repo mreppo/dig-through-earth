@@ -17,6 +17,19 @@
     "en": "English",
     "lv": "Latviešu"
   },
+  "theme": {
+    "label": "Izskats",
+    "pill": {
+      "kid": "BĒRNU",
+      "standard": "STD"
+    },
+    "switchTo": {
+      "kid": "Pārslēgt uz bērnu izskatu (pašlaik standarta izskats)",
+      "standard": "Pārslēgt uz standarta izskatu (pašlaik bērnu izskats)",
+      "light": "Pārslēgt uz gaišo režīmu (pašlaik tumšais režīms)",
+      "dark": "Pārslēgt uz tumšo režīmu (pašlaik gaišais režīms)"
+    }
+  },
   "view": {
     "label": "Skats",
     "map2d": "2D karte",
@@ -184,6 +197,8 @@
   },
   "notFound": {
     "title": "Lapa nav atrasta",
+    "eyebrow": "404",
+    "heading": "Apmaldījāmies tunelī",
     "message": "Ups! Šķiet, tu izraki nepareizajā virzienā!",
     "homeLink": "Atpakaļ uz virsmu"
   }
