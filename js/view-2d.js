@@ -1,30 +1,38 @@
-/* view-2d.js — twin Leaflet maps: origin (clickable) + antipode (read-only).
+/* view-2d.js - single Leaflet map with origin + antipode markers and an arc.
  *
- * Leaflet is loaded via <script> in index.html and exposes window.L (UMD build).
- * This module is only imported by code paths that have already verified the
- * map containers exist (main.js boot guard), so we do not re-check here.
+ * Leaflet is loaded via <script> in index.html and exposes window.L (UMD).
+ *
+ * The map fills its own screen in the multi-screen shell. Click on the map
+ * sets coords via state.js; the state subscriber updates both markers, the
+ * arc, and the bottom peek card. Camera flies to the new origin (the
+ * antipode would be on the far side of the projection).
  *
  * Public API:
- *   initView2D({ originEl, antipodeEl })   Create both maps, subscribe to state.
+ *   initView2D({ containerEl, peekEls, drillingEl })
+ *     containerEl: <div id="map">
+ *     peekEls: { peek, fromEl, toEl, kmEl } - the floating bottom card
+ *     drillingEl: <div id="drilling-overlay">
+ *     Returns { invalidateSize }.
  */
 
-import { antipodeOf } from "./antipode.js";
+import { antipodeOf, distanceThroughEarth } from "./antipode.js";
 import { setCoords, onCoordsChange, getCoords } from "./state.js";
 import { t, onLanguageChange } from "./i18n.js";
 
 const ORIGIN_EMOJI = "🕳️";
 const ANTIPODE_EMOJI = "🌊";
-const DEFAULT_VIEW = { center: [20, 0], zoom: 2 };
+const DEFAULT_VIEW = { center: [30, 10], zoom: 2 };
 const FOCUS_ZOOM = 4;
 const DRILL_MS = 1500;
 
-let originMap = null;
-let antipodeMap = null;
+let map = null;
 let originMarker = null;
 let antipodeMarker = null;
+let arcLine = null;
 let currentAttribution = null;
 let drillingOverlay = null;
 let drillTimer = null;
+let peekState = null;
 
 function makeBubbleIcon(emoji) {
   return window.L.divIcon({
@@ -34,7 +42,7 @@ function makeBubbleIcon(emoji) {
   });
 }
 
-function setMarker(map, current, lat, lng, emoji) {
+function setMarker(current, lat, lng, emoji) {
   if (current) {
     current.setLatLng([lat, lng]);
     return current;
@@ -46,10 +54,30 @@ function setMarker(map, current, lat, lng, emoji) {
   }).addTo(map);
 }
 
+function drawArc(lat, lng) {
+  const anti = antipodeOf(lat, lng);
+  // Leaflet polylines render straight in the Mercator projection. Through
+  // the antipode the line wraps the globe horizontally; segment it across
+  // the dateline so the path renders left + right of the visible map.
+  const segments = [
+    [[lat, lng], [anti.lat, anti.lng]],
+  ];
+  if (arcLine) {
+    arcLine.setLatLngs(segments);
+    return;
+  }
+  arcLine = window.L.polyline(segments, {
+    color: "#FFB627",
+    weight: 2.5,
+    opacity: 0.8,
+    dashArray: "2 6",
+    interactive: false,
+  }).addTo(map);
+}
+
 function showDrillingOverlay() {
   if (!drillingOverlay) return;
   clearTimeout(drillTimer);
-  // Toggle hidden off + force reflow so the keyframes restart on rapid clicks.
   drillingOverlay.hidden = true;
   void drillingOverlay.offsetWidth;
   drillingOverlay.hidden = false;
@@ -58,14 +86,25 @@ function showDrillingOverlay() {
   }, DRILL_MS);
 }
 
+function formatKm(km) {
+  return new Intl.NumberFormat(document.documentElement.lang === "lv" ? "lv-LV" : "en-US", {
+    maximumFractionDigits: 0,
+  }).format(km);
+}
+
+function refreshPeek(origin, antipode) {
+  if (!peekState) return;
+  peekState.fromEl.textContent = origin || t("results.youTag");
+  peekState.toEl.textContent = antipode || t("results.openOcean");
+  peekState.kmEl.textContent = `${formatKm(distanceThroughEarth())} ${t("results.kmUnit")}`;
+  peekState.peek.hidden = false;
+}
+
 function refreshAttribution() {
+  if (!map) return;
   const next = t("view.mapAttribution");
-  // The same string is registered on both maps; remove the old, add the new.
-  [originMap, antipodeMap].forEach((m) => {
-    if (!m) return;
-    if (currentAttribution) m.attributionControl.removeAttribution(currentAttribution);
-    m.attributionControl.addAttribution(next);
-  });
+  if (currentAttribution) map.attributionControl.removeAttribution(currentAttribution);
+  map.attributionControl.addAttribution(next);
   currentAttribution = next;
 }
 
@@ -73,84 +112,69 @@ function createTileLayer() {
   return window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
     crossOrigin: "anonymous",
-    // We add attribution via map.attributionControl.addAttribution so it can
-    // be re-localized on language change. Pass empty here to avoid duplicates.
     attribution: "",
   });
 }
 
 function onState({ lat, lng, source }) {
-  // Always update the antipode marker.
   const anti = antipodeOf(lat, lng);
-  originMarker = setMarker(originMap, originMarker, lat, lng, ORIGIN_EMOJI);
-  antipodeMarker = setMarker(antipodeMap, antipodeMarker, anti.lat, anti.lng, ANTIPODE_EMOJI);
+  originMarker = setMarker(originMarker, lat, lng, ORIGIN_EMOJI);
+  antipodeMarker = setMarker(antipodeMarker, anti.lat, anti.lng, ANTIPODE_EMOJI);
+  drawArc(lat, lng);
 
-  // Don't yank the camera if the user is dragging the same map we'd be flying.
+  // Don't yank the camera if the user is dragging the same map.
   if (source !== "view-2d-origin") {
-    originMap.flyTo([lat, lng], FOCUS_ZOOM, { duration: 1.0 });
+    map.flyTo([lat, lng], FOCUS_ZOOM, { duration: 1.0 });
   }
-  antipodeMap.flyTo([anti.lat, anti.lng], FOCUS_ZOOM, { duration: 1.0 });
-
   showDrillingOverlay();
 }
 
-export function initView2D({ originEl, antipodeEl, drillingEl }) {
+export function initView2D({ containerEl, peekEls, drillingEl }) {
   if (!window.L) {
     console.warn("Leaflet (window.L) not loaded; 2D view disabled.");
-    return;
+    return null;
   }
   drillingOverlay = drillingEl || null;
+  peekState = peekEls || null;
 
-  originMap = window.L.map(originEl, {
+  map = window.L.map(containerEl, {
     center: DEFAULT_VIEW.center,
     zoom: DEFAULT_VIEW.zoom,
     worldCopyJump: true,
     zoomControl: true,
   });
-  antipodeMap = window.L.map(antipodeEl, {
-    center: DEFAULT_VIEW.center,
-    zoom: DEFAULT_VIEW.zoom,
-    zoomControl: false,
-    dragging: false,
-    doubleClickZoom: false,
-    scrollWheelZoom: false,
-    boxZoom: false,
-    keyboard: false,
-    tap: false,
-    touchZoom: false,
-  });
 
-  createTileLayer().addTo(originMap);
-  createTileLayer().addTo(antipodeMap);
+  createTileLayer().addTo(map);
 
-  // Drop Leaflet's "Leaflet" branding prefix; we'll manage attribution ourselves.
-  originMap.attributionControl.setPrefix(false);
-  antipodeMap.attributionControl.setPrefix(false);
+  // We manage attribution ourselves so it can be re-localised.
+  map.attributionControl.setPrefix(false);
   refreshAttribution();
 
-  // Click on origin map → set state. State subscriber updates both maps.
-  originMap.on("click", (e) => {
+  map.on("click", (e) => {
     setCoords(e.latlng.lat, e.latlng.lng, "view-2d-origin");
   });
 
-  // Subscribe to state changes (locator, map clicks, future 3D view).
   onCoordsChange(onState);
+  onLanguageChange(() => {
+    refreshAttribution();
+    // Re-render peek with the new language.
+    const seed = getCoords();
+    if (seed) {
+      const a = antipodeOf(seed.lat, seed.lng);
+      refreshPeek(null, null);
+      void a;
+    }
+  });
 
-  // Live-update the attribution text when the language toggles.
-  onLanguageChange(refreshAttribution);
-
-  // If state was set before the map existed (e.g. locator submitted first),
-  // catch up.
   const seed = getCoords();
   if (seed) onState(seed);
 
-  // Leaflet measures container size at create time. If the view is hidden
-  // (display: none) when init runs, tiles render blank until invalidated.
-  // Expose a helper so main.js can call this after un-hiding.
   return {
     invalidateSize() {
-      originMap.invalidateSize();
-      antipodeMap.invalidateSize();
+      map.invalidateSize();
+    },
+    setPeek(origin, antipode) {
+      refreshPeek(origin, antipode);
     },
   };
 }

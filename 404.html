@@ -13,7 +13,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
-    <!-- No-FOUC boot: set data-mode and data-scheme BEFORE any stylesheet loads. -->
     <script>
       (function () {
         try {
@@ -41,82 +40,78 @@
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body>
-    <header class="site-header">
-      <div class="site-header__row">
-        <div class="site-header__brand">
-          <h1 class="site-header__title" data-i18n="header.title">Dig Through Earth</h1>
+  <body class="page-404">
+    <header class="topbar" role="banner">
+      <div class="topbar__left">
+        <span class="wordmark" data-i18n="header.title">Dig Through Earth</span>
+      </div>
+
+      <div class="topbar__controls">
+        <div class="toggle toggle--compact" role="group" data-i18n-attr="aria-label" data-i18n="lang.label" aria-label="Language">
+          <button type="button" class="toggle__btn" data-lang="en" aria-pressed="true">
+            <span data-i18n="lang.en">EN</span>
+          </button>
+          <button type="button" class="toggle__btn" data-lang="lv" aria-pressed="false">
+            <span data-i18n="lang.lv">LV</span>
+          </button>
         </div>
 
-        <div class="site-header__controls">
-          <div class="toggle" role="group" data-i18n-attr="aria-label" data-i18n="lang.label" aria-label="Language">
-            <button type="button" class="toggle__btn" data-lang="en" aria-pressed="true">
-              <span data-i18n="lang.en">English</span>
-            </button>
-            <button type="button" class="toggle__btn" data-lang="lv" aria-pressed="false">
-              <span data-i18n="lang.lv">Latviešu</span>
-            </button>
-          </div>
+        <button type="button"
+                id="themeSchemeBtn"
+                class="scheme-btn"
+                data-i18n-attr="aria-label"
+                data-i18n="theme.switchTo.dark"
+                aria-label="Switch to dark mode"
+                aria-pressed="false">
+          <svg class="scheme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="scheme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
 
-          <div class="site-header__theme" role="group" data-i18n-attr="aria-label" data-i18n="theme.label" aria-label="Theme">
-            <button type="button"
-                    id="themeSchemeBtn"
-                    class="scheme-btn"
-                    data-i18n-attr="aria-label"
-                    data-i18n="theme.switchTo.dark"
-                    aria-label="Switch to dark mode"
-                    aria-pressed="false">
-              <svg class="scheme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-              </svg>
-              <svg class="scheme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
-              </svg>
-            </button>
-
-            <button type="button"
-                    id="themeModeBtn"
-                    class="mole-btn"
-                    data-i18n-attr="aria-label"
-                    data-i18n="theme.switchTo.standard"
-                    aria-label="Switch to standard look"
-                    aria-pressed="false">
-              <span class="mole-halo" aria-hidden="true"></span>
-              <span class="dirt-puff" aria-hidden="true"></span>
-              <svg class="mole-svg" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
-                <defs>
-                  <radialGradient id="moleBody404" cx="50%" cy="40%" r="60%">
-                    <stop offset="0%" stop-color="#7B5A40"/>
-                    <stop offset="100%" stop-color="#4A3520"/>
-                  </radialGradient>
-                  <radialGradient id="moleHat404" cx="50%" cy="40%" r="60%">
-                    <stop offset="0%" stop-color="#FFD06B"/>
-                    <stop offset="100%" stop-color="#FFB627"/>
-                  </radialGradient>
-                </defs>
-                <ellipse cx="28" cy="36" rx="16" ry="13" fill="url(#moleBody404)"/>
-                <ellipse cx="28" cy="36" rx="9" ry="7" fill="#9C7758"/>
-                <ellipse cx="28" cy="34" rx="3" ry="2.4" fill="#1A0E00"/>
-                <circle cx="22" cy="29" r="1.4" fill="#1A0E00"/>
-                <circle cx="34" cy="29" r="1.4" fill="#1A0E00"/>
-                <circle cx="22.4" cy="28.6" r=".5" fill="#fff"/>
-                <circle cx="34.4" cy="28.6" r=".5" fill="#fff"/>
-                <path d="M14 22 Q14 12 28 12 Q42 12 42 22 L42 24 L14 24 Z" fill="url(#moleHat404)"/>
-                <rect x="14" y="22" width="28" height="3" rx="1.5" fill="#E89100"/>
-                <circle cx="28" cy="17" r="3" fill="#fff8d6"/>
-                <circle cx="28" cy="17" r="1.4" fill="#FFE066"/>
-                <ellipse cx="17" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
-                <ellipse cx="39" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
-              </svg>
-              <span class="mode-pill" id="themeModePill" aria-hidden="true">KID</span>
-            </button>
-          </div>
-        </div>
+        <button type="button"
+                id="themeModeBtn"
+                class="mole-btn"
+                data-i18n-attr="aria-label"
+                data-i18n="theme.switchTo.standard"
+                aria-label="Switch to standard look"
+                aria-pressed="false">
+          <span class="mole-halo" aria-hidden="true"></span>
+          <span class="dirt-puff" aria-hidden="true"></span>
+          <svg class="mole-svg" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="moleBody404" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#7B5A40"/>
+                <stop offset="100%" stop-color="#4A3520"/>
+              </radialGradient>
+              <radialGradient id="moleHat404" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#FFD06B"/>
+                <stop offset="100%" stop-color="#FFB627"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="28" cy="36" rx="16" ry="13" fill="url(#moleBody404)"/>
+            <ellipse cx="28" cy="36" rx="9" ry="7" fill="#9C7758"/>
+            <ellipse cx="28" cy="34" rx="3" ry="2.4" fill="#1A0E00"/>
+            <circle cx="22" cy="29" r="1.4" fill="#1A0E00"/>
+            <circle cx="34" cy="29" r="1.4" fill="#1A0E00"/>
+            <circle cx="22.4" cy="28.6" r=".5" fill="#fff"/>
+            <circle cx="34.4" cy="28.6" r=".5" fill="#fff"/>
+            <path d="M14 22 Q14 12 28 12 Q42 12 42 22 L42 24 L14 24 Z" fill="url(#moleHat404)"/>
+            <rect x="14" y="22" width="28" height="3" rx="1.5" fill="#E89100"/>
+            <circle cx="28" cy="17" r="3" fill="#fff8d6"/>
+            <circle cx="28" cy="17" r="1.4" fill="#FFE066"/>
+            <ellipse cx="17" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+            <ellipse cx="39" cy="45" rx="3.5" ry="2.5" fill="#3A2710"/>
+          </svg>
+          <span class="mode-pill" id="themeModePill" aria-hidden="true">KID</span>
+        </button>
       </div>
     </header>
 
-    <main id="main" class="site-main">
+    <main id="main" class="app app--404">
       <section class="notfound" aria-labelledby="notfound-heading">
         <div class="notfound__tunnel" aria-hidden="true">
           <span class="notfound__ring"></span>
@@ -135,7 +130,7 @@
           </svg>
         </div>
         <p class="notfound__eyebrow" data-i18n="notFound.eyebrow">404</p>
-        <h2 id="notfound-heading" class="notfound__heading" data-i18n="notFound.heading">Lost in the tunnel</h2>
+        <h1 id="notfound-heading" class="notfound__heading" data-i18n="notFound.heading">Lost in the tunnel</h1>
         <p class="notfound__body" data-i18n="notFound.message">Looks like you dug the wrong way!</p>
         <a href="./" class="btn btn--primary" data-i18n="notFound.homeLink">Back to the surface</a>
       </section>
