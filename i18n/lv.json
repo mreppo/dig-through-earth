@@ -15,7 +15,9 @@
   "lang": {
     "label": "Valoda",
     "en": "English",
-    "lv": "Latviešu"
+    "lv": "Latviešu",
+    "shortEn": "EN",
+    "shortLv": "LV"
   },
   "theme": {
     "label": "Izskats",

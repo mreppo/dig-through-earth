@@ -15,7 +15,9 @@
   "lang": {
     "label": "Language",
     "en": "English",
-    "lv": "Latviešu"
+    "lv": "Latviešu",
+    "shortEn": "EN",
+    "shortLv": "LV"
   },
   "theme": {
     "label": "Theme",

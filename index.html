@@ -33,7 +33,14 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
-    <!-- No-FOUC boot: set data-mode and data-scheme BEFORE any stylesheet loads. -->
+    <!-- No-FOUC boot: set data-mode + data-scheme BEFORE any stylesheet loads.
+         The token-driven CSS depends on these attributes, so painting before
+         they exist would briefly render the unthemed defaults.
+         Note on body-opacity fade: an opacity-0 -> opacity-1 transition on the
+         <body> was tried as a Tailwind-runtime-ready signal but Lighthouse
+         then times out with NO_FCP (First Contentful Paint never fires while
+         body is invisible). The sync attribute write below is the FOUC fix on
+         its own; the fade was redundant. -->
     <script>
       (function () {
         try {
@@ -73,6 +80,21 @@
 
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Tailwind v4 Play CDN. Loaded after our base CSS so utility classes
+         can layer on top of token-driven styles. Tailwind's docs flag this
+         build as dev/prototype only; we accept the runtime-compile cost on
+         first paint because CLAUDE.md hard rule 1 forbids a build step.
+         Switching to a built bundle would require revisiting that rule. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      /* Map the project's 2x2 matrix to Tailwind v4 variants.
+         data-mode="standard" is intentionally surfaced as `std:` for terseness. */
+      @custom-variant kid (&:where([data-mode=kid] *));
+      @custom-variant std (&:where([data-mode=standard] *));
+      @custom-variant scheme-light (&:where([data-scheme=light] *));
+      @custom-variant scheme-dark (&:where([data-scheme=dark] *));
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#screen-locator" data-i18n="a11y.skipToContent">Skip to content</a>
@@ -85,10 +107,10 @@
       <div class="topbar__controls">
         <div class="toggle toggle--compact" role="group" data-i18n-attr="aria-label" data-i18n="lang.label" aria-label="Language">
           <button type="button" class="toggle__btn" data-lang="en" aria-pressed="true">
-            <span data-i18n="lang.en">EN</span>
+            <span data-i18n="lang.shortEn">EN</span>
           </button>
           <button type="button" class="toggle__btn" data-lang="lv" aria-pressed="false">
-            <span data-i18n="lang.lv">LV</span>
+            <span data-i18n="lang.shortLv">LV</span>
           </button>
         </div>
 

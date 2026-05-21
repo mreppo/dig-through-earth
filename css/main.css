@@ -20,9 +20,16 @@ html {
 html, body {
   margin: 0;
   padding: 0;
+  /* Width safety: never let a runaway child cause horizontal scroll. */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 html, body {
+  /* Dynamic viewport unit follows Safari's collapsing address bar so the
+     bottom tab bar never gets covered. svh is the small viewport fallback
+     for older Safari that doesn't support dvh. */
+  height: 100svh;
   height: 100dvh;
 }
 
