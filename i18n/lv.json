@@ -71,13 +71,13 @@
     "sourceLink": "Skatīt GitHub"
   },
   "quiz": {
-    "trigger": "Spēlē viktorīnu!",
+    "trigger": "Uz viktorīnu!",
     "heading": "Ātrā viktorīna!",
-    "intro": "Desmit jautājumi par Zemi, okeāniem un antipodiem. Vai esi gatavs?",
+    "intro": "Desmit jautājumi par Zemi, okeāniem un antipodiem. Sākam?",
     "progress": "{{current}}. jautājums no {{total}}",
     "feedback": {
       "correct": "Jā, pareizi!",
-      "wrong": "Ne gluži — pareizā atbilde ir {{answer}}.",
+      "wrong": "Hmm, ne īsti! Pareizi būtu {{answer}}.",
       "next": "Nākamais jautājums",
       "finish": "Skatīt rezultātus"
     },
@@ -119,7 +119,7 @@
         ]
       },
       "earthDiameter": {
-        "text": "Zemes diametrs — taisna līnija cauri vidum — ir apmēram…",
+        "text": "Zemes diametrs - taisna līnija cauri vidum - ir apmēram…",
         "options": [
           "5 000 km",
           "12 742 km",
@@ -151,7 +151,7 @@
           "Bumba galvenokārt no dzelzs un niķeļa",
           "Izkusušas lavas ezers",
           "Tukša ala",
-          "Cieta ledus serde"
+          "Cieta ledus bumba"
         ]
       },
       "waterCover": {
@@ -175,10 +175,10 @@
     },
     "end": {
       "score": "Tu pareizi atbildēji uz {{correct}} no {{total}} jautājumiem.",
-      "tierPerfect": "Oho — visi pareizi! Tu esi īsts Zemes detektīvs.",
-      "tierHigh": "Lieliski — tu tiešām esi ģeogrāfijas pētnieks!",
-      "tierMid": "Labi izrakts — tu pazīsti savu planētu diezgan labi!",
-      "tierLow": "Mēģini vēlreiz, piedzīvojumu meklētāj — Zemei ir vēl daudz noslēpumu!",
+      "tierPerfect": "Oho - visi pareizi! Tu esi īsts Zemes detektīvs.",
+      "tierHigh": "Lieliski - tu tiešām esi ģeogrāfijas ceļotājs!",
+      "tierMid": "Labi izrakts - tu pazīsti savu planētu diezgan labi!",
+      "tierLow": "Turpini rakt! Zemei ir vēl daudz noslēpumu, ko tev atklāt.",
       "restart": "Spēlēt vēlreiz"
     }
   },
