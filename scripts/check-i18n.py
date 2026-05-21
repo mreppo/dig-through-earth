@@ -16,10 +16,17 @@ LV_PATH = ROOT / "i18n" / "lv.json"
 
 
 def flatten(obj, prefix=""):
-    """Recursively flatten nested dict/list into dot-path -> value pairs."""
+    """Recursively flatten nested dict/list into dot-path -> value pairs.
+
+    Top-level keys starting with an underscore (e.g. "_meta") are skipped:
+    they hold language metadata (display name, locale, direction) that is
+    expected to differ between EN and LV, so they should not be parity-checked.
+    """
     out = {}
     if isinstance(obj, dict):
         for k, v in obj.items():
+            if not prefix and isinstance(k, str) and k.startswith("_"):
+                continue
             key = f"{prefix}.{k}" if prefix else k
             out.update(flatten(v, key))
     elif isinstance(obj, list):

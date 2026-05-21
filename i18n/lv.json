@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "languageName": "Latviešu",
+    "direction": "ltr",
+    "locale": "lv"
+  },
   "meta": {
     "title": "Izrok cauri Zemei",
     "description": "Kur tu iznāktu, ja izraktu tuneli taisni cauri Zemei? Uzzini kartē un uz globusa!"
@@ -10,8 +15,7 @@
   "lang": {
     "label": "Valoda",
     "en": "English",
-    "lv": "Latviešu",
-    "switchTo": "Mainīt valodu"
+    "lv": "Latviešu"
   },
   "view": {
     "label": "Skats",
@@ -30,10 +34,6 @@
   "a11y": {
     "skipToContent": "Pāriet uz saturu"
   },
-  "main": {
-    "placeholder": "Šeit parādīsies karte un globuss.",
-    "loading": "Ielādē…"
-  },
   "locator": {
     "heading": "Kur tu esi?",
     "useMyLocation": "Atrodi mani!",
@@ -46,8 +46,8 @@
     "calculate": "Rok!",
     "errors": {
       "denied": "Nekas! Ievadi koordinātes zemāk.",
-      "unsupported": "Tava pārlūkprogramma nevar atrast tavu atrašanās vietu. Ievadi koordinātes pats!",
-      "timeout": "Tas aizņēma pārāk ilgu laiku. Mēģini vēlreiz vai ievadi koordinātes.",
+      "unsupported": "Tava pārlūkprogramma neprot tevi atrast. Ievadi koordinātes zemāk!",
+      "timeout": "Pārāk ilgi gaidījām! Mēģini vēlreiz vai ievadi koordinātes.",
       "invalidLat": "Platumam jābūt no -90 līdz 90.",
       "invalidLng": "Garumam jābūt no -180 līdz 180.",
       "missing": "Ievadi gan platumu, gan garumu."
@@ -68,7 +68,7 @@
   },
   "footer": {
     "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",
-    "sourceLink": "Skatīt GitHub"
+    "sourceLink": "Projekts GitHub'ā"
   },
   "quiz": {
     "trigger": "Uz viktorīnu!",
@@ -101,7 +101,7 @@
         ]
       },
       "fallTime": {
-        "text": "Ja tu varētu krist cauri tunelim taisni caur Zemi (bez karstuma un bez gaisa), cik ilgs laiks tam būtu vajadzīgs?",
+        "text": "Ja tu varētu krist pa tuneli taisni caur Zemi (bez karstuma un bez gaisa), cik ilgi tas aizņemtu?",
         "options": [
           "Apmēram 42 minūtes",
           "Apmēram 1 stunda",
@@ -148,10 +148,10 @@
       "earthCore": {
         "text": "Kas atrodas pašā Zemes vidū?",
         "options": [
-          "Bumba galvenokārt no dzelzs un niķeļa",
+          "Lode galvenokārt no dzelzs un niķeļa",
           "Izkusušas lavas ezers",
           "Tukša ala",
-          "Cieta ledus bumba"
+          "Cieta ledus lode"
         ]
       },
       "waterCover": {
@@ -176,7 +176,7 @@
     "end": {
       "score": "Tu pareizi atbildēji uz {{correct}} no {{total}} jautājumiem.",
       "tierPerfect": "Oho - visi pareizi! Tu esi īsts Zemes detektīvs.",
-      "tierHigh": "Lieliski - tu tiešām esi ģeogrāfijas ceļotājs!",
+      "tierHigh": "Lieliski - tu tiešām pārzini ģeogrāfiju!",
       "tierMid": "Labi izrakts - tu pazīsti savu planētu diezgan labi!",
       "tierLow": "Turpini rakt! Zemei ir vēl daudz noslēpumu, ko tev atklāt.",
       "restart": "Spēlēt vēlreiz"
