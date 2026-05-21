@@ -16,7 +16,14 @@
   "view": {
     "label": "Skats",
     "map2d": "2D karte",
-    "globe3d": "3D globuss"
+    "globe3d": "3D globuss",
+    "originMapLabel": "Tu esi šeit",
+    "antipodeMapLabel": "Tu iznāktu šeit",
+    "originMapAriaLabel": "Sākuma karte. Pieskaries vai uzklikšķini, lai izvēlētos sākuma vietu.",
+    "antipodeMapAriaLabel": "Pretpunkta karte. Atjaunojas, kad izvēlies sākuma vietu.",
+    "drilling": "Rokam cauri Zemei…",
+    "globePlaceholder": "3D globuss drīz griezīsies šeit!",
+    "mapAttribution": "© OpenStreetMap dalībnieki"
   },
   "a11y": {
     "skipToContent": "Pāriet uz saturu"

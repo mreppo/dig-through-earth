@@ -16,6 +16,15 @@
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <script defer
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -51,8 +60,40 @@
     </header>
 
     <main id="main" class="site-main">
-      <section class="viewport" aria-live="polite">
-        <p class="viewport__placeholder" data-i18n="main.placeholder">The map and globe will appear here.</p>
+      <section class="viewport" aria-labelledby="viewport-heading" aria-live="polite">
+        <h2 id="viewport-heading" class="sr-only" data-i18n="view.label">View</h2>
+        <div class="view view--2d" data-view-pane="2d">
+          <div class="map-pair">
+            <div class="map-cell">
+              <h3 class="map-cell__label" data-i18n="view.originMapLabel">You're here</h3>
+              <div id="map-origin"
+                   class="map"
+                   role="application"
+                   data-i18n-attr="aria-label"
+                   data-i18n="view.originMapAriaLabel"
+                   aria-label="Origin map. Tap or click to choose a starting point."
+                   tabindex="0"></div>
+            </div>
+            <div class="map-cell">
+              <h3 class="map-cell__label" data-i18n="view.antipodeMapLabel">You'd come out here</h3>
+              <div id="map-antipode"
+                   class="map"
+                   role="img"
+                   data-i18n-attr="aria-label"
+                   data-i18n="view.antipodeMapAriaLabel"
+                   aria-label="Antipode map. Updates automatically when you pick a starting point."></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="view view--3d" data-view-pane="3d" hidden>
+          <p class="viewport__placeholder" data-i18n="view.globePlaceholder">The 3D globe lands soon.</p>
+        </div>
+
+        <div id="drilling-overlay" class="drilling-overlay" hidden aria-hidden="true">
+          <div class="drilling-overlay__icon">🕳️</div>
+          <p class="drilling-overlay__text" data-i18n="view.drilling">Drilling…</p>
+        </div>
       </section>
 
       <section class="locator" aria-labelledby="locator-heading">
