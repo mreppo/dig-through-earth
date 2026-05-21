@@ -48,13 +48,52 @@ function isStandalone() {
   );
 }
 
+/**
+ * Detect iOS / iPadOS Safari.
+ *
+ * The /iPad|iPhone|iPod/ UA branch catches iPhone, iPod, and (older) iPads.
+ * Since iPadOS 13, Safari on iPad has shipped a desktop-shaped UA by default
+ * ("Macintosh; Intel Mac OS X ..."), so a pure-UA check misses every modern
+ * iPad. Without the touch-points fallback below, every iPad user falls
+ * through to the no-op path: no Install button, no Add-to-Home-Screen modal,
+ * which kills install for one of the biggest target devices for a kids' app.
+ *
+ * The desktop-spoofing iPad branch is identified by the combination:
+ *   - UA mentions "Macintosh" (the spoof target)
+ *   - maxTouchPoints > 1 (real Macs have 0; iPads report >1)
+ *   - 'ontouchend' in document (extra belt-and-braces; the Macintosh-spoof
+ *     iPad still exposes the touch event interface)
+ *
+ * Sample UAs we accept as iOS Safari (subject to the Safari-vs-CriOS check):
+ *   - iPhone iOS 17 Safari:
+ *       "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15
+ *        (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1"
+ *   - iPad pre-13 Safari:
+ *       "Mozilla/5.0 (iPad; CPU OS 12_5 like Mac OS X) AppleWebKit/605.1.15
+ *        (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1"
+ *   - iPadOS 16+ Safari (desktop UA):
+ *       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15
+ *        (KHTML, like Gecko) Version/16.4 Safari/605.1.15"
+ *     -> caught by the Macintosh + touch-points + ontouchend branch.
+ *
+ * Sample UAs we DO NOT match:
+ *   - Chrome on iPhone (CriOS in UA): in-app browser, no SW + no AtH
+ *   - Firefox on iPhone (FxiOS): same reason
+ *   - Real macOS Safari: no touch points, no ontouchend
+ */
 function isIosSafari() {
   const ua = window.navigator.userAgent || "";
-  const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-  // Safari (not Chrome / Firefox-on-iOS, which both still hit the iOS WebKit
-  // engine but report different UA strings).
   const isSafari = /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
-  return isIos && isSafari;
+  if (!isSafari) return false;
+  // Classic branch: iPhone / iPod / pre-13 iPad still ships an iPad-tagged UA.
+  if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return true;
+  // iPadOS 13+ desktop-UA branch.
+  if (/Macintosh/.test(ua) &&
+      typeof navigator.maxTouchPoints === "number" && navigator.maxTouchPoints > 1 &&
+      "ontouchend" in document) {
+    return true;
+  }
+  return false;
 }
 
 function nudgeWasDismissed() {
