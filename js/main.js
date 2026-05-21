@@ -9,10 +9,12 @@ import { antipodeOf, distanceThroughEarth, surfaceDistance } from "./antipode.js
 import { requestGeolocation, validateCoords, reverseGeocode } from "./location.js";
 import { setCoords, onCoordsChange } from "./state.js";
 import { initView2D } from "./view-2d.js";
+import { initView3D } from "./view-3d.js";
 
 const els = {};
 let lastComputation = null; // remember the inputs so we can re-render on language change
 let view2D = null;
+let view3D = null; // lazy: only initialised when the user first opens the 3D pane
 
 function cacheEls() {
   els.geoBtn = document.getElementById("locator-geo");
@@ -35,6 +37,44 @@ function cacheEls() {
   els.mapAntipode = document.getElementById("map-antipode");
   els.drilling = document.getElementById("drilling-overlay");
   els.viewPanes = document.querySelectorAll("[data-view-pane]");
+  els.globe = document.getElementById("globe-3d");
+  els.globeLoading = document.getElementById("globe-loading");
+}
+
+function hasWebGL() {
+  try {
+    const c = document.createElement("canvas");
+    return !!(window.WebGLRenderingContext &&
+      (c.getContext("webgl") || c.getContext("experimental-webgl")));
+  } catch {
+    return false;
+  }
+}
+
+function ensureView3D() {
+  // Lazy: only build the globe the first time the user opens the 3D pane.
+  // Saves ~1.8 MB of JS + WebGL context for 2D-only visitors.
+  if (view3D || !els.globe) return view3D;
+  if (!hasWebGL() || !window.Globe) {
+    if (els.globeLoading) {
+      // Re-target the i18n key too, otherwise the next applyTranslations()
+      // (any language toggle) would revert this back to the loading caption.
+      els.globeLoading.setAttribute("data-i18n", "view.globeUnsupported");
+      els.globeLoading.textContent = t("view.globeUnsupported");
+    }
+    return null;
+  }
+  view3D = initView3D({
+    containerEl: els.globe,
+    onReady: () => {
+      if (els.globeLoading) els.globeLoading.hidden = true;
+    },
+  });
+  // Fallback if onGlobeReady never fires (older globe.gl, headless tests, etc.).
+  setTimeout(() => {
+    if (els.globeLoading && !els.globeLoading.hidden) els.globeLoading.hidden = true;
+  }, 4000);
+  return view3D;
 }
 
 function wireViewToggle() {
@@ -52,6 +92,16 @@ function wireViewToggle() {
       // Leaflet measures its container at create time; if it was hidden when
       // initialised it renders blank tiles. Recompute size whenever 2D shows.
       if (chosen === "2d" && view2D) view2D.invalidateSize();
+      // Lazy-init globe on first 3D switch; pause/resume to save CPU + battery.
+      if (chosen === "3d") {
+        ensureView3D();
+        if (view3D) {
+          view3D.invalidateSize();
+          view3D.resume();
+        }
+      } else if (view3D) {
+        view3D.pause();
+      }
     });
   });
 }

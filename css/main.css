@@ -276,6 +276,50 @@ button {
   touch-action: pan-x pan-y;
 }
 
+/* ----- 3D globe pane ----- */
+.view--3d {
+  position: relative;
+}
+
+.globe {
+  width: 100%;
+  height: 60vh;
+  min-height: 20rem;
+  border-radius: var(--radius-sm);
+  background: #0b1020; /* deep night sky so the globe pops while loading */
+  overflow: hidden;
+  outline: none;
+}
+
+.globe:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.globe canvas {
+  display: block;
+}
+
+.globe__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-weight: 600;
+  color: #f4f1ea;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,16,32,0.6), rgba(11,16,32,0.3));
+  border-radius: var(--radius-sm);
+  transition: opacity 250ms ease;
+}
+
+.globe__loading[hidden] {
+  display: none !important;
+}
+
 /* Custom emoji marker bubble */
 .marker-bubble {
   display: flex;
