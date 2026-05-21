@@ -70,6 +70,118 @@
     "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",
     "sourceLink": "Skatīt GitHub"
   },
+  "quiz": {
+    "trigger": "Spēlē viktorīnu!",
+    "heading": "Ātrā viktorīna!",
+    "intro": "Desmit jautājumi par Zemi, okeāniem un antipodiem. Vai esi gatavs?",
+    "progress": "{{current}}. jautājums no {{total}}",
+    "feedback": {
+      "correct": "Jā, pareizi!",
+      "wrong": "Ne gluži — pareizā atbilde ir {{answer}}.",
+      "next": "Nākamais jautājums",
+      "finish": "Skatīt rezultātus"
+    },
+    "questions": {
+      "latvia": {
+        "text": "Ja izrok taisni cauri Zemei no Latvijas, kura vieta ir tavs antipods?",
+        "options": [
+          "Klusais okeāns",
+          "Brazīlija",
+          "Austrālija",
+          "Ķīna"
+        ]
+      },
+      "deepestOcean": {
+        "text": "Kurš okeāns ir visdziļākais?",
+        "options": [
+          "Atlantijas okeāns",
+          "Klusais okeāns",
+          "Indijas okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      },
+      "fallTime": {
+        "text": "Ja tu varētu krist cauri tunelim taisni caur Zemi (bez karstuma un bez gaisa), cik ilgs laiks tam būtu vajadzīgs?",
+        "options": [
+          "Apmēram 42 minūtes",
+          "Apmēram 1 stunda",
+          "Apmēram 1 diena",
+          "Apmēram 1 nedēļa"
+        ]
+      },
+      "europeAntipodes": {
+        "text": "Ja izvēlies nejaušu vietu Eiropā, kura vieta visbiežāk ir tās antipods?",
+        "options": [
+          "Āzija",
+          "Dienvidamerika",
+          "Klusais okeāns",
+          "Antarktika"
+        ]
+      },
+      "earthDiameter": {
+        "text": "Zemes diametrs — taisna līnija cauri vidum — ir apmēram…",
+        "options": [
+          "5 000 km",
+          "12 742 km",
+          "40 000 km",
+          "100 000 km"
+        ]
+      },
+      "highestMountain": {
+        "text": "Kurš kalns paceļas visaugstāk virs jūras līmeņa?",
+        "options": [
+          "Everests",
+          "K2",
+          "Kilimandžaro",
+          "Monblāns"
+        ]
+      },
+      "largestContinent": {
+        "text": "Kurš ir lielākais kontinents?",
+        "options": [
+          "Āzija",
+          "Āfrika",
+          "Ziemeļamerika",
+          "Eiropa"
+        ]
+      },
+      "earthCore": {
+        "text": "Kas atrodas pašā Zemes vidū?",
+        "options": [
+          "Bumba galvenokārt no dzelzs un niķeļa",
+          "Izkusušas lavas ezers",
+          "Tukša ala",
+          "Cieta ledus serde"
+        ]
+      },
+      "waterCover": {
+        "text": "Cik daudz Zemes virsmas klāj ūdens?",
+        "options": [
+          "Apmēram 30%",
+          "Apmēram 50%",
+          "Apmēram 71%",
+          "Apmēram 95%"
+        ]
+      },
+      "earthRadius": {
+        "text": "Cik tālu ir no virsmas līdz pašam Zemes vidum?",
+        "options": [
+          "Apmēram 100 km",
+          "Apmēram 1 000 km",
+          "Apmēram 6 371 km",
+          "Apmēram 50 000 km"
+        ]
+      }
+    },
+    "end": {
+      "score": "Tu pareizi atbildēji uz {{correct}} no {{total}} jautājumiem.",
+      "tierPerfect": "Oho — visi pareizi! Tu esi īsts Zemes detektīvs.",
+      "tierHigh": "Lieliski — tu tiešām esi ģeogrāfijas pētnieks!",
+      "tierMid": "Labi izrakts — tu pazīsti savu planētu diezgan labi!",
+      "tierLow": "Mēģini vēlreiz, piedzīvojumu meklētāj — Zemei ir vēl daudz noslēpumu!",
+      "restart": "Spēlēt vēlreiz"
+    }
+  },
   "notFound": {
     "title": "Lapa nav atrasta",
     "message": "Ups! Šķiet, tu izraki nepareizajā virzienā!",

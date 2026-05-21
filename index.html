@@ -162,6 +162,33 @@
         <p id="locator-error" class="locator__error" role="alert" hidden></p>
       </section>
 
+      <section id="quiz"
+               class="quiz"
+               data-quiz-section
+               aria-labelledby="quiz-heading"
+               hidden>
+        <h2 id="quiz-heading" class="quiz__heading" data-i18n="quiz.heading">Quick quiz!</h2>
+        <p class="quiz__intro" data-quiz-intro data-i18n="quiz.intro">Ten questions about Earth, oceans, and antipodes. Ready?</p>
+
+        <div class="quiz__body" data-quiz-body>
+          <p class="quiz__progress" data-quiz-progress></p>
+          <p class="quiz__question" data-quiz-question tabindex="-1"></p>
+          <div class="quiz__options" data-quiz-options></div>
+          <p class="quiz__feedback" data-quiz-feedback aria-live="polite"></p>
+          <button type="button" class="btn btn--primary quiz__next" data-quiz-next hidden>
+            <span data-quiz-next-label></span>
+          </button>
+        </div>
+
+        <div class="quiz__end" data-quiz-end hidden>
+          <h3 class="quiz__end-heading" data-quiz-end-heading tabindex="-1"></h3>
+          <p class="quiz__end-score" data-quiz-end-score></p>
+          <button type="button" class="btn btn--primary" data-quiz-restart>
+            <span data-i18n="quiz.end.restart">Play again</span>
+          </button>
+        </div>
+      </section>
+
       <section class="results" aria-labelledby="results-heading" aria-live="polite">
         <h2 id="results-heading" class="results__heading" data-i18n="results.heading">Your antipode</h2>
         <p id="results-placeholder" class="results__placeholder" data-i18n="results.placeholder">Pick a spot to see where you'd come out.</p>
@@ -188,6 +215,9 @@
     </main>
 
     <footer class="site-footer">
+      <button type="button" class="btn btn--primary site-footer__quiz" data-quiz-trigger>
+        <span data-i18n="quiz.trigger">Play the quiz!</span>
+      </button>
       <p class="site-footer__credits" data-i18n="footer.credits">Made with curiosity for kids who like to dig.</p>
       <p class="site-footer__source">
         <a href="https://github.com/mreppo/dig-through-earth" rel="noopener" data-i18n="footer.sourceLink">View on GitHub</a>

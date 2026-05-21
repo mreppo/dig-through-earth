@@ -10,6 +10,7 @@ import { requestGeolocation, validateCoords, reverseGeocode } from "./location.j
 import { setCoords, onCoordsChange } from "./state.js";
 import { initView2D } from "./view-2d.js";
 import { initView3D } from "./view-3d.js";
+import { initQuiz } from "./quiz.js";
 
 const els = {};
 let lastComputation = null; // remember the inputs so we can re-render on language change
@@ -39,6 +40,8 @@ function cacheEls() {
   els.viewPanes = document.querySelectorAll("[data-view-pane]");
   els.globe = document.getElementById("globe-3d");
   els.globeLoading = document.getElementById("globe-loading");
+  els.quizTrigger = document.querySelector("[data-quiz-trigger]");
+  els.quizSection = document.querySelector("[data-quiz-section]");
 }
 
 function hasWebGL() {
@@ -252,6 +255,9 @@ async function boot() {
   }
   bootViewToggleAndMap();
   wireLocator();
+  // initQuiz is internally guarded: if either element is missing (e.g. on
+  // 404.html), it bails out silently.
+  initQuiz({ triggerEl: els.quizTrigger, sectionEl: els.quizSection });
   // Re-render results on language change.
   onLanguageChange(() => {
     if (lastComputation) render(lastComputation);
