@@ -66,7 +66,13 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(PRECACHE).then((cache) => cache.addAll(APP_SHELL))
   );
-  self.skipWaiting();
+  // Do NOT call self.skipWaiting() here. The page listens for
+  // `controllerchange` and unconditionally reloads, so any silent activation
+  // would yank quiz / locator state from under an active user. The
+  // "New version, reload?" toast is the only path to activation: when the
+  // user clicks Reload, the page postMessages SKIP_WAITING (handled below),
+  // the new worker takes control, `controllerchange` fires, and the page
+  // reloads exactly once - intentionally.
 });
 
 self.addEventListener("activate", (event) => {
@@ -137,9 +143,11 @@ self.addEventListener("fetch", (event) => {
 });
 
 // Allow the page to ping the worker to activate a new version immediately
-// (used by the reload toast).
+// (used by the reload toast). Accept both string and {type} object payloads
+// so future call sites can pick whichever shape reads cleaner.
 self.addEventListener("message", (event) => {
-  if (event.data === "SKIP_WAITING") {
+  const d = event.data;
+  if (d === "SKIP_WAITING" || (d && d.type === "SKIP_WAITING")) {
     self.skipWaiting();
   }
 });

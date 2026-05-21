@@ -201,6 +201,13 @@ async function onInstallClick() {
 // Service-worker registration + update toast
 // ---------------------------------------------------------------------------
 
+// Set to true ONLY when the user explicitly clicks the "Reload" button on
+// the update toast. The controllerchange listener uses this flag to decide
+// whether a reload is warranted. Without this guard the first-install
+// `clients.claim()` -> controllerchange would silently reload the page,
+// which is jarring mid-quiz and was the bug Codex flagged on PR #23.
+let userRequestedReload = false;
+
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
   // SW only works on secure contexts (HTTPS or localhost). Skip silently
@@ -227,12 +234,16 @@ function registerServiceWorker() {
       console.warn("sw register failed:", err);
     });
 
-  // Fired when the active SW changes (e.g., after we postMessage SKIP_WAITING
-  // and the new one takes over). Reload so the user sees the new app shell.
-  let refreshing = false;
+  // Fired when the active SW changes. Two cases:
+  //   1. First-time install: clients.claim() in the worker's activate
+  //      handler takes control of the existing page. No reload needed -
+  //      everything the user sees already matches the new SW.
+  //   2. User-driven update: the page has just postMessaged SKIP_WAITING
+  //      because the user clicked Reload on the update toast. Reload so
+  //      they get the fresh app shell.
+  // The userRequestedReload flag distinguishes the two.
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (refreshing) return;
-    refreshing = true;
+    if (!userRequestedReload) return;
     window.location.reload();
   });
 }
@@ -242,7 +253,8 @@ function showUpdateToast(waitingWorker) {
   els.updateToast.hidden = false;
   const onReload = () => {
     els.updateToastReload.removeEventListener("click", onReload);
-    if (waitingWorker) waitingWorker.postMessage("SKIP_WAITING");
+    userRequestedReload = true;
+    if (waitingWorker) waitingWorker.postMessage({ type: "SKIP_WAITING" });
   };
   els.updateToastReload.addEventListener("click", onReload);
 }
