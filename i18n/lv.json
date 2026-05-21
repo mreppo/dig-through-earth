@@ -46,8 +46,8 @@
     "calculate": "Rok!",
     "errors": {
       "denied": "Nekas! Ievadi koordinātes zemāk.",
-      "unsupported": "Tava pārlūkprogramma nevar atrast tavu atrašanās vietu. Ievadi koordinātes pašrocīgi!",
-      "timeout": "Tas aizņēma pārāk ilgu laiku. Mēģini vēlreiz vai ievadi koordinātes.",
+      "unsupported": "Tava pārlūkprogramma neprot tevi atrast. Ievadi koordinātes zemāk!",
+      "timeout": "Pārāk ilgi gaidījām! Mēģini vēlreiz vai ievadi koordinātes.",
       "invalidLat": "Platumam jābūt no -90 līdz 90.",
       "invalidLng": "Garumam jābūt no -180 līdz 180.",
       "missing": "Ievadi gan platumu, gan garumu."
@@ -68,7 +68,7 @@
   },
   "footer": {
     "credits": "Veidots ar ziņkāri bērniem, kuriem patīk rakt.",
-    "sourceLink": "Skatīt GitHub'ā"
+    "sourceLink": "Projekts GitHub'ā"
   },
   "quiz": {
     "trigger": "Uz viktorīnu!",
@@ -101,7 +101,7 @@
         ]
       },
       "fallTime": {
-        "text": "Ja tu varētu krist cauri tunelim taisni caur Zemi (bez karstuma un bez gaisa), cik ilgs laiks tam būtu vajadzīgs?",
+        "text": "Ja tu varētu krist pa tuneli taisni caur Zemi (bez karstuma un bez gaisa), cik ilgi tas aizņemtu?",
         "options": [
           "Apmēram 42 minūtes",
           "Apmēram 1 stunda",
@@ -148,10 +148,10 @@
       "earthCore": {
         "text": "Kas atrodas pašā Zemes vidū?",
         "options": [
-          "Bumba galvenokārt no dzelzs un niķeļa",
+          "Lode galvenokārt no dzelzs un niķeļa",
           "Izkusušas lavas ezers",
           "Tukša ala",
-          "Cieta ledus bumba"
+          "Cieta ledus lode"
         ]
       },
       "waterCover": {
