@@ -21,8 +21,8 @@
     "antipodeMapLabel": "Tu iznāktu šeit",
     "originMapAriaLabel": "Sākuma karte. Pieskaries vai uzklikšķini, lai izvēlētos sākuma vietu.",
     "antipodeMapAriaLabel": "Pretpunkta karte. Atjaunojas, kad izvēlies sākuma vietu.",
-    "drilling": "Rok cauri Zemei…",
-    "globePlaceholder": "3D globuss drīz būs klāt!",
+    "drilling": "Rokam cauri Zemei…",
+    "globePlaceholder": "3D globuss drīz griezīsies šeit!",
     "mapAttribution": "© OpenStreetMap dalībnieki"
   },
   "a11y": {

@@ -156,6 +156,12 @@ async function onUseLocation() {
   els.geoBtn.disabled = true;
   try {
     const { lat, lng } = await requestGeolocation();
+    // Populate the input fields here. onStateChange skips input-sync when
+    // source === "locator" to preserve what the user typed; geolocation is
+    // a "locator" source that DOES need to fill the inputs, so we do it
+    // explicitly at this call site.
+    els.latInput.value = lat.toFixed(4);
+    els.lngInput.value = lng.toFixed(4);
     setCoords(lat, lng, "locator");
   } catch (err) {
     const key = err && err.code === "denied"
