@@ -90,6 +90,11 @@
       "placeholder": "Meklē pilsētu vai ciematu…",
       "submit": "Meklēt"
     },
+    "autocomplete": {
+      "loading": "Meklējam pilsētas…",
+      "noResults": "Tādu pilsētu neatradām. Pamēģini citu rakstību.",
+      "error": "Pilsētu sarakstu neizdevās ielādēt - vienkārši pieskaries Meklēt."
+    },
     "cities": {
       "heading": "Vai izvēlies pilsētu",
       "riga": "Rīga",
