@@ -324,25 +324,25 @@
       }
     },
     {
-      "id": "largest-country-area",
+      "id": "largest-africa-area",
       "topic": "continents",
       "correctIndex": 3,
       "en": {
-        "text": "Which is the largest country by area?",
+        "text": "Which is the largest country in Africa by area?",
         "options": [
-          "China",
-          "United States",
-          "Canada",
-          "Russia"
+          "Egypt",
+          "Nigeria",
+          "Ethiopia",
+          "Algeria"
         ]
       },
       "lv": {
-        "text": "Kura ir lielākā valsts pēc platības?",
+        "text": "Kura ir lielākā Āfrikas valsts pēc platības?",
         "options": [
-          "Ķīna",
-          "Amerikas Savienotās Valstis",
-          "Kanāda",
-          "Krievija"
+          "Ēģipte",
+          "Nigērija",
+          "Etiopija",
+          "Alžīrija"
         ]
       }
     },
@@ -439,25 +439,25 @@
       }
     },
     {
-      "id": "north-of-latvia",
+      "id": "south-of-latvia",
       "topic": "continents",
       "correctIndex": 3,
       "en": {
-        "text": "Which country is just north of Latvia?",
+        "text": "Which country is just south of Latvia?",
         "options": [
-          "Lithuania",
+          "Estonia",
           "Sweden",
-          "Russia",
-          "Estonia"
+          "Finland",
+          "Lithuania"
         ]
       },
       "lv": {
-        "text": "Kura valsts atrodas tieši uz ziemeļiem no Latvijas?",
+        "text": "Kura valsts atrodas tieši uz dienvidiem no Latvijas?",
         "options": [
-          "Lietuva",
+          "Igaunija",
           "Zviedrija",
-          "Krievija",
-          "Igaunija"
+          "Somija",
+          "Lietuva"
         ]
       }
     },
@@ -600,25 +600,25 @@
       }
     },
     {
-      "id": "longest-country",
+      "id": "most-lakes-country",
       "topic": "continents",
       "correctIndex": 3,
       "en": {
-        "text": "Which country stretches the longest from north to south?",
+        "text": "Which country has the most lakes in the world?",
         "options": [
-          "Russia",
-          "Canada",
           "Brazil",
-          "Chile"
+          "United States",
+          "Finland",
+          "Canada"
         ]
       },
       "lv": {
-        "text": "Kura valsts no ziemeļiem uz dienvidiem stiepjas visgarāk?",
+        "text": "Kurā valstī pasaulē ir visvairāk ezeru?",
         "options": [
-          "Krievija",
-          "Kanāda",
-          "Brazīlija",
-          "Čīle"
+          "Brazīlijā",
+          "Amerikas Savienotajās Valstīs",
+          "Somijā",
+          "Kanādā"
         ]
       }
     },
@@ -1037,25 +1037,25 @@
       }
     },
     {
-      "id": "volga-country",
+      "id": "nile-egypt",
       "topic": "oceans",
       "correctIndex": 0,
       "en": {
-        "text": "In which country is the Volga River?",
+        "text": "Which famous river flows through Egypt?",
         "options": [
-          "Russia",
-          "Germany",
-          "Poland",
-          "Ukraine"
+          "Nile",
+          "Tigris",
+          "Niger",
+          "Congo"
         ]
       },
       "lv": {
-        "text": "Kurā valstī atrodas Volgas upe?",
+        "text": "Kura slavena upe plūst caur Ēģipti?",
         "options": [
-          "Krievijā",
-          "Vācijā",
-          "Polijā",
-          "Ukrainā"
+          "Nīla",
+          "Tigra",
+          "Nigēra",
+          "Kongo"
         ]
       }
     },
@@ -1175,25 +1175,25 @@
       }
     },
     {
-      "id": "great-lakes-where",
+      "id": "longest-river-south-america",
       "topic": "oceans",
       "correctIndex": 0,
       "en": {
-        "text": "The Great Lakes are on the border of which two countries?",
+        "text": "Which is the longest river in South America?",
         "options": [
-          "US and Canada",
-          "Mexico and US",
-          "Canada and Russia",
-          "Brazil and Argentina"
+          "Amazon",
+          "Paraná",
+          "Orinoco",
+          "Magdalena"
         ]
       },
       "lv": {
-        "text": "Uz robežas starp kurām divām valstīm atrodas Lielie ezeri?",
+        "text": "Kura ir garākā upe Dienvidamerikā?",
         "options": [
-          "ASV un Kanādu",
-          "Meksiku un ASV",
-          "Kanādu un Krieviju",
-          "Brazīliju un Argentīnu"
+          "Amazone",
+          "Paranā",
+          "Orinoko",
+          "Magdalēna"
         ]
       }
     },
@@ -2095,11 +2095,11 @@
       }
     },
     {
-      "id": "moscow-antipode",
+      "id": "rome-antipode",
       "topic": "antipodes",
       "correctIndex": 0,
       "en": {
-        "text": "Moscow's antipode is in which ocean?",
+        "text": "Rome's antipode is in which ocean?",
         "options": [
           "Pacific Ocean",
           "Indian Ocean",
@@ -2108,7 +2108,7 @@
         ]
       },
       "lv": {
-        "text": "Kurā okeānā atrodas Maskavas antipods?",
+        "text": "Kurā okeānā atrodas Romas antipods?",
         "options": [
           "Klusajā okeānā",
           "Indijas okeānā",
