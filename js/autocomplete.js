@@ -51,6 +51,9 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
   let debounceTimer = null;
   let inflightController = null;
   let lastQuery = "";
+  // Tracks an open status message ("loading" | "empty") so the visible text
+  // can be re-rendered if the user toggles language while it's showing.
+  let currentStatus = null;
 
   function setExpanded(open) {
     inputEl.setAttribute("aria-expanded", open ? "true" : "false");
@@ -78,13 +81,18 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
     setActive(-1);
     listbox.innerHTML = "";
     currentResults = [];
+    currentStatus = null;
   }
 
-  function renderStatusItem(text, kind) {
+  function renderStatusItem(kind) {
+    currentStatus = kind;
+    const i18nKey = kind === "loading"
+      ? "locator.autocomplete.loading"
+      : "locator.autocomplete.noResults";
     listbox.innerHTML = "";
     const li = document.createElement("li");
     li.className = `autocomplete__status autocomplete__status--${kind}`;
-    li.textContent = text;
+    li.textContent = t(i18nKey);
     listbox.appendChild(li);
     setExpanded(true);
   }
@@ -107,6 +115,7 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
   }
 
   function renderResults(features) {
+    currentStatus = null;
     listbox.innerHTML = "";
     currentResults = features.map((feature) => {
       const [lng, lat] = feature.geometry.coordinates;
@@ -172,7 +181,7 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
         ? data.features.slice(0, MAX_RESULTS)
         : [];
       if (features.length === 0) {
-        renderStatusItem(t("locator.autocomplete.noResults"), "empty");
+        renderStatusItem("empty");
       } else {
         renderResults(features);
       }
@@ -191,7 +200,7 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
       close();
       return;
     }
-    renderStatusItem(t("locator.autocomplete.loading"), "loading");
+    renderStatusItem("loading");
     debounceTimer = setTimeout(() => fetchSuggestions(query), DEBOUNCE_MS);
   }
 
@@ -236,9 +245,12 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
   document.addEventListener("pointerdown", onDocPointerDown);
 
   // Keep the listbox aria-label and any open status message in sync when the
-  // user switches language while the dropdown is showing.
+  // user switches language while the dropdown is showing. (Suggestion text
+  // itself comes from Photon and is not re-fetched - it will refresh on the
+  // next keystroke.)
   const unsubscribeLang = onLanguageChange(() => {
     listbox.setAttribute("aria-label", t("locator.search.label"));
+    if (currentStatus) renderStatusItem(currentStatus);
   });
 
   return {
