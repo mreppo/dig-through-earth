@@ -1,15 +1,14 @@
 name: i18n parity check
 
+# Runs on every PR to main and every push to main. The check is required by
+# branch protection, so it must fire on every PR regardless of which files
+# changed - otherwise a PR that doesn't touch i18n/** would sit forever
+# waiting for a check that never starts.
 on:
   pull_request:
-    paths:
-      - 'i18n/**'
-      - 'scripts/check-i18n.py'
-      - '.github/workflows/i18n-check.yml'
+    branches: [main]
   push:
     branches: [main]
-    paths:
-      - 'i18n/**'
 
 jobs:
   check:
