@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>data/questions.json tests</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 1rem;
+        line-height: 1.5;
+      }
+      h1 { margin-bottom: 0.5rem; }
+      .summary { font-size: 1.25rem; margin: 1rem 0; padding: 0.75rem; border-radius: 0.5rem; }
+      .summary.pass { background: #d4edda; color: #155724; }
+      .summary.fail { background: #f8d7da; color: #721c24; }
+      ol { padding-left: 1.5rem; }
+      li { margin: 0.25rem 0; }
+      li.pass::marker { content: "✓ "; color: #2e7d32; }
+      li.fail::marker { content: "✗ "; color: #c62828; }
+      li.fail { color: #c62828; }
+      code { background: #f4f4f4; padding: 0 0.25rem; border-radius: 0.25rem; }
+    </style>
+  </head>
+  <body>
+    <h1>data/questions.json tests</h1>
+    <p>Run with <code>python3 -m http.server</code> and open <code>/tests/questions.test.html</code>.</p>
+    <div id="summary" class="summary"></div>
+    <ol id="results"></ol>
+
+    <script type="module">
+      const results = [];
+      function test(name, fn) {
+        try {
+          const r = fn();
+          if (r && typeof r.then === "function") {
+            return r.then(
+              () => results.push({ name, ok: true }),
+              (err) => results.push({ name, ok: false, msg: err.message })
+            );
+          }
+          results.push({ name, ok: true });
+        } catch (err) {
+          results.push({ name, ok: false, msg: err.message });
+        }
+      }
+
+      const res = await fetch("../data/questions.json");
+      if (!res.ok) throw new Error(`failed to fetch questions.json: ${res.status}`);
+      const data = await res.json();
+
+      test("top-level has questions array", () => {
+        if (!Array.isArray(data.questions)) throw new Error("not an array");
+      });
+
+      test("exactly 200 questions", () => {
+        if (data.questions.length !== 200) throw new Error(`got ${data.questions.length}`);
+      });
+
+      test("no duplicate ids", () => {
+        const ids = data.questions.map((q) => q.id);
+        const uniq = new Set(ids);
+        if (uniq.size !== ids.length) {
+          const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
+          throw new Error(`duplicates: ${dupes.join(", ")}`);
+        }
+      });
+
+      test("every question has id, topic, correctIndex 0-3, en+lv blocks", () => {
+        for (const q of data.questions) {
+          if (typeof q.id !== "string" || !q.id) throw new Error(`bad id: ${JSON.stringify(q)}`);
+          if (typeof q.topic !== "string" || !q.topic) throw new Error(`bad topic on ${q.id}`);
+          if (!Number.isInteger(q.correctIndex) || q.correctIndex < 0 || q.correctIndex > 3) {
+            throw new Error(`bad correctIndex on ${q.id}: ${q.correctIndex}`);
+          }
+          if (typeof q.en?.text !== "string" || !q.en.text) throw new Error(`bad en.text on ${q.id}`);
+          if (typeof q.lv?.text !== "string" || !q.lv.text) throw new Error(`bad lv.text on ${q.id}`);
+        }
+      });
+
+      test("every question has exactly 4 options in en and lv", () => {
+        for (const q of data.questions) {
+          if (!Array.isArray(q.en?.options) || q.en.options.length !== 4) {
+            throw new Error(`bad en.options on ${q.id}`);
+          }
+          if (!Array.isArray(q.lv?.options) || q.lv.options.length !== 4) {
+            throw new Error(`bad lv.options on ${q.id}`);
+          }
+          for (let i = 0; i < 4; i++) {
+            if (typeof q.en.options[i] !== "string" || !q.en.options[i]) {
+              throw new Error(`empty en.options[${i}] on ${q.id}`);
+            }
+            if (typeof q.lv.options[i] !== "string" || !q.lv.options[i]) {
+              throw new Error(`empty lv.options[${i}] on ${q.id}`);
+            }
+          }
+        }
+      });
+
+      test("correctIndex distribution is balanced (each slot 40-60)", () => {
+        const counts = [0, 0, 0, 0];
+        for (const q of data.questions) counts[q.correctIndex]++;
+        for (let i = 0; i < 4; i++) {
+          if (counts[i] < 40 || counts[i] > 60) {
+            throw new Error(`slot ${i} has ${counts[i]} (want 40-60)`);
+          }
+        }
+      });
+
+      // --- render ---
+      const passed = results.filter((r) => r.ok).length;
+      const total = results.length;
+      const summary = document.getElementById("summary");
+      summary.textContent = passed === total
+        ? `All ${total} tests passed.`
+        : `${passed} of ${total} tests passed. ${total - passed} failed.`;
+      summary.className = `summary ${passed === total ? "pass" : "fail"}`;
+
+      const list = document.getElementById("results");
+      for (const r of results) {
+        const li = document.createElement("li");
+        li.className = r.ok ? "pass" : "fail";
+        li.textContent = r.ok ? r.name : `${r.name} - ${r.msg}`;
+        list.appendChild(li);
+      }
+
+      window.__TEST_RESULTS__ = { passed, total, failures: results.filter((r) => !r.ok) };
+    </script>
+  </body>
+</html>

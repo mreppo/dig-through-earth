@@ -1,0 +1,4605 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "latvia",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "If you dig straight through Earth from Latvia, where do you come out?",
+        "options": [
+          "Pacific Ocean",
+          "Brazil",
+          "Australia",
+          "China"
+        ]
+      },
+      "lv": {
+        "text": "Ja izrok taisni cauri Zemei no Latvijas, kura vieta ir tavs antipods?",
+        "options": [
+          "Klusais okeāns",
+          "Brazīlija",
+          "Austrālija",
+          "Ķīna"
+        ]
+      }
+    },
+    {
+      "id": "deepest-ocean",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which ocean is the deepest?",
+        "options": [
+          "Atlantic Ocean",
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurš okeāns ir visdziļākais?",
+        "options": [
+          "Atlantijas okeāns",
+          "Klusais okeāns",
+          "Indijas okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      }
+    },
+    {
+      "id": "fall-time",
+      "topic": "earth-science",
+      "correctIndex": 0,
+      "en": {
+        "text": "If you could fall through a tunnel right through the Earth (no heat, no air), how long would it take?",
+        "options": [
+          "About 42 minutes",
+          "About 1 hour",
+          "About 1 day",
+          "About 1 week"
+        ]
+      },
+      "lv": {
+        "text": "Ja tu varētu krist pa tuneli taisni caur Zemi (bez karstuma un bez gaisa), cik ilgi tas aizņemtu?",
+        "options": [
+          "Apmēram 42 minūtes",
+          "Apmēram 1 stunda",
+          "Apmēram 1 diena",
+          "Apmēram 1 nedēļa"
+        ]
+      }
+    },
+    {
+      "id": "europe-antipodes",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "If you pick a random spot in Europe, where is your antipode most likely to be?",
+        "options": [
+          "Asia",
+          "South America",
+          "Pacific Ocean",
+          "Antarctica"
+        ]
+      },
+      "lv": {
+        "text": "Ja izvēlies nejaušu vietu Eiropā, kura vieta visbiežāk ir tās antipods?",
+        "options": [
+          "Āzija",
+          "Dienvidamerika",
+          "Klusais okeāns",
+          "Antarktika"
+        ]
+      }
+    },
+    {
+      "id": "earth-diameter",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "Earth's diameter - the straight line through the middle - is about...",
+        "options": [
+          "5,000 km",
+          "12,742 km",
+          "40,000 km",
+          "100,000 km"
+        ]
+      },
+      "lv": {
+        "text": "Zemes diametrs - taisna līnija cauri vidum - ir apmēram...",
+        "options": [
+          "5 000 km",
+          "12 742 km",
+          "40 000 km",
+          "100 000 km"
+        ]
+      }
+    },
+    {
+      "id": "highest-mountain",
+      "topic": "mountains",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which mountain reaches the highest above sea level?",
+        "options": [
+          "Mount Everest",
+          "K2",
+          "Mount Kilimanjaro",
+          "Mont Blanc"
+        ]
+      },
+      "lv": {
+        "text": "Kurš kalns paceļas visaugstāk virs jūras līmeņa?",
+        "options": [
+          "Everests",
+          "K2",
+          "Kilimandžaro",
+          "Monblāns"
+        ]
+      }
+    },
+    {
+      "id": "largest-continent",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is the largest continent?",
+        "options": [
+          "Asia",
+          "Africa",
+          "North America",
+          "Europe"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir lielākais kontinents?",
+        "options": [
+          "Āzija",
+          "Āfrika",
+          "Ziemeļamerika",
+          "Eiropa"
+        ]
+      }
+    },
+    {
+      "id": "earth-core",
+      "topic": "earth-science",
+      "correctIndex": 0,
+      "en": {
+        "text": "What is at the very centre of the Earth?",
+        "options": [
+          "A ball of mostly iron and nickel",
+          "A pool of molten lava",
+          "An empty cave",
+          "A core of solid ice"
+        ]
+      },
+      "lv": {
+        "text": "Kas atrodas pašā Zemes vidū?",
+        "options": [
+          "Lode galvenokārt no dzelzs un niķeļa",
+          "Izkusušas lavas ezers",
+          "Tukša ala",
+          "Cieta ledus lode"
+        ]
+      }
+    },
+    {
+      "id": "water-cover",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "About how much of Earth's surface is covered by water?",
+        "options": [
+          "About 30%",
+          "About 50%",
+          "About 71%",
+          "About 95%"
+        ]
+      },
+      "lv": {
+        "text": "Cik daudz Zemes virsmas klāj ūdens?",
+        "options": [
+          "Apmēram 30%",
+          "Apmēram 50%",
+          "Apmēram 71%",
+          "Apmēram 95%"
+        ]
+      }
+    },
+    {
+      "id": "earth-radius",
+      "topic": "earth-science",
+      "correctIndex": 3,
+      "en": {
+        "text": "How far is it from the surface to the centre of the Earth?",
+        "options": [
+          "About 100 km",
+          "About 1,000 km",
+          "About 50,000 km",
+          "About 6,371 km"
+        ]
+      },
+      "lv": {
+        "text": "Cik tālu ir no virsmas līdz pašam Zemes vidum?",
+        "options": [
+          "Apmēram 100 km",
+          "Apmēram 1 000 km",
+          "Apmēram 50 000 km",
+          "Apmēram 6 371 km"
+        ]
+      }
+    },
+    {
+      "id": "smallest-continent",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the smallest continent?",
+        "options": [
+          "Asia",
+          "Europe",
+          "Africa",
+          "Australia (Oceania)"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir mazākais kontinents?",
+        "options": [
+          "Āzija",
+          "Eiropa",
+          "Āfrika",
+          "Austrālija (Okeānija)"
+        ]
+      }
+    },
+    {
+      "id": "coldest-continent",
+      "topic": "continents",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which continent is the coldest?",
+        "options": [
+          "Africa",
+          "Antarctica",
+          "Europe",
+          "Asia"
+        ]
+      },
+      "lv": {
+        "text": "Kurš kontinents ir visaukstākais?",
+        "options": [
+          "Āfrika",
+          "Antarktīda",
+          "Eiropa",
+          "Āzija"
+        ]
+      }
+    },
+    {
+      "id": "africa-most-countries",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which continent has the most countries?",
+        "options": [
+          "Africa",
+          "Asia",
+          "Europe",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kuram kontinentam ir visvairāk valstu?",
+        "options": [
+          "Āfrikai",
+          "Āzijai",
+          "Eiropai",
+          "Dienvidamerikai"
+        ]
+      }
+    },
+    {
+      "id": "asia-most-people",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "Which continent has the most people living on it?",
+        "options": [
+          "Africa",
+          "Europe",
+          "Asia",
+          "North America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā dzīvo visvairāk cilvēku?",
+        "options": [
+          "Āfrikā",
+          "Eiropā",
+          "Āzijā",
+          "Ziemeļamerikā"
+        ]
+      }
+    },
+    {
+      "id": "largest-country-area",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the largest country by area?",
+        "options": [
+          "China",
+          "United States",
+          "Canada",
+          "Russia"
+        ]
+      },
+      "lv": {
+        "text": "Kura ir lielākā valsts pēc platības?",
+        "options": [
+          "Ķīna",
+          "Amerikas Savienotās Valstis",
+          "Kanāda",
+          "Krievija"
+        ]
+      }
+    },
+    {
+      "id": "brazil-continent",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "On which continent is Brazil?",
+        "options": [
+          "South America",
+          "Africa",
+          "North America",
+          "Asia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā atrodas Brazīlija?",
+        "options": [
+          "Dienvidamerikā",
+          "Āfrikā",
+          "Ziemeļamerikā",
+          "Āzijā"
+        ]
+      }
+    },
+    {
+      "id": "egypt-continent",
+      "topic": "continents",
+      "correctIndex": 1,
+      "en": {
+        "text": "On which continent is Egypt?",
+        "options": [
+          "Asia",
+          "Africa",
+          "Europe",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā atrodas Ēģipte?",
+        "options": [
+          "Āzijā",
+          "Āfrikā",
+          "Eiropā",
+          "Dienvidamerikā"
+        ]
+      }
+    },
+    {
+      "id": "italy-shape",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which country is shaped like a boot?",
+        "options": [
+          "Italy",
+          "Spain",
+          "Greece",
+          "Portugal"
+        ]
+      },
+      "lv": {
+        "text": "Kura valsts izskatās kā zābaks?",
+        "options": [
+          "Itālija",
+          "Spānija",
+          "Grieķija",
+          "Portugāle"
+        ]
+      }
+    },
+    {
+      "id": "largest-south-america",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is the largest country in South America?",
+        "options": [
+          "Brazil",
+          "Argentina",
+          "Peru",
+          "Colombia"
+        ]
+      },
+      "lv": {
+        "text": "Kura ir lielākā valsts Dienvidamerikā?",
+        "options": [
+          "Brazīlija",
+          "Argentīna",
+          "Peru",
+          "Kolumbija"
+        ]
+      }
+    },
+    {
+      "id": "north-of-latvia",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which country is just north of Latvia?",
+        "options": [
+          "Lithuania",
+          "Sweden",
+          "Russia",
+          "Estonia"
+        ]
+      },
+      "lv": {
+        "text": "Kura valsts atrodas tieši uz ziemeļiem no Latvijas?",
+        "options": [
+          "Lietuva",
+          "Zviedrija",
+          "Krievija",
+          "Igaunija"
+        ]
+      }
+    },
+    {
+      "id": "eiffel-tower-country",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "In which country is the Eiffel Tower?",
+        "options": [
+          "France",
+          "Italy",
+          "Germany",
+          "Spain"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Eifeļa tornis?",
+        "options": [
+          "Francijā",
+          "Itālijā",
+          "Vācijā",
+          "Spānijā"
+        ]
+      }
+    },
+    {
+      "id": "tokyo-country",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "Tokyo is the capital of which country?",
+        "options": [
+          "China",
+          "South Korea",
+          "Japan",
+          "Thailand"
+        ]
+      },
+      "lv": {
+        "text": "Kuras valsts galvaspilsēta ir Tokija?",
+        "options": [
+          "Ķīnas",
+          "Dienvidkorejas",
+          "Japānas",
+          "Taizemes"
+        ]
+      }
+    },
+    {
+      "id": "germany-capital",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "What is the capital of Germany?",
+        "options": [
+          "Munich",
+          "Hamburg",
+          "Berlin",
+          "Frankfurt"
+        ]
+      },
+      "lv": {
+        "text": "Kāda ir Vācijas galvaspilsēta?",
+        "options": [
+          "Minhene",
+          "Hamburga",
+          "Berlīne",
+          "Frankfurte"
+        ]
+      }
+    },
+    {
+      "id": "great-wall-country",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "The Great Wall is in which country?",
+        "options": [
+          "Mongolia",
+          "Korea",
+          "Japan",
+          "China"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Lielais mūris?",
+        "options": [
+          "Mongolijā",
+          "Korejā",
+          "Japānā",
+          "Ķīnā"
+        ]
+      }
+    },
+    {
+      "id": "nigeria-population",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "Which is the most populous country in Africa?",
+        "options": [
+          "Egypt",
+          "Ethiopia",
+          "Nigeria",
+          "South Africa"
+        ]
+      },
+      "lv": {
+        "text": "Kurā Āfrikas valstī dzīvo visvairāk cilvēku?",
+        "options": [
+          "Ēģiptē",
+          "Etiopijā",
+          "Nigērijā",
+          "Dienvidāfrikas Republikā"
+        ]
+      }
+    },
+    {
+      "id": "smallest-country",
+      "topic": "continents",
+      "correctIndex": 1,
+      "en": {
+        "text": "What is the smallest country in the world?",
+        "options": [
+          "Monaco",
+          "Vatican City",
+          "San Marino",
+          "Liechtenstein"
+        ]
+      },
+      "lv": {
+        "text": "Kura ir mazākā valsts pasaulē?",
+        "options": [
+          "Monako",
+          "Vatikāns",
+          "Sanmarīno",
+          "Lihtenšteina"
+        ]
+      }
+    },
+    {
+      "id": "longest-country",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which country stretches the longest from north to south?",
+        "options": [
+          "Russia",
+          "Canada",
+          "Brazil",
+          "Chile"
+        ]
+      },
+      "lv": {
+        "text": "Kura valsts no ziemeļiem uz dienvidiem stiepjas visgarāk?",
+        "options": [
+          "Krievija",
+          "Kanāda",
+          "Brazīlija",
+          "Čīle"
+        ]
+      }
+    },
+    {
+      "id": "tulips-windmills",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which country is famous for tulips and windmills?",
+        "options": [
+          "Netherlands",
+          "Belgium",
+          "Denmark",
+          "Germany"
+        ]
+      },
+      "lv": {
+        "text": "Kura valsts ir slavena ar tulpēm un vējdzirnavām?",
+        "options": [
+          "Nīderlande",
+          "Beļģija",
+          "Dānija",
+          "Vācija"
+        ]
+      }
+    },
+    {
+      "id": "amazon-rainforest-country",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "Most of the Amazon rainforest is in which country?",
+        "options": [
+          "Peru",
+          "Colombia",
+          "Brazil",
+          "Venezuela"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas lielākā daļa Amazones lietusmeža?",
+        "options": [
+          "Peru",
+          "Kolumbijā",
+          "Brazīlijā",
+          "Venecuēlā"
+        ]
+      }
+    },
+    {
+      "id": "spain-capital",
+      "topic": "continents",
+      "correctIndex": 2,
+      "en": {
+        "text": "What is the capital of Spain?",
+        "options": [
+          "Barcelona",
+          "Lisbon",
+          "Madrid",
+          "Valencia"
+        ]
+      },
+      "lv": {
+        "text": "Kāda ir Spānijas galvaspilsēta?",
+        "options": [
+          "Barselona",
+          "Lisabona",
+          "Madride",
+          "Valensija"
+        ]
+      }
+    },
+    {
+      "id": "mexico-continent",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Mexico is on which continent?",
+        "options": [
+          "North America",
+          "South America",
+          "Asia",
+          "Europe"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā atrodas Meksika?",
+        "options": [
+          "Ziemeļamerikā",
+          "Dienvidamerikā",
+          "Āzijā",
+          "Eiropā"
+        ]
+      }
+    },
+    {
+      "id": "uk-capital",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "What is the capital of the United Kingdom?",
+        "options": [
+          "London",
+          "Edinburgh",
+          "Manchester",
+          "Dublin"
+        ]
+      },
+      "lv": {
+        "text": "Kāda ir Apvienotās Karalistes galvaspilsēta?",
+        "options": [
+          "Londona",
+          "Edinburga",
+          "Mančestra",
+          "Dublina"
+        ]
+      }
+    },
+    {
+      "id": "usa-capital",
+      "topic": "continents",
+      "correctIndex": 3,
+      "en": {
+        "text": "What is the capital of the United States?",
+        "options": [
+          "New York",
+          "Los Angeles",
+          "Chicago",
+          "Washington, D.C."
+        ]
+      },
+      "lv": {
+        "text": "Kāda ir Amerikas Savienoto Valstu galvaspilsēta?",
+        "options": [
+          "Ņujorka",
+          "Losandželosa",
+          "Čikāga",
+          "Vašingtona"
+        ]
+      }
+    },
+    {
+      "id": "india-population",
+      "topic": "continents",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which country has the most people in the world?",
+        "options": [
+          "India",
+          "China",
+          "United States",
+          "Indonesia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pasaules valstī dzīvo visvairāk cilvēku?",
+        "options": [
+          "Indijā",
+          "Ķīnā",
+          "Amerikas Savienotajās Valstīs",
+          "Indonēzijā"
+        ]
+      }
+    },
+    {
+      "id": "largest-ocean",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is the largest ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir lielākais okeāns?",
+        "options": [
+          "Klusais okeāns",
+          "Atlantijas okeāns",
+          "Indijas okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      }
+    },
+    {
+      "id": "smallest-ocean",
+      "topic": "oceans",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the smallest ocean?",
+        "options": [
+          "Indian Ocean",
+          "Atlantic Ocean",
+          "Pacific Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir mazākais okeāns?",
+        "options": [
+          "Indijas okeāns",
+          "Atlantijas okeāns",
+          "Klusais okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      }
+    },
+    {
+      "id": "ocean-europe-americas",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which ocean lies between Europe and the Americas?",
+        "options": [
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurš okeāns atrodas starp Eiropu un Amerikām?",
+        "options": [
+          "Klusais okeāns",
+          "Atlantijas okeāns",
+          "Indijas okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      }
+    },
+    {
+      "id": "southern-ocean-where",
+      "topic": "oceans",
+      "correctIndex": 2,
+      "en": {
+        "text": "Which ocean wraps around Antarctica?",
+        "options": [
+          "Indian Ocean",
+          "Atlantic Ocean",
+          "Southern Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurš okeāns apvij Antarktīdu?",
+        "options": [
+          "Indijas okeāns",
+          "Atlantijas okeāns",
+          "Dienvidu okeāns",
+          "Ziemeļu Ledus okeāns"
+        ]
+      }
+    },
+    {
+      "id": "number-of-oceans",
+      "topic": "oceans",
+      "correctIndex": 3,
+      "en": {
+        "text": "How many oceans are there?",
+        "options": [
+          "3",
+          "4",
+          "7",
+          "5"
+        ]
+      },
+      "lv": {
+        "text": "Cik daudz okeānu ir pasaulē?",
+        "options": [
+          "3",
+          "4",
+          "7",
+          "5"
+        ]
+      }
+    },
+    {
+      "id": "longest-river",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is usually called the longest river in the world?",
+        "options": [
+          "Nile",
+          "Amazon",
+          "Yangtze",
+          "Mississippi"
+        ]
+      },
+      "lv": {
+        "text": "Kuru upi parasti uzskata par garāko pasaulē?",
+        "options": [
+          "Nīlu",
+          "Amazoni",
+          "Jandzi",
+          "Misisipi"
+        ]
+      }
+    },
+    {
+      "id": "largest-river-volume",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which river carries the most water?",
+        "options": [
+          "Nile",
+          "Amazon",
+          "Mississippi",
+          "Volga"
+        ]
+      },
+      "lv": {
+        "text": "Kura upe nes visvairāk ūdens?",
+        "options": [
+          "Nīla",
+          "Amazone",
+          "Misisipi",
+          "Volga"
+        ]
+      }
+    },
+    {
+      "id": "saltiest-sea",
+      "topic": "oceans",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the saltiest sea on Earth?",
+        "options": [
+          "Black Sea",
+          "Red Sea",
+          "Baltic Sea",
+          "Dead Sea"
+        ]
+      },
+      "lv": {
+        "text": "Kura jūra ir pati sāļākā uz Zemes?",
+        "options": [
+          "Melnā jūra",
+          "Sarkanā jūra",
+          "Baltijas jūra",
+          "Nāves jūra"
+        ]
+      }
+    },
+    {
+      "id": "thames-city",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which river flows through London?",
+        "options": [
+          "Seine",
+          "Thames",
+          "Danube",
+          "Rhine"
+        ]
+      },
+      "lv": {
+        "text": "Kura upe plūst caur Londonu?",
+        "options": [
+          "Sēna",
+          "Temza",
+          "Donava",
+          "Reina"
+        ]
+      }
+    },
+    {
+      "id": "seine-city",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which river flows through Paris?",
+        "options": [
+          "Thames",
+          "Seine",
+          "Loire",
+          "Rhône"
+        ]
+      },
+      "lv": {
+        "text": "Kura upe plūst caur Parīzi?",
+        "options": [
+          "Temza",
+          "Sēna",
+          "Luāra",
+          "Rona"
+        ]
+      }
+    },
+    {
+      "id": "mississippi-country",
+      "topic": "oceans",
+      "correctIndex": 2,
+      "en": {
+        "text": "In which country is the Mississippi River?",
+        "options": [
+          "Canada",
+          "Mexico",
+          "United States",
+          "Brazil"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Misisipi upe?",
+        "options": [
+          "Kanādā",
+          "Meksikā",
+          "Amerikas Savienotajās Valstīs",
+          "Brazīlijā"
+        ]
+      }
+    },
+    {
+      "id": "volga-country",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "In which country is the Volga River?",
+        "options": [
+          "Russia",
+          "Germany",
+          "Poland",
+          "Ukraine"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Volgas upe?",
+        "options": [
+          "Krievijā",
+          "Vācijā",
+          "Polijā",
+          "Ukrainā"
+        ]
+      }
+    },
+    {
+      "id": "danube-continent",
+      "topic": "oceans",
+      "correctIndex": 2,
+      "en": {
+        "text": "The Danube River flows through which continent?",
+        "options": [
+          "Asia",
+          "Africa",
+          "Europe",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Caur kuru kontinentu plūst Donava?",
+        "options": [
+          "Āziju",
+          "Āfriku",
+          "Eiropu",
+          "Dienvidameriku"
+        ]
+      }
+    },
+    {
+      "id": "mediterranean-between",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Mediterranean Sea sits between Europe and which continent?",
+        "options": [
+          "Asia",
+          "Africa",
+          "South America",
+          "Antarctica"
+        ]
+      },
+      "lv": {
+        "text": "Vidusjūra atrodas starp Eiropu un kuru kontinentu?",
+        "options": [
+          "Āziju",
+          "Āfriku",
+          "Dienvidameriku",
+          "Antarktīdu"
+        ]
+      }
+    },
+    {
+      "id": "baltic-includes-latvia",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which of these countries borders the Baltic Sea?",
+        "options": [
+          "Latvia",
+          "Spain",
+          "Greece",
+          "Hungary"
+        ]
+      },
+      "lv": {
+        "text": "Kura no šīm valstīm robežojas ar Baltijas jūru?",
+        "options": [
+          "Latvija",
+          "Spānija",
+          "Grieķija",
+          "Ungārija"
+        ]
+      }
+    },
+    {
+      "id": "black-sea-where",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Black Sea lies between which two regions?",
+        "options": [
+          "Europe and Africa",
+          "Europe and Asia",
+          "Asia and Africa",
+          "Asia and Australia"
+        ]
+      },
+      "lv": {
+        "text": "Melnā jūra atrodas starp kuriem diviem reģioniem?",
+        "options": [
+          "Eiropu un Āfriku",
+          "Eiropu un Āziju",
+          "Āziju un Āfriku",
+          "Āziju un Austrāliju"
+        ]
+      }
+    },
+    {
+      "id": "red-sea-where",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Red Sea lies between Africa and which region?",
+        "options": [
+          "Europe",
+          "Arabia (Asia)",
+          "Australia",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Sarkanā jūra atrodas starp Āfriku un kuru reģionu?",
+        "options": [
+          "Eiropu",
+          "Arābiju (Āziju)",
+          "Austrāliju",
+          "Dienvidameriku"
+        ]
+      }
+    },
+    {
+      "id": "great-lakes-where",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "The Great Lakes are on the border of which two countries?",
+        "options": [
+          "US and Canada",
+          "Mexico and US",
+          "Canada and Russia",
+          "Brazil and Argentina"
+        ]
+      },
+      "lv": {
+        "text": "Uz robežas starp kurām divām valstīm atrodas Lielie ezeri?",
+        "options": [
+          "ASV un Kanādu",
+          "Meksiku un ASV",
+          "Kanādu un Krieviju",
+          "Brazīliju un Argentīnu"
+        ]
+      }
+    },
+    {
+      "id": "niagara-falls-where",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "Niagara Falls is on the border of which two countries?",
+        "options": [
+          "Mexico and US",
+          "US and Canada",
+          "Brazil and Argentina",
+          "France and Spain"
+        ]
+      },
+      "lv": {
+        "text": "Uz robežas starp kurām divām valstīm atrodas Niagāras ūdenskritums?",
+        "options": [
+          "Meksiku un ASV",
+          "ASV un Kanādu",
+          "Brazīliju un Argentīnu",
+          "Franciju un Spāniju"
+        ]
+      }
+    },
+    {
+      "id": "deepest-lake",
+      "topic": "oceans",
+      "correctIndex": 2,
+      "en": {
+        "text": "Which is the deepest lake on Earth?",
+        "options": [
+          "Lake Victoria",
+          "Lake Superior",
+          "Lake Baikal",
+          "Caspian Sea"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir visdziļākais ezers uz Zemes?",
+        "options": [
+          "Viktorijas ezers",
+          "Augšezers",
+          "Baikāla ezers",
+          "Kaspijas jūra"
+        ]
+      }
+    },
+    {
+      "id": "great-barrier-reef-where",
+      "topic": "oceans",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Great Barrier Reef is off the coast of which country?",
+        "options": [
+          "Indonesia",
+          "Australia",
+          "Japan",
+          "Philippines"
+        ]
+      },
+      "lv": {
+        "text": "Pie kuras valsts piekrastes atrodas Lielais Barjerrifs?",
+        "options": [
+          "Indonēzijas",
+          "Austrālijas",
+          "Japānas",
+          "Filipīnu"
+        ]
+      }
+    },
+    {
+      "id": "amazon-river-country",
+      "topic": "oceans",
+      "correctIndex": 0,
+      "en": {
+        "text": "Most of the Amazon River runs through which country?",
+        "options": [
+          "Brazil",
+          "Peru",
+          "Venezuela",
+          "Colombia"
+        ]
+      },
+      "lv": {
+        "text": "Caur kuru valsti plūst lielākā daļa Amazones upes?",
+        "options": [
+          "Brazīliju",
+          "Peru",
+          "Venecuēlu",
+          "Kolumbiju"
+        ]
+      }
+    },
+    {
+      "id": "pacific-name-meaning",
+      "topic": "oceans",
+      "correctIndex": 3,
+      "en": {
+        "text": "The name 'Pacific' means...",
+        "options": [
+          "stormy",
+          "deep",
+          "salty",
+          "peaceful"
+        ]
+      },
+      "lv": {
+        "text": "Klusā okeāna angliskais nosaukums \"Pacific\" nozīmē...",
+        "options": [
+          "vētrains",
+          "dziļš",
+          "sāļš",
+          "mierīgs"
+        ]
+      }
+    },
+    {
+      "id": "pacific-most-islands",
+      "topic": "oceans",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which ocean has the most islands?",
+        "options": [
+          "Atlantic Ocean",
+          "Arctic Ocean",
+          "Indian Ocean",
+          "Pacific Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā ir visvairāk salu?",
+        "options": [
+          "Atlantijas okeānā",
+          "Ziemeļu Ledus okeānā",
+          "Indijas okeānā",
+          "Klusajā okeānā"
+        ]
+      }
+    },
+    {
+      "id": "everest-where",
+      "topic": "mountains",
+      "correctIndex": 0,
+      "en": {
+        "text": "Mount Everest is on the border between which two countries?",
+        "options": [
+          "Nepal and China",
+          "India and China",
+          "Pakistan and India",
+          "Bhutan and Nepal"
+        ]
+      },
+      "lv": {
+        "text": "Uz robežas starp kurām divām valstīm atrodas Everests?",
+        "options": [
+          "Nepālu un Ķīnu",
+          "Indiju un Ķīnu",
+          "Pakistānu un Indiju",
+          "Butānu un Nepālu"
+        ]
+      }
+    },
+    {
+      "id": "everest-height",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "About how tall is Mount Everest?",
+        "options": [
+          "About 4,000 m",
+          "About 6,000 m",
+          "About 12,000 m",
+          "About 8,848 m"
+        ]
+      },
+      "lv": {
+        "text": "Cik augsts apmēram ir Everests?",
+        "options": [
+          "Apmēram 4 000 m",
+          "Apmēram 6 000 m",
+          "Apmēram 12 000 m",
+          "Apmēram 8 848 m"
+        ]
+      }
+    },
+    {
+      "id": "longest-mountain-range",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the longest mountain range on land?",
+        "options": [
+          "Rocky Mountains",
+          "Himalayas",
+          "Alps",
+          "Andes"
+        ]
+      },
+      "lv": {
+        "text": "Kura ir garākā kalnu grēda uz sauszemes?",
+        "options": [
+          "Klinšu kalni",
+          "Himalaji",
+          "Alpi",
+          "Andi"
+        ]
+      }
+    },
+    {
+      "id": "kilimanjaro-country",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "Mount Kilimanjaro is in which country?",
+        "options": [
+          "Kenya",
+          "Ethiopia",
+          "South Africa",
+          "Tanzania"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Kilimandžaro kalns?",
+        "options": [
+          "Kenijā",
+          "Etiopijā",
+          "Dienvidāfrikas Republikā",
+          "Tanzānijā"
+        ]
+      }
+    },
+    {
+      "id": "fuji-country",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "Mount Fuji is in which country?",
+        "options": [
+          "China",
+          "Japan",
+          "South Korea",
+          "Vietnam"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Fudzi kalns?",
+        "options": [
+          "Ķīnā",
+          "Japānā",
+          "Dienvidkorejā",
+          "Vjetnamā"
+        ]
+      }
+    },
+    {
+      "id": "matterhorn-where",
+      "topic": "mountains",
+      "correctIndex": 2,
+      "en": {
+        "text": "The Matterhorn is in which mountain range?",
+        "options": [
+          "Andes",
+          "Himalayas",
+          "Alps",
+          "Rockies"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kalnu grēdā atrodas Materhorns?",
+        "options": [
+          "Andos",
+          "Himalajos",
+          "Alpos",
+          "Klinšu kalnos"
+        ]
+      }
+    },
+    {
+      "id": "rockies-where",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "The Rocky Mountains stretch through which continent?",
+        "options": [
+          "Europe",
+          "Asia",
+          "South America",
+          "North America"
+        ]
+      },
+      "lv": {
+        "text": "Caur kuru kontinentu stiepjas Klinšu kalni?",
+        "options": [
+          "Eiropu",
+          "Āziju",
+          "Dienvidameriku",
+          "Ziemeļameriku"
+        ]
+      }
+    },
+    {
+      "id": "alps-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Alps mountains are on which continent?",
+        "options": [
+          "Asia",
+          "Europe",
+          "North America",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā atrodas Alpu kalni?",
+        "options": [
+          "Āzijā",
+          "Eiropā",
+          "Ziemeļamerikā",
+          "Dienvidamerikā"
+        ]
+      }
+    },
+    {
+      "id": "vesuvius-pompeii",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which volcano destroyed the city of Pompeii?",
+        "options": [
+          "Mount Etna",
+          "Mount Vesuvius",
+          "Mount Fuji",
+          "Mauna Loa"
+        ]
+      },
+      "lv": {
+        "text": "Kurš vulkāns iznīcināja Pompejus?",
+        "options": [
+          "Etna",
+          "Vezuvs",
+          "Fudzi",
+          "Mauna Loa"
+        ]
+      }
+    },
+    {
+      "id": "statue-of-liberty-where",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "The Statue of Liberty stands in which city?",
+        "options": [
+          "Boston",
+          "Philadelphia",
+          "Washington, D.C.",
+          "New York City"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pilsētā stāv Brīvības statuja?",
+        "options": [
+          "Bostonā",
+          "Filadelfijā",
+          "Vašingtonā",
+          "Ņujorkā"
+        ]
+      }
+    },
+    {
+      "id": "taj-mahal-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Taj Mahal is in which country?",
+        "options": [
+          "Pakistan",
+          "India",
+          "Bangladesh",
+          "Iran"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Tadžmahals?",
+        "options": [
+          "Pakistānā",
+          "Indijā",
+          "Bangladešā",
+          "Irānā"
+        ]
+      }
+    },
+    {
+      "id": "pyramids-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Great Pyramids are in which country?",
+        "options": [
+          "Greece",
+          "Egypt",
+          "Mexico",
+          "Iraq"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Lielās piramīdas?",
+        "options": [
+          "Grieķijā",
+          "Ēģiptē",
+          "Meksikā",
+          "Irākā"
+        ]
+      }
+    },
+    {
+      "id": "colosseum-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Colosseum is in which city?",
+        "options": [
+          "Athens",
+          "Rome",
+          "Florence",
+          "Venice"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pilsētā atrodas Kolizejs?",
+        "options": [
+          "Atēnās",
+          "Romā",
+          "Florencē",
+          "Venēcijā"
+        ]
+      }
+    },
+    {
+      "id": "big-ben-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "Big Ben is a famous clock tower in which city?",
+        "options": [
+          "Paris",
+          "London",
+          "Berlin",
+          "Dublin"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pilsētā atrodas slavenais pulksteņa tornis Bigbens?",
+        "options": [
+          "Parīzē",
+          "Londonā",
+          "Berlīnē",
+          "Dublinā"
+        ]
+      }
+    },
+    {
+      "id": "christ-redeemer-where",
+      "topic": "mountains",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Christ the Redeemer statue overlooks which city?",
+        "options": [
+          "Buenos Aires",
+          "Rio de Janeiro",
+          "Lima",
+          "São Paulo"
+        ]
+      },
+      "lv": {
+        "text": "Pār kuru pilsētu paceļas Kristus Pestītāja statuja?",
+        "options": [
+          "Buenosairesu",
+          "Riodežaneiro",
+          "Limu",
+          "Sanpaulu"
+        ]
+      }
+    },
+    {
+      "id": "sydney-opera-where",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "The Sydney Opera House is in which country?",
+        "options": [
+          "New Zealand",
+          "Japan",
+          "Indonesia",
+          "Australia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Sidnejas Operas nams?",
+        "options": [
+          "Jaunzēlandē",
+          "Japānā",
+          "Indonēzijā",
+          "Austrālijā"
+        ]
+      }
+    },
+    {
+      "id": "stonehenge-where",
+      "topic": "mountains",
+      "correctIndex": 2,
+      "en": {
+        "text": "Stonehenge is in which country?",
+        "options": [
+          "Ireland",
+          "Scotland",
+          "England",
+          "Wales"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Stounhendža?",
+        "options": [
+          "Īrijā",
+          "Skotijā",
+          "Anglijā",
+          "Velsā"
+        ]
+      }
+    },
+    {
+      "id": "machu-picchu-where",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "Machu Picchu is in which country?",
+        "options": [
+          "Bolivia",
+          "Chile",
+          "Ecuador",
+          "Peru"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Maču Pikču?",
+        "options": [
+          "Bolīvijā",
+          "Čīlē",
+          "Ekvadorā",
+          "Peru"
+        ]
+      }
+    },
+    {
+      "id": "petra-where",
+      "topic": "mountains",
+      "correctIndex": 2,
+      "en": {
+        "text": "The ancient city of Petra is in which country?",
+        "options": [
+          "Egypt",
+          "Israel",
+          "Jordan",
+          "Saudi Arabia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas senā Petras pilsēta?",
+        "options": [
+          "Ēģiptē",
+          "Izraēlā",
+          "Jordānijā",
+          "Saūda Arābijā"
+        ]
+      }
+    },
+    {
+      "id": "acropolis-where",
+      "topic": "mountains",
+      "correctIndex": 0,
+      "en": {
+        "text": "The Acropolis is in which city?",
+        "options": [
+          "Athens",
+          "Rome",
+          "Cairo",
+          "Istanbul"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pilsētā atrodas Akropole?",
+        "options": [
+          "Atēnās",
+          "Romā",
+          "Kairā",
+          "Stambulā"
+        ]
+      }
+    },
+    {
+      "id": "easter-island-where",
+      "topic": "mountains",
+      "correctIndex": 2,
+      "en": {
+        "text": "The giant stone heads of Easter Island belong to which country?",
+        "options": [
+          "Argentina",
+          "Peru",
+          "Chile",
+          "New Zealand"
+        ]
+      },
+      "lv": {
+        "text": "Kurai valstij pieder Lieldienu salas milzīgās akmens galvas?",
+        "options": [
+          "Argentīnai",
+          "Peru",
+          "Čīlei",
+          "Jaunzēlandei"
+        ]
+      }
+    },
+    {
+      "id": "mt-rushmore-where",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "Mount Rushmore, with four giant faces, is in which country?",
+        "options": [
+          "Canada",
+          "Mexico",
+          "Brazil",
+          "United States"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Rašmoras kalns ar četrām milzīgām sejām?",
+        "options": [
+          "Kanādā",
+          "Meksikā",
+          "Brazīlijā",
+          "Amerikas Savienotajās Valstīs"
+        ]
+      }
+    },
+    {
+      "id": "pisa-tower-where",
+      "topic": "mountains",
+      "correctIndex": 2,
+      "en": {
+        "text": "The Leaning Tower of Pisa is in which country?",
+        "options": [
+          "Spain",
+          "Greece",
+          "Italy",
+          "Portugal"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Pizas slīpais tornis?",
+        "options": [
+          "Spānijā",
+          "Grieķijā",
+          "Itālijā",
+          "Portugālē"
+        ]
+      }
+    },
+    {
+      "id": "great-wall-length",
+      "topic": "mountains",
+      "correctIndex": 3,
+      "en": {
+        "text": "About how long is the Great Wall of China?",
+        "options": [
+          "About 100 km",
+          "About 1,000 km",
+          "About 5,000 km",
+          "Over 20,000 km"
+        ]
+      },
+      "lv": {
+        "text": "Cik garš apmēram ir Ķīnas Lielais mūris?",
+        "options": [
+          "Apmēram 100 km",
+          "Apmēram 1 000 km",
+          "Apmēram 5 000 km",
+          "Vairāk nekā 20 000 km"
+        ]
+      }
+    },
+    {
+      "id": "madrid-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "If you dug straight through Earth from Madrid, where would you come out?",
+        "options": [
+          "Pacific Ocean near New Zealand",
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Indonesia"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu taisni cauri Zemei no Madrides, kur tu iznāktu?",
+        "options": [
+          "Klusajā okeānā pie Jaunzēlandes",
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Indonēzijā"
+        ]
+      }
+    },
+    {
+      "id": "wellington-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Wellington in New Zealand is an antipode of which country?",
+        "options": [
+          "France",
+          "Portugal",
+          "Italy",
+          "Spain"
+        ]
+      },
+      "lv": {
+        "text": "Velingtona Jaunzēlandē ir kuras valsts antipods?",
+        "options": [
+          "Francijas",
+          "Portugāles",
+          "Itālijas",
+          "Spānijas"
+        ]
+      }
+    },
+    {
+      "id": "bali-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "If you dug from Bali, you'd pop up near which country?",
+        "options": [
+          "Colombia",
+          "Brazil",
+          "Peru",
+          "Argentina"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no Bali, netālu no kuras valsts tu iznāktu?",
+        "options": [
+          "Kolumbijas",
+          "Brazīlijas",
+          "Peru",
+          "Argentīnas"
+        ]
+      }
+    },
+    {
+      "id": "shanghai-antipode",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "The antipode of Shanghai is in which country?",
+        "options": [
+          "Brazil",
+          "Chile",
+          "Argentina",
+          "Uruguay"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas Šanhajas antipods?",
+        "options": [
+          "Brazīlijā",
+          "Čīlē",
+          "Argentīnā",
+          "Urugvajā"
+        ]
+      }
+    },
+    {
+      "id": "singapore-antipode",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "Singapore's antipode is near which South American country?",
+        "options": [
+          "Brazil",
+          "Peru",
+          "Ecuador",
+          "Colombia"
+        ]
+      },
+      "lv": {
+        "text": "Netālu no kuras Dienvidamerikas valsts atrodas Singapūras antipods?",
+        "options": [
+          "Brazīlijas",
+          "Peru",
+          "Ekvadoras",
+          "Kolumbijas"
+        ]
+      }
+    },
+    {
+      "id": "buenos-aires-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "If you dug from Buenos Aires, you'd come out near...",
+        "options": [
+          "China",
+          "India",
+          "Vietnam",
+          "Japan"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no Buenosairesas, tu iznāktu netālu no...",
+        "options": [
+          "Ķīnas",
+          "Indijas",
+          "Vjetnamas",
+          "Japānas"
+        ]
+      }
+    },
+    {
+      "id": "reykjavik-antipode",
+      "topic": "antipodes",
+      "correctIndex": 1,
+      "en": {
+        "text": "Reykjavik in Iceland is an antipode of where?",
+        "options": [
+          "South Africa",
+          "Antarctica",
+          "Argentina",
+          "Australia"
+        ]
+      },
+      "lv": {
+        "text": "Reikjavīka Islandē ir kuras vietas antipods?",
+        "options": [
+          "Dienvidāfrikas",
+          "Antarktīdas",
+          "Argentīnas",
+          "Austrālijas"
+        ]
+      }
+    },
+    {
+      "id": "north-pole-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "What is the antipode of the North Pole?",
+        "options": [
+          "Equator",
+          "Greenland",
+          "Mount Everest",
+          "South Pole"
+        ]
+      },
+      "lv": {
+        "text": "Kas ir Ziemeļpola antipods?",
+        "options": [
+          "Ekvators",
+          "Grenlande",
+          "Everests",
+          "Dienvidpols"
+        ]
+      }
+    },
+    {
+      "id": "cape-town-antipode",
+      "topic": "antipodes",
+      "correctIndex": 1,
+      "en": {
+        "text": "If you dug from Cape Town, you'd come out in which ocean?",
+        "options": [
+          "Atlantic Ocean",
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no Keiptaunas, kurā okeānā tu iznāktu?",
+        "options": [
+          "Atlantijas okeānā",
+          "Klusajā okeānā",
+          "Indijas okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "moscow-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "Moscow's antipode is in which ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Atlantic Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Maskavas antipods?",
+        "options": [
+          "Klusajā okeānā",
+          "Indijas okeānā",
+          "Atlantijas okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "london-antipode",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "If you dug from London, you'd come out in which ocean?",
+        "options": [
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Pacific Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no Londonas, kurā okeānā tu iznāktu?",
+        "options": [
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Klusajā okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "paris-antipode",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "If you dug from Paris, you'd come out in which ocean?",
+        "options": [
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Pacific Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no Parīzes, kurā okeānā tu iznāktu?",
+        "options": [
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Klusajā okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "new-york-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "New York City's antipode is in which ocean?",
+        "options": [
+          "Indian Ocean",
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Ņujorkas antipods?",
+        "options": [
+          "Indijas okeānā",
+          "Klusajā okeānā",
+          "Atlantijas okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "sydney-antipode",
+      "topic": "antipodes",
+      "correctIndex": 1,
+      "en": {
+        "text": "Sydney's antipode is in which ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Sidnejas antipods?",
+        "options": [
+          "Klusajā okeānā",
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "rio-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Rio de Janeiro's antipode is in which ocean?",
+        "options": [
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean",
+          "Pacific Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Riodežaneiro antipods?",
+        "options": [
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Ziemeļu Ledus okeānā",
+          "Klusajā okeānā"
+        ]
+      }
+    },
+    {
+      "id": "mexico-city-antipode",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "Mexico City's antipode is in which ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Mehiko antipods?",
+        "options": [
+          "Klusajā okeānā",
+          "Atlantijas okeānā",
+          "Indijas okeānā",
+          "Ziemeļu Ledus okeānā"
+        ]
+      }
+    },
+    {
+      "id": "cairo-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Cairo's antipode is in which ocean?",
+        "options": [
+          "Indian Ocean",
+          "Atlantic Ocean",
+          "Arctic Ocean",
+          "Pacific Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Kairas antipods?",
+        "options": [
+          "Indijas okeānā",
+          "Atlantijas okeānā",
+          "Ziemeļu Ledus okeānā",
+          "Klusajā okeānā"
+        ]
+      }
+    },
+    {
+      "id": "tokyo-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Tokyo's antipode is in which ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Arctic Ocean",
+          "Atlantic Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Tokijas antipods?",
+        "options": [
+          "Klusajā okeānā",
+          "Indijas okeānā",
+          "Ziemeļu Ledus okeānā",
+          "Atlantijas okeānā"
+        ]
+      }
+    },
+    {
+      "id": "los-angeles-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Los Angeles's antipode is in which ocean?",
+        "options": [
+          "Pacific Ocean",
+          "Atlantic Ocean",
+          "Arctic Ocean",
+          "Indian Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Kurā okeānā atrodas Losandželosas antipods?",
+        "options": [
+          "Klusajā okeānā",
+          "Atlantijas okeānā",
+          "Ziemeļu Ledus okeānā",
+          "Indijas okeānā"
+        ]
+      }
+    },
+    {
+      "id": "honolulu-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "Honolulu's antipode is on which continent?",
+        "options": [
+          "Africa",
+          "Asia",
+          "Europe",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā atrodas Honolulu antipods?",
+        "options": [
+          "Āfrikā",
+          "Āzijā",
+          "Eiropā",
+          "Dienvidamerikā"
+        ]
+      }
+    },
+    {
+      "id": "quito-antipode",
+      "topic": "antipodes",
+      "correctIndex": 0,
+      "en": {
+        "text": "Quito's antipode is near which country?",
+        "options": [
+          "Indonesia",
+          "Australia",
+          "India",
+          "China"
+        ]
+      },
+      "lv": {
+        "text": "Netālu no kuras valsts atrodas Kito antipods?",
+        "options": [
+          "Indonēzijas",
+          "Austrālijas",
+          "Indijas",
+          "Ķīnas"
+        ]
+      }
+    },
+    {
+      "id": "lima-antipode",
+      "topic": "antipodes",
+      "correctIndex": 3,
+      "en": {
+        "text": "Lima's antipode is near which country?",
+        "options": [
+          "China",
+          "Vietnam",
+          "Japan",
+          "Thailand"
+        ]
+      },
+      "lv": {
+        "text": "Netālu no kuras valsts atrodas Limas antipods?",
+        "options": [
+          "Ķīnas",
+          "Vjetnamas",
+          "Japānas",
+          "Taizemes"
+        ]
+      }
+    },
+    {
+      "id": "most-land-antipode-ocean",
+      "topic": "antipodes",
+      "correctIndex": 2,
+      "en": {
+        "text": "If you dug from a random spot on land, where is your antipode most likely to be?",
+        "options": [
+          "On the same continent",
+          "On another continent",
+          "In the ocean",
+          "At the equator"
+        ]
+      },
+      "lv": {
+        "text": "Ja izraktu no nejaušas vietas uz sauszemes, kur visbiežāk būtu tavs antipods?",
+        "options": [
+          "Tajā pašā kontinentā",
+          "Citā kontinentā",
+          "Okeānā",
+          "Pie ekvatora"
+        ]
+      }
+    },
+    {
+      "id": "hottest-continent",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which continent is the hottest overall?",
+        "options": [
+          "Africa",
+          "Asia",
+          "South America",
+          "Australia"
+        ]
+      },
+      "lv": {
+        "text": "Kurš kontinents kopumā ir karstākais?",
+        "options": [
+          "Āfrika",
+          "Āzija",
+          "Dienvidamerika",
+          "Austrālija"
+        ]
+      }
+    },
+    {
+      "id": "coldest-place",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "Where was the coldest temperature on Earth recorded?",
+        "options": [
+          "Antarctica",
+          "Greenland",
+          "Siberia",
+          "Iceland"
+        ]
+      },
+      "lv": {
+        "text": "Kur uz Zemes ir izmērīta visaukstākā temperatūra?",
+        "options": [
+          "Antarktīdā",
+          "Grenlandē",
+          "Sibīrijā",
+          "Islandē"
+        ]
+      }
+    },
+    {
+      "id": "driest-desert",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the driest desert?",
+        "options": [
+          "Sahara",
+          "Gobi",
+          "Kalahari",
+          "Atacama"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir vissausākais tuksnesis?",
+        "options": [
+          "Sahāra",
+          "Gobi",
+          "Kalahari",
+          "Atakama"
+        ]
+      }
+    },
+    {
+      "id": "largest-desert",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the largest desert on Earth?",
+        "options": [
+          "Sahara",
+          "Arabian",
+          "Gobi",
+          "Antarctica"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir lielākais tuksnesis uz Zemes?",
+        "options": [
+          "Sahāra",
+          "Arābijas tuksnesis",
+          "Gobi",
+          "Antarktīda"
+        ]
+      }
+    },
+    {
+      "id": "largest-hot-desert",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is the largest hot desert?",
+        "options": [
+          "Sahara",
+          "Gobi",
+          "Arabian",
+          "Kalahari"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir lielākais karstais tuksnesis?",
+        "options": [
+          "Sahāra",
+          "Gobi",
+          "Arābijas tuksnesis",
+          "Kalahari"
+        ]
+      }
+    },
+    {
+      "id": "seasons-count",
+      "topic": "weather",
+      "correctIndex": 2,
+      "en": {
+        "text": "In most temperate places, how many seasons are in a year?",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ]
+      },
+      "lv": {
+        "text": "Cik gadalaiku ir gadā vietās ar mērenu klimatu?",
+        "options": [
+          "Divi",
+          "Trīs",
+          "Četri",
+          "Pieci"
+        ]
+      }
+    },
+    {
+      "id": "equator-climate",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "What is the climate like at the equator?",
+        "options": [
+          "Cold all year",
+          "Dry desert",
+          "Snowy in winter",
+          "Hot all year"
+        ]
+      },
+      "lv": {
+        "text": "Kāds ir klimats pie ekvatora?",
+        "options": [
+          "Auksts visu gadu",
+          "Sauss tuksnesis",
+          "Sniegots ziemā",
+          "Karsts visu gadu"
+        ]
+      }
+    },
+    {
+      "id": "why-poles-cold",
+      "topic": "weather",
+      "correctIndex": 1,
+      "en": {
+        "text": "Why are the poles so cold?",
+        "options": [
+          "They're further from Earth's core",
+          "The Sun's rays hit at a low angle",
+          "They have no atmosphere",
+          "Volcanoes block the Sun"
+        ]
+      },
+      "lv": {
+        "text": "Kāpēc Zemes poli ir tik auksti?",
+        "options": [
+          "Tie ir tālāk no Zemes kodola",
+          "Saules stari krīt slīpā leņķī",
+          "Tiem nav atmosfēras",
+          "Vulkāni aizsedz Sauli"
+        ]
+      }
+    },
+    {
+      "id": "tropic-cancer-latitude",
+      "topic": "weather",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Tropic of Cancer is at about which latitude?",
+        "options": [
+          "0°",
+          "23.5° North",
+          "45° North",
+          "66.5° North"
+        ]
+      },
+      "lv": {
+        "text": "Pie kura ziemeļu platuma atrodas Vēža tropiks?",
+        "options": [
+          "0°",
+          "23,5°",
+          "45°",
+          "66,5°"
+        ]
+      }
+    },
+    {
+      "id": "equator-latitude",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "The equator is at which latitude?",
+        "options": [
+          "0°",
+          "23.5°",
+          "45°",
+          "90°"
+        ]
+      },
+      "lv": {
+        "text": "Pie kura platuma atrodas ekvators?",
+        "options": [
+          "0°",
+          "23,5°",
+          "45°",
+          "90°"
+        ]
+      }
+    },
+    {
+      "id": "northern-summer-month",
+      "topic": "weather",
+      "correctIndex": 2,
+      "en": {
+        "text": "In the Northern Hemisphere, July is which season?",
+        "options": [
+          "Winter",
+          "Spring",
+          "Summer",
+          "Autumn"
+        ]
+      },
+      "lv": {
+        "text": "Kāds gadalaiks ir ziemeļu puslodē jūlijā?",
+        "options": [
+          "Ziema",
+          "Pavasaris",
+          "Vasara",
+          "Rudens"
+        ]
+      }
+    },
+    {
+      "id": "southern-summer-month",
+      "topic": "weather",
+      "correctIndex": 2,
+      "en": {
+        "text": "In the Southern Hemisphere, January is which season?",
+        "options": [
+          "Winter",
+          "Spring",
+          "Summer",
+          "Autumn"
+        ]
+      },
+      "lv": {
+        "text": "Kāds gadalaiks ir dienvidu puslodē janvārī?",
+        "options": [
+          "Ziema",
+          "Pavasaris",
+          "Vasara",
+          "Rudens"
+        ]
+      }
+    },
+    {
+      "id": "monsoon-region",
+      "topic": "weather",
+      "correctIndex": 1,
+      "en": {
+        "text": "Monsoon rains are most famous in which region?",
+        "options": [
+          "Northern Europe",
+          "South Asia",
+          "Antarctica",
+          "Sahara"
+        ]
+      },
+      "lv": {
+        "text": "Kurā reģionā ir visslavenākās musonu lietusgāzes?",
+        "options": [
+          "Ziemeļeiropā",
+          "Dienvidāzijā",
+          "Antarktīdā",
+          "Sahārā"
+        ]
+      }
+    },
+    {
+      "id": "snow-on-equator-possible",
+      "topic": "weather",
+      "correctIndex": 2,
+      "en": {
+        "text": "Can you find snow near the equator?",
+        "options": [
+          "Never",
+          "Only at sea level",
+          "Yes, on tall mountains",
+          "Only at night"
+        ]
+      },
+      "lv": {
+        "text": "Vai pie ekvatora var atrast sniegu?",
+        "options": [
+          "Nekad",
+          "Tikai jūras līmenī",
+          "Jā, augstos kalnos",
+          "Tikai naktī"
+        ]
+      }
+    },
+    {
+      "id": "greenland-mostly",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "Greenland is mostly covered in...",
+        "options": [
+          "Ice",
+          "Forest",
+          "Desert sand",
+          "Grass fields"
+        ]
+      },
+      "lv": {
+        "text": "Grenlandi galvenokārt klāj...",
+        "options": [
+          "Ledus",
+          "Mežs",
+          "Tuksneša smiltis",
+          "Zāles lauki"
+        ]
+      }
+    },
+    {
+      "id": "iceland-mostly",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Despite its name, Iceland is mostly covered with...",
+        "options": [
+          "Ice everywhere",
+          "Tropical jungle",
+          "Desert sand",
+          "Green grass and volcanoes"
+        ]
+      },
+      "lv": {
+        "text": "Lai gan Islandes nosaukums liek domāt par ledu, valsti galvenokārt klāj...",
+        "options": [
+          "Visur ledus",
+          "Tropu džungļi",
+          "Tuksneša smiltis",
+          "Zaļa zāle un vulkāni"
+        ]
+      }
+    },
+    {
+      "id": "wettest-place",
+      "topic": "weather",
+      "correctIndex": 1,
+      "en": {
+        "text": "The wettest place on Earth (with the most rain) is in which country?",
+        "options": [
+          "Brazil",
+          "India",
+          "United States",
+          "Indonesia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī atrodas vislietainākā vieta uz Zemes?",
+        "options": [
+          "Brazīlijā",
+          "Indijā",
+          "Amerikas Savienotajās Valstīs",
+          "Indonēzijā"
+        ]
+      }
+    },
+    {
+      "id": "windiest-continent",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is generally the windiest continent?",
+        "options": [
+          "Africa",
+          "Australia",
+          "Europe",
+          "Antarctica"
+        ]
+      },
+      "lv": {
+        "text": "Kurš kontinents kopumā ir vējainākais?",
+        "options": [
+          "Āfrika",
+          "Austrālija",
+          "Eiropa",
+          "Antarktīda"
+        ]
+      }
+    },
+    {
+      "id": "clouds-made-of",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Clouds are made of...",
+        "options": [
+          "Smoke",
+          "Dust",
+          "Air",
+          "Tiny water droplets and ice"
+        ]
+      },
+      "lv": {
+        "text": "No kā veidoti mākoņi?",
+        "options": [
+          "No dūmiem",
+          "No putekļiem",
+          "No gaisa",
+          "No sīkām ūdens lāsītēm un ledus"
+        ]
+      }
+    },
+    {
+      "id": "rainbow-needs",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "What two things do you need to see a rainbow?",
+        "options": [
+          "Wind and snow",
+          "Lightning and wind",
+          "Stars and rain",
+          "Sunlight and rain"
+        ]
+      },
+      "lv": {
+        "text": "Kas divi ir nepieciešami, lai redzētu varavīksni?",
+        "options": [
+          "Vējš un sniegs",
+          "Zibens un vējš",
+          "Zvaigznes un lietus",
+          "Saules gaisma un lietus"
+        ]
+      }
+    },
+    {
+      "id": "tropical-rainforest-weather",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "What's the weather like in a tropical rainforest?",
+        "options": [
+          "Warm and rainy all year",
+          "Cold all year",
+          "Mostly dry",
+          "Snowy in winter"
+        ]
+      },
+      "lv": {
+        "text": "Kāds ir laiks tropu lietusmežā?",
+        "options": [
+          "Silts un lietains visu gadu",
+          "Auksts visu gadu",
+          "Lielākoties sauss",
+          "Sniegots ziemā"
+        ]
+      }
+    },
+    {
+      "id": "climate-zones-main",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Earth has three main climate zones. What are they?",
+        "options": [
+          "Land, sea, sky",
+          "Hot, warm, cool",
+          "North, middle, south",
+          "Tropical, temperate, polar"
+        ]
+      },
+      "lv": {
+        "text": "Uz Zemes ir trīs galvenās klimata joslas. Kuras tās ir?",
+        "options": [
+          "Sauszeme, jūra, debesis",
+          "Karsts, silts, vēss",
+          "Ziemeļi, vidus, dienvidi",
+          "Tropiskā, mērenā, polārā"
+        ]
+      }
+    },
+    {
+      "id": "north-pole-on-what",
+      "topic": "weather",
+      "correctIndex": 0,
+      "en": {
+        "text": "The North Pole sits on top of...",
+        "options": [
+          "Floating sea ice",
+          "A big mountain",
+          "A small island",
+          "An underwater volcano"
+        ]
+      },
+      "lv": {
+        "text": "Ziemeļpols atrodas virs...",
+        "options": [
+          "Peldoša jūras ledus",
+          "Liela kalna",
+          "Mazas salas",
+          "Zemūdens vulkāna"
+        ]
+      }
+    },
+    {
+      "id": "south-pole-on-what",
+      "topic": "weather",
+      "correctIndex": 1,
+      "en": {
+        "text": "The South Pole sits on top of...",
+        "options": [
+          "The ocean",
+          "A big continent under ice",
+          "A floating ice sheet",
+          "A volcano island"
+        ]
+      },
+      "lv": {
+        "text": "Dienvidpols atrodas virs...",
+        "options": [
+          "Okeāna",
+          "Liela kontinenta zem ledus",
+          "Peldošas ledus segas",
+          "Vulkāniskas salas"
+        ]
+      }
+    },
+    {
+      "id": "why-summer-tilt",
+      "topic": "weather",
+      "correctIndex": 3,
+      "en": {
+        "text": "Why does the Northern Hemisphere have summer in July?",
+        "options": [
+          "Earth is closer to the Sun",
+          "The wind warms it",
+          "The Sun is hotter then",
+          "Earth tilts toward the Sun"
+        ]
+      },
+      "lv": {
+        "text": "Kāpēc ziemeļu puslodē jūlijā ir vasara?",
+        "options": [
+          "Zeme tad ir tuvāk Saulei",
+          "To sasilda vējš",
+          "Saule tad ir karstāka",
+          "Zeme tad ir noliekta uz Sauli"
+        ]
+      }
+    },
+    {
+      "id": "earth-rotation",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "How long does Earth take to spin once on its axis?",
+        "options": [
+          "About 1 hour",
+          "About 24 hours",
+          "About 1 week",
+          "About 1 month"
+        ]
+      },
+      "lv": {
+        "text": "Cik ilgi Zeme veic vienu apgriezienu ap savu asi?",
+        "options": [
+          "Apmēram 1 stundu",
+          "Apmēram 24 stundas",
+          "Apmēram nedēļu",
+          "Apmēram mēnesi"
+        ]
+      }
+    },
+    {
+      "id": "earth-orbit",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "How long does Earth take to go around the Sun once?",
+        "options": [
+          "About 24 hours",
+          "About 1 month",
+          "About 365 days",
+          "About 1,000 days"
+        ]
+      },
+      "lv": {
+        "text": "Cik ilgi Zeme veic vienu apriņķojumu ap Sauli?",
+        "options": [
+          "Apmēram 24 stundas",
+          "Apmēram mēnesi",
+          "Apmēram 365 dienas",
+          "Apmēram 1 000 dienu"
+        ]
+      }
+    },
+    {
+      "id": "moon-distance",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "About how far is the Moon from Earth?",
+        "options": [
+          "About 4,000 km",
+          "About 40,000 km",
+          "About 400,000 km",
+          "About 4 million km"
+        ]
+      },
+      "lv": {
+        "text": "Cik tālu apmēram Mēness ir no Zemes?",
+        "options": [
+          "Apmēram 4 000 km",
+          "Apmēram 40 000 km",
+          "Apmēram 400 000 km",
+          "Apmēram 4 miljoni km"
+        ]
+      }
+    },
+    {
+      "id": "sun-distance",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "About how far is the Sun from Earth?",
+        "options": [
+          "150,000 km",
+          "1.5 million km",
+          "150 million km",
+          "1.5 billion km"
+        ]
+      },
+      "lv": {
+        "text": "Cik tālu apmēram Saule ir no Zemes?",
+        "options": [
+          "150 000 km",
+          "1,5 miljoni km",
+          "150 miljoni km",
+          "1,5 miljardi km"
+        ]
+      }
+    },
+    {
+      "id": "earth-shape",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "Earth's shape is best described as...",
+        "options": [
+          "A flat disc",
+          "A perfect sphere",
+          "Slightly squished at the poles",
+          "A cube"
+        ]
+      },
+      "lv": {
+        "text": "Kāda ir Zemes forma?",
+        "options": [
+          "Plakana ripa",
+          "Pilnīga lode",
+          "Lode, pie poliem nedaudz saplacināta",
+          "Kubs"
+        ]
+      }
+    },
+    {
+      "id": "earth-tilt",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "Earth is tilted by about how many degrees?",
+        "options": [
+          "10°",
+          "23.5°",
+          "45°",
+          "90°"
+        ]
+      },
+      "lv": {
+        "text": "Cik grādu apmēram ir Zemes ass slīpums?",
+        "options": [
+          "10°",
+          "23,5°",
+          "45°",
+          "90°"
+        ]
+      }
+    },
+    {
+      "id": "earth-age",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "How old is Earth, roughly?",
+        "options": [
+          "4,500 years",
+          "4.5 million years",
+          "4.5 billion years",
+          "4.5 trillion years"
+        ]
+      },
+      "lv": {
+        "text": "Cik veca ir Zeme?",
+        "options": [
+          "4 500 gadu",
+          "4,5 miljoni gadu",
+          "4,5 miljardi gadu",
+          "4,5 triljoni gadu"
+        ]
+      }
+    },
+    {
+      "id": "earth-layers-count",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "Earth has how many main layers?",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Six"
+        ]
+      },
+      "lv": {
+        "text": "Cik galveno slāņu ir Zemei?",
+        "options": [
+          "Divi",
+          "Trīs",
+          "Četri",
+          "Seši"
+        ]
+      }
+    },
+    {
+      "id": "crust-thinnest",
+      "topic": "earth-science",
+      "correctIndex": 0,
+      "en": {
+        "text": "Earth's crust is the...",
+        "options": [
+          "Thinnest, outer layer",
+          "Hottest layer",
+          "Centre of the Earth",
+          "Liquid layer"
+        ]
+      },
+      "lv": {
+        "text": "Zemes garoza ir...",
+        "options": [
+          "Pats plānākais, ārējais slānis",
+          "Karstākais slānis",
+          "Zemes centrs",
+          "Šķidrais slānis"
+        ]
+      }
+    },
+    {
+      "id": "mantle-state",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "The mantle is mostly...",
+        "options": [
+          "Empty space",
+          "Solid rock that slowly flows",
+          "Pure water",
+          "Frozen gas"
+        ]
+      },
+      "lv": {
+        "text": "Mantija galvenokārt ir...",
+        "options": [
+          "Tukša telpa",
+          "Ciets iezis, kas lēni plūst",
+          "Tīrs ūdens",
+          "Sasalusi gāze"
+        ]
+      }
+    },
+    {
+      "id": "continents-move",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "Earth's continents...",
+        "options": [
+          "Stay completely still",
+          "Slowly move on giant plates",
+          "Float on the ocean",
+          "Grow and shrink each year"
+        ]
+      },
+      "lv": {
+        "text": "Zemes kontinenti...",
+        "options": [
+          "Stāv pilnīgi nekustīgi",
+          "Lēni kustas uz milzīgām platēm",
+          "Peld pa okeānu",
+          "Katru gadu aug un sarūk"
+        ]
+      }
+    },
+    {
+      "id": "magnetic-field-source",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "Earth's magnetic field comes from...",
+        "options": [
+          "Mountains",
+          "Moving liquid metal inside Earth",
+          "The Moon",
+          "Trees"
+        ]
+      },
+      "lv": {
+        "text": "Zemes magnētiskais lauks rodas no...",
+        "options": [
+          "Kalniem",
+          "Šķidra metāla, kas kustas Zemes iekšienē",
+          "Mēness",
+          "Kokiem"
+        ]
+      }
+    },
+    {
+      "id": "earthquake-cause",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "What causes most earthquakes?",
+        "options": [
+          "Storms",
+          "Volcanoes only",
+          "Moving tectonic plates",
+          "Big animals"
+        ]
+      },
+      "lv": {
+        "text": "Kas izraisa lielāko daļu zemestrīču?",
+        "options": [
+          "Vētras",
+          "Tikai vulkāni",
+          "Kustošās tektoniskās plates",
+          "Lieli dzīvnieki"
+        ]
+      }
+    },
+    {
+      "id": "richter-measures",
+      "topic": "earth-science",
+      "correctIndex": 2,
+      "en": {
+        "text": "The Richter scale measures...",
+        "options": [
+          "Wind speed",
+          "Rainfall",
+          "Earthquake strength",
+          "Volcano height"
+        ]
+      },
+      "lv": {
+        "text": "Rihtera skala mēra...",
+        "options": [
+          "Vēja ātrumu",
+          "Lietus daudzumu",
+          "Zemestrīces stiprumu",
+          "Vulkāna augstumu"
+        ]
+      }
+    },
+    {
+      "id": "tsunami-cause",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "What usually causes a tsunami?",
+        "options": [
+          "Strong wind",
+          "Underwater earthquakes",
+          "A full moon",
+          "Hot weather"
+        ]
+      },
+      "lv": {
+        "text": "Kas parasti izraisa cunami?",
+        "options": [
+          "Stiprs vējš",
+          "Zemūdens zemestrīces",
+          "Pilnmēness",
+          "Karsts laiks"
+        ]
+      }
+    },
+    {
+      "id": "magma-source",
+      "topic": "earth-science",
+      "correctIndex": 3,
+      "en": {
+        "text": "Where does magma come from?",
+        "options": [
+          "The Sun",
+          "The Moon",
+          "Ocean floor sand",
+          "Deep inside Earth"
+        ]
+      },
+      "lv": {
+        "text": "No kurienes nāk magma?",
+        "options": [
+          "No Saules",
+          "No Mēness",
+          "No okeāna dibena smiltīm",
+          "No dziļiem Zemes slāņiem"
+        ]
+      }
+    },
+    {
+      "id": "atmosphere-mostly",
+      "topic": "earth-science",
+      "correctIndex": 0,
+      "en": {
+        "text": "What is Earth's atmosphere mostly made of?",
+        "options": [
+          "Nitrogen",
+          "Oxygen",
+          "Carbon dioxide",
+          "Water vapour"
+        ]
+      },
+      "lv": {
+        "text": "No kā galvenokārt sastāv Zemes atmosfēra?",
+        "options": [
+          "Slāpekļa",
+          "Skābekļa",
+          "Oglekļa dioksīda",
+          "Ūdens tvaika"
+        ]
+      }
+    },
+    {
+      "id": "ozone-blocks",
+      "topic": "earth-science",
+      "correctIndex": 3,
+      "en": {
+        "text": "The ozone layer protects us by blocking...",
+        "options": [
+          "Rain",
+          "Cosmic dust",
+          "Moon light",
+          "Harmful UV rays"
+        ]
+      },
+      "lv": {
+        "text": "Ozona slānis mūs sargā, jo aiztur...",
+        "options": [
+          "Lietu",
+          "Kosmiskos putekļus",
+          "Mēness gaismu",
+          "Kaitīgos UV starus"
+        ]
+      }
+    },
+    {
+      "id": "earth-moons",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "How many natural moons does Earth have?",
+        "options": [
+          "Zero",
+          "One",
+          "Two",
+          "Many"
+        ]
+      },
+      "lv": {
+        "text": "Cik dabisko pavadoņu ir Zemei?",
+        "options": [
+          "Nevienu",
+          "Vienu",
+          "Divus",
+          "Daudz"
+        ]
+      }
+    },
+    {
+      "id": "only-planet-life",
+      "topic": "earth-science",
+      "correctIndex": 1,
+      "en": {
+        "text": "Which planet in our solar system is known to have life?",
+        "options": [
+          "Mars",
+          "Earth",
+          "Jupiter",
+          "Venus"
+        ]
+      },
+      "lv": {
+        "text": "Kura ir vienīgā Saules sistēmas planēta, uz kuras ir zināma dzīvība?",
+        "options": [
+          "Marss",
+          "Zeme",
+          "Jupiters",
+          "Venēra"
+        ]
+      }
+    },
+    {
+      "id": "kangaroo-where",
+      "topic": "animals",
+      "correctIndex": 2,
+      "en": {
+        "text": "Kangaroos live in the wild in which country?",
+        "options": [
+          "Brazil",
+          "South Africa",
+          "Australia",
+          "India"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī savvaļā dzīvo ķenguri?",
+        "options": [
+          "Brazīlijā",
+          "Dienvidāfrikā",
+          "Austrālijā",
+          "Indijā"
+        ]
+      }
+    },
+    {
+      "id": "panda-where",
+      "topic": "animals",
+      "correctIndex": 1,
+      "en": {
+        "text": "Giant pandas live in the wild only in which country?",
+        "options": [
+          "Japan",
+          "China",
+          "Vietnam",
+          "Mongolia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī savvaļā dzīvo lielās pandas (tikai vienā)?",
+        "options": [
+          "Japānā",
+          "Ķīnā",
+          "Vjetnamā",
+          "Mongolijā"
+        ]
+      }
+    },
+    {
+      "id": "polar-bear-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Polar bears live near which pole?",
+        "options": [
+          "North Pole (Arctic)",
+          "South Pole (Antarctic)",
+          "Both poles",
+          "Neither pole"
+        ]
+      },
+      "lv": {
+        "text": "Pie kura pola dzīvo polārlāči?",
+        "options": [
+          "Pie Ziemeļpola (Arktikā)",
+          "Pie Dienvidpola (Antarktīdā)",
+          "Pie abiem poliem",
+          "Ne pie viena no tiem"
+        ]
+      }
+    },
+    {
+      "id": "penguin-where",
+      "topic": "animals",
+      "correctIndex": 1,
+      "en": {
+        "text": "Most penguin species live in which half of the world?",
+        "options": [
+          "Northern Hemisphere",
+          "Southern Hemisphere",
+          "Equator only",
+          "Inside caves"
+        ]
+      },
+      "lv": {
+        "text": "Kurā pasaules pusē dzīvo lielākā daļa pingvīnu sugu?",
+        "options": [
+          "Ziemeļu puslodē",
+          "Dienvidu puslodē",
+          "Tikai pie ekvatora",
+          "Alās"
+        ]
+      }
+    },
+    {
+      "id": "lion-where",
+      "topic": "animals",
+      "correctIndex": 1,
+      "en": {
+        "text": "Wild lions mostly live on which continent today?",
+        "options": [
+          "Asia",
+          "Africa",
+          "South America",
+          "Australia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā mūsdienās galvenokārt dzīvo savvaļas lauvas?",
+        "options": [
+          "Āzijā",
+          "Āfrikā",
+          "Dienvidamerikā",
+          "Austrālijā"
+        ]
+      }
+    },
+    {
+      "id": "tiger-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Tigers live in the wild on which continent?",
+        "options": [
+          "Africa",
+          "Australia",
+          "South America",
+          "Asia"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā savvaļā dzīvo tīģeri?",
+        "options": [
+          "Āfrikā",
+          "Austrālijā",
+          "Dienvidamerikā",
+          "Āzijā"
+        ]
+      }
+    },
+    {
+      "id": "blue-whale-fact",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which animal is the largest ever known on Earth?",
+        "options": [
+          "African elephant",
+          "Tyrannosaurus rex",
+          "Giraffe",
+          "Blue whale"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir lielākais zināmais dzīvnieks uz Zemes?",
+        "options": [
+          "Āfrikas zilonis",
+          "Tiranozaurs",
+          "Žirafe",
+          "Zilais valis"
+        ]
+      }
+    },
+    {
+      "id": "fastest-land-animal",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Which is the fastest animal on land?",
+        "options": [
+          "Lion",
+          "Greyhound",
+          "Horse",
+          "Cheetah"
+        ]
+      },
+      "lv": {
+        "text": "Kurš dzīvnieks uz sauszemes ir visātrākais?",
+        "options": [
+          "Lauva",
+          "Kurts",
+          "Zirgs",
+          "Gepards"
+        ]
+      }
+    },
+    {
+      "id": "tallest-animal",
+      "topic": "animals",
+      "correctIndex": 2,
+      "en": {
+        "text": "Which is the tallest land animal?",
+        "options": [
+          "Elephant",
+          "Camel",
+          "Giraffe",
+          "Moose"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir augstākais sauszemes dzīvnieks?",
+        "options": [
+          "Zilonis",
+          "Kamielis",
+          "Žirafe",
+          "Alnis"
+        ]
+      }
+    },
+    {
+      "id": "heaviest-land-animal",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Which is the heaviest land animal?",
+        "options": [
+          "African elephant",
+          "Hippo",
+          "Rhino",
+          "Polar bear"
+        ]
+      },
+      "lv": {
+        "text": "Kurš ir vissmagākais sauszemes dzīvnieks?",
+        "options": [
+          "Āfrikas zilonis",
+          "Nīlzirgs",
+          "Degunradzis",
+          "Polārlācis"
+        ]
+      }
+    },
+    {
+      "id": "orangutan-where",
+      "topic": "animals",
+      "correctIndex": 1,
+      "en": {
+        "text": "Orangutans live in the wild on which islands?",
+        "options": [
+          "Madagascar",
+          "Borneo and Sumatra",
+          "Iceland",
+          "Hawaii"
+        ]
+      },
+      "lv": {
+        "text": "Kurās salās savvaļā dzīvo orangutāni?",
+        "options": [
+          "Madagaskarā",
+          "Borneo un Sumatrā",
+          "Islandē",
+          "Havajās"
+        ]
+      }
+    },
+    {
+      "id": "reindeer-where",
+      "topic": "animals",
+      "correctIndex": 2,
+      "en": {
+        "text": "Reindeer live in cold lands near which region?",
+        "options": [
+          "Sahara",
+          "Equator",
+          "Arctic Circle",
+          "Australia"
+        ]
+      },
+      "lv": {
+        "text": "Pie kura reģiona aukstajās zemēs dzīvo ziemeļbrieži?",
+        "options": [
+          "Sahāras",
+          "Ekvatora",
+          "Polārā loka",
+          "Austrālijas"
+        ]
+      }
+    },
+    {
+      "id": "zebra-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Zebras live in the wild on which continent?",
+        "options": [
+          "Asia",
+          "South America",
+          "Australia",
+          "Africa"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā savvaļā dzīvo zebras?",
+        "options": [
+          "Āzijā",
+          "Dienvidamerikā",
+          "Austrālijā",
+          "Āfrikā"
+        ]
+      }
+    },
+    {
+      "id": "komodo-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Komodo dragons live only in which country?",
+        "options": [
+          "Indonesia",
+          "Australia",
+          "Thailand",
+          "India"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī savvaļā dzīvo Komodo varāni (tikai vienā)?",
+        "options": [
+          "Indonēzijā",
+          "Austrālijā",
+          "Taizemē",
+          "Indijā"
+        ]
+      }
+    },
+    {
+      "id": "galapagos-tortoise-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Galápagos giant tortoises live on islands of which country?",
+        "options": [
+          "Mexico",
+          "Peru",
+          "Chile",
+          "Ecuador"
+        ]
+      },
+      "lv": {
+        "text": "Kuras valsts salās dzīvo Galapagu milzu bruņurupuči?",
+        "options": [
+          "Meksikas",
+          "Peru",
+          "Čīles",
+          "Ekvadoras"
+        ]
+      }
+    },
+    {
+      "id": "capybara-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Capybaras (the world's biggest rodents) live on which continent?",
+        "options": [
+          "Africa",
+          "Europe",
+          "Asia",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā dzīvo kapibaras - lielākie grauzēji pasaulē?",
+        "options": [
+          "Āfrikā",
+          "Eiropā",
+          "Āzijā",
+          "Dienvidamerikā"
+        ]
+      }
+    },
+    {
+      "id": "anaconda-where",
+      "topic": "animals",
+      "correctIndex": 1,
+      "en": {
+        "text": "Anacondas live in which forest?",
+        "options": [
+          "Congo rainforest",
+          "Amazon rainforest",
+          "Boreal forest",
+          "Australian outback"
+        ]
+      },
+      "lv": {
+        "text": "Kurā mežā dzīvo anakondas?",
+        "options": [
+          "Kongo lietusmežā",
+          "Amazones lietusmežā",
+          "Taigā",
+          "Austrālijas tuksnesī"
+        ]
+      }
+    },
+    {
+      "id": "jaguar-where",
+      "topic": "animals",
+      "correctIndex": 2,
+      "en": {
+        "text": "Jaguars live mainly on which continent?",
+        "options": [
+          "Africa",
+          "Asia",
+          "Central and South America",
+          "Europe"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā galvenokārt dzīvo jaguāri?",
+        "options": [
+          "Āfrikā",
+          "Āzijā",
+          "Centrālamerikā un Dienvidamerikā",
+          "Eiropā"
+        ]
+      }
+    },
+    {
+      "id": "kiwi-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Kiwi birds live in which country?",
+        "options": [
+          "New Zealand",
+          "Australia",
+          "Indonesia",
+          "Fiji"
+        ]
+      },
+      "lv": {
+        "text": "Kurā valstī dzīvo kivi putni?",
+        "options": [
+          "Jaunzēlandē",
+          "Austrālijā",
+          "Indonēzijā",
+          "Fidži"
+        ]
+      }
+    },
+    {
+      "id": "lemur-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Lemurs live in the wild only on which island?",
+        "options": [
+          "Madagascar",
+          "Borneo",
+          "Sri Lanka",
+          "Cuba"
+        ]
+      },
+      "lv": {
+        "text": "Kurā salā savvaļā dzīvo lemuri (tikai vienā)?",
+        "options": [
+          "Madagaskarā",
+          "Borneo",
+          "Šrilankā",
+          "Kubā"
+        ]
+      }
+    },
+    {
+      "id": "sloth-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Sloths live in the forests of which region?",
+        "options": [
+          "Africa",
+          "Asia",
+          "Australia",
+          "South and Central America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā reģionā mežos dzīvo slinekļi?",
+        "options": [
+          "Āfrikā",
+          "Āzijā",
+          "Austrālijā",
+          "Dienvidamerikā un Centrālamerikā"
+        ]
+      }
+    },
+    {
+      "id": "ostrich-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "The largest bird in the world, the ostrich, lives on which continent?",
+        "options": [
+          "Africa",
+          "Asia",
+          "Australia",
+          "South America"
+        ]
+      },
+      "lv": {
+        "text": "Kurā kontinentā dzīvo lielākais putns pasaulē - strauss?",
+        "options": [
+          "Āfrikā",
+          "Āzijā",
+          "Austrālijā",
+          "Dienvidamerikā"
+        ]
+      }
+    },
+    {
+      "id": "arctic-fox-where",
+      "topic": "animals",
+      "correctIndex": 0,
+      "en": {
+        "text": "Arctic foxes live where?",
+        "options": [
+          "In the Arctic",
+          "In hot deserts",
+          "In jungles",
+          "In Antarctica"
+        ]
+      },
+      "lv": {
+        "text": "Kur dzīvo polārlapsas?",
+        "options": [
+          "Arktikā",
+          "Karstos tuksnešos",
+          "Džungļos",
+          "Antarktīdā"
+        ]
+      }
+    },
+    {
+      "id": "monarch-migration",
+      "topic": "animals",
+      "correctIndex": 2,
+      "en": {
+        "text": "Monarch butterflies famously migrate to which country?",
+        "options": [
+          "Brazil",
+          "Canada",
+          "Mexico",
+          "Spain"
+        ]
+      },
+      "lv": {
+        "text": "Monarhtauriņi ir slaveni ar lielo migrāciju uz kuru valsti?",
+        "options": [
+          "Brazīliju",
+          "Kanādu",
+          "Meksiku",
+          "Spāniju"
+        ]
+      }
+    },
+    {
+      "id": "moose-where",
+      "topic": "animals",
+      "correctIndex": 3,
+      "en": {
+        "text": "Moose live in northern parts of...",
+        "options": [
+          "Africa and Australia",
+          "South America",
+          "Antarctica",
+          "North America and northern Europe"
+        ]
+      },
+      "lv": {
+        "text": "Aļņi dzīvo ziemeļu daļās...",
+        "options": [
+          "Āfrikas un Austrālijas",
+          "Dienvidamerikas",
+          "Antarktīdas",
+          "Ziemeļamerikas un Ziemeļeiropas"
+        ]
+      }
+    },
+    {
+      "id": "day-length",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "How long is one day on Earth?",
+        "options": [
+          "12 hours",
+          "24 hours",
+          "48 hours",
+          "1 week"
+        ]
+      },
+      "lv": {
+        "text": "Cik gara ir viena diennakts uz Zemes?",
+        "options": [
+          "12 stundas",
+          "24 stundas",
+          "48 stundas",
+          "1 nedēļa"
+        ]
+      }
+    },
+    {
+      "id": "year-length",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "How many days are in a normal year?",
+        "options": [
+          "100",
+          "200",
+          "365",
+          "1,000"
+        ]
+      },
+      "lv": {
+        "text": "Cik dienu ir parastā gadā?",
+        "options": [
+          "100",
+          "200",
+          "365",
+          "1 000"
+        ]
+      }
+    },
+    {
+      "id": "timezones-count",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "How many main time zones does Earth have?",
+        "options": [
+          "10",
+          "12",
+          "24",
+          "60"
+        ]
+      },
+      "lv": {
+        "text": "Cik galveno laika joslu ir uz Zemes?",
+        "options": [
+          "10",
+          "12",
+          "24",
+          "60"
+        ]
+      }
+    },
+    {
+      "id": "greenwich-meridian-city",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "The Prime Meridian (0° longitude) runs through which city?",
+        "options": [
+          "Paris",
+          "London (Greenwich)",
+          "Berlin",
+          "New York"
+        ]
+      },
+      "lv": {
+        "text": "Caur kuru pilsētu iet galvenais meridiāns (0° garuma)?",
+        "options": [
+          "Parīzi",
+          "Londonu (Griniču)",
+          "Berlīni",
+          "Ņujorku"
+        ]
+      }
+    },
+    {
+      "id": "why-day-night",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "Why does Earth have day and night?",
+        "options": [
+          "The Sun turns off",
+          "Earth spins on its axis",
+          "The Moon hides the Sun",
+          "Clouds cover us"
+        ]
+      },
+      "lv": {
+        "text": "Kāpēc uz Zemes ir diena un nakts?",
+        "options": [
+          "Saule izslēdzas",
+          "Zeme griežas ap savu asi",
+          "Mēness aizsedz Sauli",
+          "Mākoņi mūs apsedz"
+        ]
+      }
+    },
+    {
+      "id": "why-seasons",
+      "topic": "time",
+      "correctIndex": 0,
+      "en": {
+        "text": "Why does Earth have seasons?",
+        "options": [
+          "Earth's axis is tilted",
+          "The Sun gets brighter and dimmer",
+          "Earth's orbit is square",
+          "The wind changes"
+        ]
+      },
+      "lv": {
+        "text": "Kāpēc uz Zemes ir gadalaiki?",
+        "options": [
+          "Zemes ass ir noliekta",
+          "Saule kļūst gaišāka un tumšāka",
+          "Zemes orbīta ir kvadrātveida",
+          "Mainās vējš"
+        ]
+      }
+    },
+    {
+      "id": "shortest-day-north",
+      "topic": "time",
+      "correctIndex": 3,
+      "en": {
+        "text": "In the Northern Hemisphere, the shortest day of the year is around...",
+        "options": [
+          "21 March",
+          "21 June",
+          "21 September",
+          "21 December"
+        ]
+      },
+      "lv": {
+        "text": "Ziemeļu puslodē īsākā gada diena ir apmēram...",
+        "options": [
+          "21. martā",
+          "21. jūnijā",
+          "21. septembrī",
+          "21. decembrī"
+        ]
+      }
+    },
+    {
+      "id": "longest-day-north",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "In the Northern Hemisphere, the longest day is around...",
+        "options": [
+          "21 March",
+          "21 June",
+          "21 September",
+          "21 December"
+        ]
+      },
+      "lv": {
+        "text": "Ziemeļu puslodē garākā diena ir apmēram...",
+        "options": [
+          "21. martā",
+          "21. jūnijā",
+          "21. septembrī",
+          "21. decembrī"
+        ]
+      }
+    },
+    {
+      "id": "equinox-meaning",
+      "topic": "time",
+      "correctIndex": 0,
+      "en": {
+        "text": "An equinox is a day when...",
+        "options": [
+          "Day and night are equal length",
+          "The Moon disappears",
+          "The Sun stops shining",
+          "Earth stops spinning"
+        ]
+      },
+      "lv": {
+        "text": "Ekvinokcija ir diena, kad...",
+        "options": [
+          "Diena un nakts ir vienāda garuma",
+          "Mēness pazūd",
+          "Saule pārstāj spīdēt",
+          "Zeme pārstāj griezties"
+        ]
+      }
+    },
+    {
+      "id": "spring-northern-months",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "In the Northern Hemisphere, spring usually covers which months?",
+        "options": [
+          "December - February",
+          "March - May",
+          "June - August",
+          "September - November"
+        ]
+      },
+      "lv": {
+        "text": "Kurus mēnešus ziemeļu puslodē parasti aptver pavasaris?",
+        "options": [
+          "Decembris - februāris",
+          "Marts - maijs",
+          "Jūnijs - augusts",
+          "Septembris - novembris"
+        ]
+      }
+    },
+    {
+      "id": "summer-southern-months",
+      "topic": "time",
+      "correctIndex": 0,
+      "en": {
+        "text": "In the Southern Hemisphere, summer usually covers which months?",
+        "options": [
+          "December - February",
+          "March - May",
+          "June - August",
+          "September - November"
+        ]
+      },
+      "lv": {
+        "text": "Kurus mēnešus dienvidu puslodē parasti aptver vasara?",
+        "options": [
+          "Decembris - februāris",
+          "Marts - maijs",
+          "Jūnijs - augusts",
+          "Septembris - novembris"
+        ]
+      }
+    },
+    {
+      "id": "midnight-sun-where",
+      "topic": "time",
+      "correctIndex": 3,
+      "en": {
+        "text": "Where can you see the midnight sun (sun above the horizon at midnight)?",
+        "options": [
+          "At the equator",
+          "In tropical jungles",
+          "In the Sahara",
+          "Above the Arctic Circle"
+        ]
+      },
+      "lv": {
+        "text": "Kur var redzēt pusnakts sauli (saule virs horizonta pusnaktī)?",
+        "options": [
+          "Pie ekvatora",
+          "Tropu džungļos",
+          "Sahārā",
+          "Virs polārā loka"
+        ]
+      }
+    },
+    {
+      "id": "polar-night-where",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "Where can you have polar night (darkness all day)?",
+        "options": [
+          "At the equator",
+          "In hot deserts",
+          "Near the poles in winter",
+          "In rainforests"
+        ]
+      },
+      "lv": {
+        "text": "Kur ir polārā nakts (tumsa visu diennakti)?",
+        "options": [
+          "Pie ekvatora",
+          "Karstos tuksnešos",
+          "Pie poliem ziemā",
+          "Lietusmežos"
+        ]
+      }
+    },
+    {
+      "id": "moon-cycle",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "About how long is one full Moon cycle (new moon to new moon)?",
+        "options": [
+          "1 day",
+          "1 week",
+          "About 29 days",
+          "1 year"
+        ]
+      },
+      "lv": {
+        "text": "Cik ilgs apmēram ir viens pilns Mēness cikls (no jauna mēness līdz nākamajam)?",
+        "options": [
+          "1 diena",
+          "1 nedēļa",
+          "Apmēram 29 dienas",
+          "1 gads"
+        ]
+      }
+    },
+    {
+      "id": "leap-year-every",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "A leap year happens every...",
+        "options": [
+          "2 years",
+          "3 years",
+          "4 years",
+          "10 years"
+        ]
+      },
+      "lv": {
+        "text": "Garais gads ir reizi...",
+        "options": [
+          "2 gados",
+          "3 gados",
+          "4 gados",
+          "10 gados"
+        ]
+      }
+    },
+    {
+      "id": "hours-in-day",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "How many hours are in a day?",
+        "options": [
+          "12",
+          "20",
+          "24",
+          "30"
+        ]
+      },
+      "lv": {
+        "text": "Cik stundu ir vienā diennaktī?",
+        "options": [
+          "12",
+          "20",
+          "24",
+          "30"
+        ]
+      }
+    },
+    {
+      "id": "minutes-in-hour",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "How many minutes are in one hour?",
+        "options": [
+          "30",
+          "45",
+          "60",
+          "100"
+        ]
+      },
+      "lv": {
+        "text": "Cik minūšu ir vienā stundā?",
+        "options": [
+          "30",
+          "45",
+          "60",
+          "100"
+        ]
+      }
+    },
+    {
+      "id": "dateline-where",
+      "topic": "time",
+      "correctIndex": 3,
+      "en": {
+        "text": "The International Date Line runs roughly through the middle of which ocean?",
+        "options": [
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean",
+          "Pacific Ocean"
+        ]
+      },
+      "lv": {
+        "text": "Caur kura okeāna vidu aptuveni iet starptautiskā datuma līnija?",
+        "options": [
+          "Atlantijas okeāna",
+          "Indijas okeāna",
+          "Ziemeļu Ledus okeāna",
+          "Klusā okeāna"
+        ]
+      }
+    },
+    {
+      "id": "sun-rise-direction",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "Because Earth spins west to east, the Sun appears to rise in the...",
+        "options": [
+          "North",
+          "South",
+          "East",
+          "West"
+        ]
+      },
+      "lv": {
+        "text": "Tā kā Zeme griežas no rietumiem uz austrumiem, Saule šķietami lec...",
+        "options": [
+          "Ziemeļos",
+          "Dienvidos",
+          "Austrumos",
+          "Rietumos"
+        ]
+      }
+    },
+    {
+      "id": "sun-light-time",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "About how long does sunlight take to reach Earth?",
+        "options": [
+          "1 second",
+          "8 minutes",
+          "1 hour",
+          "1 day"
+        ]
+      },
+      "lv": {
+        "text": "Cik ilgi apmēram saules gaisma ceļo līdz Zemei?",
+        "options": [
+          "1 sekundi",
+          "8 minūtes",
+          "1 stundu",
+          "1 dienu"
+        ]
+      }
+    },
+    {
+      "id": "seconds-in-minute",
+      "topic": "time",
+      "correctIndex": 1,
+      "en": {
+        "text": "How many seconds are in one minute?",
+        "options": [
+          "30",
+          "60",
+          "100",
+          "120"
+        ]
+      },
+      "lv": {
+        "text": "Cik sekunžu ir vienā minūtē?",
+        "options": [
+          "30",
+          "60",
+          "100",
+          "120"
+        ]
+      }
+    },
+    {
+      "id": "moon-orbit-time",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "About how long does the Moon take to orbit Earth once?",
+        "options": [
+          "1 day",
+          "7 days",
+          "About 27 days",
+          "1 year"
+        ]
+      },
+      "lv": {
+        "text": "Cik ilgi apmēram Mēness veic vienu apriņķojumu ap Zemi?",
+        "options": [
+          "1 dienu",
+          "7 dienas",
+          "Apmēram 27 dienas",
+          "1 gadu"
+        ]
+      }
+    },
+    {
+      "id": "january-australia-season",
+      "topic": "time",
+      "correctIndex": 2,
+      "en": {
+        "text": "In Australia (Southern Hemisphere), January is which season?",
+        "options": [
+          "Winter",
+          "Spring",
+          "Summer",
+          "Autumn"
+        ]
+      },
+      "lv": {
+        "text": "Kāds gadalaiks Austrālijā (dienvidu puslodē) ir janvārī?",
+        "options": [
+          "Ziema",
+          "Pavasaris",
+          "Vasara",
+          "Rudens"
+        ]
+      }
+    },
+    {
+      "id": "july-australia-season",
+      "topic": "time",
+      "correctIndex": 0,
+      "en": {
+        "text": "In Australia, July is which season?",
+        "options": [
+          "Winter",
+          "Spring",
+          "Summer",
+          "Autumn"
+        ]
+      },
+      "lv": {
+        "text": "Kāds gadalaiks Austrālijā ir jūlijā?",
+        "options": [
+          "Ziema",
+          "Pavasaris",
+          "Vasara",
+          "Rudens"
+        ]
+      }
+    },
+    {
+      "id": "equator-day-length",
+      "topic": "time",
+      "correctIndex": 0,
+      "en": {
+        "text": "Near the equator, day length stays roughly...",
+        "options": [
+          "12 hours all year",
+          "Very long in summer",
+          "Very short in winter",
+          "Different every week"
+        ]
+      },
+      "lv": {
+        "text": "Pie ekvatora dienas garums visu gadu paliek aptuveni...",
+        "options": [
+          "12 stundas",
+          "Ļoti garš vasarā",
+          "Ļoti īss ziemā",
+          "Katru nedēļu atšķirīgs"
+        ]
+      }
+    }
+  ]
+}
