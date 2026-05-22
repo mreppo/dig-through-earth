@@ -90,6 +90,11 @@
       "placeholder": "Search a city or town…",
       "submit": "Search"
     },
+    "autocomplete": {
+      "loading": "Looking up cities…",
+      "noResults": "No matching cities. Try a different spelling.",
+      "error": "Couldn't reach the city list - just press Search."
+    },
     "cities": {
       "heading": "Or pick a city",
       "riga": "Rīga",

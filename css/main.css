@@ -529,6 +529,11 @@ a:hover { color: var(--dte-accent-2); }
 
 /* Search field */
 .search {
+  position: relative;
+  /* Lift the form into its own stacking context so the absolutely-positioned
+   * autocomplete dropdown paints over the city chips below, which create
+   * their own stacking contexts via backdrop-filter. */
+  z-index: 50;
   display: flex;
   align-items: center;
   gap: var(--dte-s-3);
@@ -564,6 +569,72 @@ a:hover { color: var(--dte-accent-2); }
   background: var(--dte-accent);
   color: var(--dte-ink-on-accent);
   flex-shrink: 0;
+}
+
+/* Autocomplete dropdown (Photon-powered city suggestions).
+ * Uses the solid token (not the glass alpha) so suggestions stay legible
+ * when the dropdown overlaps the city chips and tab bar below. */
+.autocomplete__listbox {
+  position: absolute;
+  top: calc(100% + var(--dte-s-2));
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: var(--dte-s-2);
+  list-style: none;
+  z-index: 60;
+  max-height: 60vh;
+  overflow-y: auto;
+  border-radius: var(--dte-r-lg);
+  background: var(--dte-glass-bg-solid-strong);
+  border: 1px solid var(--dte-glass-border);
+  box-shadow: var(--dte-sh-float);
+}
+.autocomplete__option {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--dte-s-2) var(--dte-s-4);
+  border-radius: var(--dte-r-md);
+  color: var(--dte-ink);
+  font: var(--dte-t-body);
+  cursor: pointer;
+  transition: background var(--dte-motion-fast);
+}
+.autocomplete__option.is-active,
+.autocomplete__option:hover {
+  background: color-mix(in oklab, var(--dte-accent) 18%, transparent);
+}
+.autocomplete__option:focus-visible {
+  outline: 2px solid var(--dte-accent);
+  outline-offset: 2px;
+}
+.autocomplete__status {
+  display: flex;
+  align-items: center;
+  gap: var(--dte-s-2);
+  min-height: 44px;
+  padding: var(--dte-s-2) var(--dte-s-4);
+  color: var(--dte-ink-soft);
+  font: var(--dte-t-body-sm);
+}
+.autocomplete__status--loading::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--dte-ink-faint);
+  border-top-color: var(--dte-accent);
+  animation: autocomplete-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes autocomplete-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .autocomplete__status--loading::before {
+    animation: none;
+  }
 }
 
 /* City chips */

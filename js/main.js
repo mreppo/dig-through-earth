@@ -21,6 +21,7 @@ import { initQuiz, ensureQuizStarted } from "./quiz.js";
 import { initTheme } from "./theme.js";
 import { initRouter, showScreen } from "./router.js";
 import { initPwa } from "./pwa.js";
+import { initAutocomplete } from "./autocomplete.js";
 
 const els = {};
 let lastComputation = null;
@@ -256,6 +257,18 @@ function wireLocator() {
     chip.addEventListener("click", () => onCityChipClick(chip.dataset.city));
   });
   if (els.searchForm) els.searchForm.addEventListener("submit", onSearchSubmit);
+  if (els.searchForm && els.searchInput) {
+    initAutocomplete({
+      formEl: els.searchForm,
+      inputEl: els.searchInput,
+      getLang: getLanguage,
+      onPick: ({ lat, lng }) => {
+        clearError();
+        setCoords(lat, lng, "locator-autocomplete");
+        runDrillThenGoToResult();
+      },
+    });
+  }
 }
 
 function bootView2D() {
