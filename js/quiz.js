@@ -1,36 +1,27 @@
-/* quiz.js — bilingual 10-question geography quiz.
+/* quiz.js - bilingual geography quiz.
  *
- * Question text + options live in i18n/{en,lv}.json under `quiz.questions.<id>`.
- * The correct-answer index for each question lives here (structural data, not
- * language-dependent), so the i18n payload only carries translatable strings.
+ * Question pool lives in data/questions.json (200+ questions, EN+LV inline).
+ * Each session picks a fresh random 10 with no repeats per run.
  *
  * Public API:
- *   initQuiz({ triggerEl, sectionEl })  — wire the trigger button and section.
- *                                          Returns void; module owns its state.
+ *   initQuiz({ triggerEl, sectionEl })  - wire the trigger button and section.
+ *   ensureQuizStarted()                 - auto-start on first quiz tab visit.
  *
  * Cross-page safety: bails out early if either element is missing, so loading
  * the same main.js on 404.html (which has no quiz markup) does not throw.
  */
 
-import { t, onLanguageChange } from "./i18n.js";
+import { t, getLanguage, onLanguageChange } from "./i18n.js";
 
-const QUESTIONS = [
-  { id: "latvia",           correctIndex: 0 }, // Pacific Ocean
-  { id: "deepestOcean",     correctIndex: 1 }, // Pacific Ocean
-  { id: "fallTime",         correctIndex: 0 }, // ~42 minutes
-  { id: "europeAntipodes",  correctIndex: 2 }, // Pacific Ocean
-  { id: "earthDiameter",    correctIndex: 1 }, // 12,742 km
-  { id: "highestMountain",  correctIndex: 0 }, // Everest
-  { id: "largestContinent", correctIndex: 0 }, // Asia
-  { id: "earthCore",        correctIndex: 0 }, // iron + nickel ball
-  { id: "waterCover",       correctIndex: 2 }, // ~71%
-  { id: "earthRadius",      correctIndex: 2 }, // ~6,371 km
-];
+const QUESTIONS_URL = "data/questions.json";
+const PER_SESSION = 10;
 
-const TOTAL = QUESTIONS.length;
+let pool = null;          // full question pool, lazy-loaded
+let poolPromise = null;   // in-flight fetch promise (de-dupes concurrent loads)
 
 const state = {
   started: false,
+  session: [],     // the 10 picked for this session
   idx: 0,          // current question index
   score: 0,
   picked: null,    // option index the user just clicked, or null
@@ -57,29 +48,51 @@ function cache(triggerEl, sectionEl) {
   els.restart = sectionEl.querySelector("[data-quiz-restart]");
 }
 
-function currentQuestion() {
-  return QUESTIONS[state.idx];
+async function loadPool() {
+  if (pool) return pool;
+  if (poolPromise) return poolPromise;
+  poolPromise = (async () => {
+    const res = await fetch(QUESTIONS_URL, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`Failed to load ${QUESTIONS_URL}: ${res.status}`);
+    const data = await res.json();
+    if (!data || !Array.isArray(data.questions)) {
+      throw new Error("questions.json: missing 'questions' array");
+    }
+    pool = data.questions;
+    return pool;
+  })();
+  return poolPromise;
 }
 
-function questionT(suffix, params) {
-  const q = currentQuestion();
-  return t(`quiz.questions.${q.id}.${suffix}`, params);
+function pickSession(all) {
+  // Fisher-Yates shuffle on a copy, then take the first PER_SESSION.
+  const copy = all.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, Math.min(PER_SESSION, copy.length));
+}
+
+function currentQuestion() {
+  return state.session[state.idx];
+}
+
+function localised(q) {
+  const lang = getLanguage();
+  return q[lang] || q.en;
 }
 
 function optionStrings() {
-  // The i18n layer flattens lists by index, so we resolve options[0..3]
-  // individually rather than expecting an array return shape.
-  return [0, 1, 2, 3].map((i) =>
-    t(`quiz.questions.${currentQuestion().id}.options.${i}`)
-  );
+  return localised(currentQuestion()).options;
 }
 
 function tierKey() {
-  // 10/10 perfect; 8-9 high; 5-7 mid; ≤4 low.
+  const total = state.session.length;
   const s = state.score;
-  if (s === TOTAL) return "quiz.end.tierPerfect";
-  if (s >= 8) return "quiz.end.tierHigh";
-  if (s >= 5) return "quiz.end.tierMid";
+  if (s === total) return "quiz.end.tierPerfect";
+  if (s >= Math.ceil(total * 0.8)) return "quiz.end.tierHigh";
+  if (s >= Math.ceil(total * 0.5)) return "quiz.end.tierMid";
   return "quiz.end.tierLow";
 }
 
@@ -117,7 +130,8 @@ function renderFeedback() {
     return;
   }
   const correctIdx = currentQuestion().correctIndex;
-  const isLast = state.idx === TOTAL - 1;
+  const total = state.session.length;
+  const isLast = state.idx === total - 1;
   if (state.picked === correctIdx) {
     els.feedback.textContent = t("quiz.feedback.correct");
     els.feedback.classList.add("quiz__feedback--correct");
@@ -138,9 +152,9 @@ function renderCurrent() {
   if (!state.started || state.finished) return;
   els.progress.textContent = t("quiz.progress", {
     current: state.idx + 1,
-    total: TOTAL,
+    total: state.session.length,
   });
-  els.question.textContent = questionT("text");
+  els.question.textContent = localised(currentQuestion()).text;
   renderOptions();
   if (!state.revealed) {
     els.feedback.textContent = "";
@@ -158,18 +172,17 @@ function renderEnd() {
   els.endHeading.textContent = t(tierKey());
   els.endScore.textContent = t("quiz.end.score", {
     correct: state.score,
-    total: TOTAL,
+    total: state.session.length,
   });
 }
 
 function onAnswer(idx) {
-  if (state.revealed) return; // ignore double clicks
+  if (state.revealed) return;
   state.picked = idx;
   state.revealed = true;
   if (idx === currentQuestion().correctIndex) state.score += 1;
   renderOptions();
   renderFeedback();
-  // Move focus to the next button so keyboard users can advance with Enter.
   if (els.next && !els.next.hidden) {
     els.next.focus({ preventScroll: true });
   }
@@ -177,11 +190,10 @@ function onAnswer(idx) {
 
 function onNext() {
   if (!state.revealed) return;
-  if (state.idx === TOTAL - 1) {
+  const total = state.session.length;
+  if (state.idx === total - 1) {
     state.finished = true;
     renderEnd();
-    // Focus the heading first so screen readers read the score + tier message
-    // before the user lands on the Restart button.
     els.endHeading.focus({ preventScroll: true });
     return;
   }
@@ -189,12 +201,18 @@ function onNext() {
   state.picked = null;
   state.revealed = false;
   renderCurrent();
-  // Land focus on the question text so screen readers read the new question
-  // before the user navigates through the options.
   els.question.focus({ preventScroll: true });
 }
 
-function start() {
+async function start() {
+  let all;
+  try {
+    all = await loadPool();
+  } catch (err) {
+    console.error("[quiz] failed to load questions:", err);
+    return;
+  }
+  state.session = pickSession(all);
   state.started = true;
   state.idx = 0;
   state.score = 0;
@@ -208,10 +226,7 @@ function start() {
   els.next.hidden = true;
   els.feedback.textContent = "";
   renderCurrent();
-  // Scroll to the quiz so it's visible.
   els.section.scrollIntoView({ behavior: "smooth", block: "start" });
-  // After the scroll settles, land focus on the question text so screen
-  // readers read the question before the user tabs into the options.
   setTimeout(() => {
     if (els.question) els.question.focus({ preventScroll: true });
   }, 250);
@@ -222,20 +237,18 @@ function restart() {
 }
 
 export function initQuiz({ triggerEl, sectionEl }) {
-  // Cross-page safety: 404.html doesn't include the quiz section, so bail.
   if (!sectionEl) return;
   cache(triggerEl, sectionEl);
   if (triggerEl) triggerEl.addEventListener("click", start);
   els.next.addEventListener("click", onNext);
   els.restart.addEventListener("click", restart);
-  // Re-render in the new language if the user toggles mid-quiz.
   onLanguageChange(() => {
     if (!state.started) return;
     if (state.finished) {
       els.endHeading.textContent = t(tierKey());
       els.endScore.textContent = t("quiz.end.score", {
         correct: state.score,
-        total: TOTAL,
+        total: state.session.length,
       });
     } else {
       renderCurrent();

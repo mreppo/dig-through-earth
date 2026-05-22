@@ -20,7 +20,7 @@
  * No tracking, no analytics, no telemetry. Kids' site.
  */
 
-const CACHE_VERSION = "dte-v2-2026-05-22";
+const CACHE_VERSION = "dte-v3-2026-05-22";
 const PRECACHE = `${CACHE_VERSION}-precache`;
 const RUNTIME = `${CACHE_VERSION}-runtime`;
 
@@ -46,6 +46,7 @@ const APP_SHELL = [
   "./js/pwa.js",
   "./i18n/en.json",
   "./i18n/lv.json",
+  "./data/questions.json",
   "./assets/favicon.svg",
   "./assets/favicon-32.png",
   "./assets/favicon-192.png",

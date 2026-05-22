@@ -1,0 +1,17 @@
+name: questions.json check
+
+# Required status check. Runs on every PR to main and on every push to main
+# so branch protection has a context to match against.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run questions.json validation
+        run: python3 scripts/check-questions.py
