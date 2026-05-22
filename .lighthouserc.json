@@ -1,0 +1,24 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["http://localhost:8080/"],
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--no-sandbox --headless=new"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:accessibility": ["error", { "minScore": 1.0 }],
+        "categories:performance":   ["off"],
+        "categories:best-practices":["off"],
+        "categories:seo":           ["off"],
+        "categories:pwa":           ["off"]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}
