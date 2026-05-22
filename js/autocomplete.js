@@ -77,6 +77,17 @@ export function initAutocomplete({ formEl, inputEl, onPick, getLang }) {
   }
 
   function close() {
+    // Cancel any pending debounce + inflight fetch so a late response can't
+    // re-render and reopen the listbox after the user dismissed it.
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+      debounceTimer = null;
+    }
+    if (inflightController) {
+      inflightController.abort();
+      inflightController = null;
+    }
+    lastQuery = "";
     setExpanded(false);
     setActive(-1);
     listbox.innerHTML = "";
